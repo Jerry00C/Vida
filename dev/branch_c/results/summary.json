@@ -1,0 +1,164 @@
+{
+  "status": "complete",
+  "protocol": "vida_guard32k_rotation_6seen_2unseen_v1",
+  "n_rounds": 28,
+  "metrics": {
+    "seen_generators": {
+      "auroc": {
+        "mean": 0.8734938988095238,
+        "median": 0.8735236111111111,
+        "min": 0.8424180555555555,
+        "max": 0.9123965277777778
+      },
+      "macro_f1": {
+        "mean": 0.6787425111789854,
+        "median": 0.6656232232454374,
+        "min": 0.5829932868237462,
+        "max": 0.8086599107079584
+      },
+      "balanced_accuracy": {
+        "mean": 0.7021130952380953,
+        "median": 0.69,
+        "min": 0.6287499999999999,
+        "max": 0.8125
+      },
+      "recall_generated": {
+        "mean": 0.4456845238095239,
+        "median": 0.42000000000000004,
+        "min": 0.2975,
+        "max": 0.6708333333333333
+      },
+      "false_positive_rate": {
+        "mean": 0.04145833333333333,
+        "median": 0.04,
+        "min": 0.04,
+        "max": 0.04583333333333333
+      }
+    },
+    "unseen_generators": {
+      "auroc": {
+        "mean": 0.8742379464285713,
+        "median": 0.87443125,
+        "min": 0.7421687499999999,
+        "max": 0.9757250000000001
+      },
+      "macro_f1": {
+        "mean": 0.651619465916191,
+        "median": 0.6630756250963252,
+        "min": 0.3472466501060724,
+        "max": 0.8608924382394041
+      },
+      "balanced_accuracy": {
+        "mean": 0.6880357142857141,
+        "median": 0.689375,
+        "min": 0.49375,
+        "max": 0.8625
+      },
+      "recall_generated": {
+        "mean": 0.40669642857142857,
+        "median": 0.41,
+        "min": 0.02,
+        "max": 0.755
+      },
+      "false_positive_rate": {
+        "mean": 0.030625000000000006,
+        "median": 0.03,
+        "min": 0.03,
+        "max": 0.0325
+      }
+    }
+  },
+  "selected_candidates": {
+    "svm_nu_0.05": 7,
+    "svm_nu_0.01": 21
+  },
+  "generators": [
+    {
+      "generator": "CogVideo",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.7805053571428572,
+      "auroc_min": 0.76805,
+      "auroc_max": 0.7971125,
+      "recall_mean": 0.3271428571428571
+    },
+    {
+      "generator": "Mora",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.8561267857142856,
+      "auroc_min": 0.8501625,
+      "auroc_max": 0.8585125,
+      "recall_mean": 0.2721428571428571
+    },
+    {
+      "generator": "MuseV",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.97485,
+      "auroc_min": 0.97485,
+      "auroc_max": 0.97485,
+      "recall_mean": 0.7199999999999999
+    },
+    {
+      "generator": "OpenSora",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.7697375,
+      "auroc_min": 0.759575,
+      "auroc_max": 0.7832875,
+      "recall_mean": 0.055
+    },
+    {
+      "generator": "Pika",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.719655357142857,
+      "auroc_min": 0.7176125,
+      "auroc_max": 0.7247625,
+      "recall_mean": 0.03642857142857142
+    },
+    {
+      "generator": "SVD",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.9610500000000001,
+      "auroc_min": 0.96105,
+      "auroc_max": 0.96105,
+      "recall_mean": 0.5750000000000001
+    },
+    {
+      "generator": "T2V-Zero",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.9757035714285716,
+      "auroc_min": 0.9734625,
+      "auroc_max": 0.9766,
+      "recall_mean": 0.7928571428571428
+    },
+    {
+      "generator": "VideoCrafter2",
+      "heldout_rounds": 7,
+      "auroc_mean": 0.9562749999999999,
+      "auroc_min": 0.956275,
+      "auroc_max": 0.956275,
+      "recall_mean": 0.47500000000000003
+    }
+  ],
+  "named_svd_musev_holdout_counts": {
+    "0": {
+      "n_rounds": 15,
+      "auroc_mean": 0.8409074999999998,
+      "macro_f1_mean": 0.594700610442689
+    },
+    "1": {
+      "n_rounds": 12,
+      "auroc_mean": 0.9080916666666669,
+      "macro_f1_mean": 0.7100992866790062
+    },
+    "2": {
+      "n_rounds": 1,
+      "auroc_mean": 0.96795,
+      "macro_f1_mean": 0.8036444488649398
+    }
+  },
+  "case_count": 6,
+  "source_fpr_mean": {
+    "HD-VG-130M": 0.027500000000000004,
+    "Vript": 0.03375000000000001
+  },
+  "interpretation": "Dependent repeated holdouts of previously evaluated data; no fresh blind-test, no iid28roundCI, no fusion gain claim"
+}
