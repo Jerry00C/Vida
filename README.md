@@ -12,15 +12,32 @@ and query/value LoRA adapters with a linear head.
 
 - `dev/branch_a/`: model loading, adaptation policies, training, evaluation,
   split generation, configuration and dependency files.
-- `dev/tests/`: training and adaptation tests.
+- `dev/branch_c/`: real-only motion/temporal anomaly detection, tests, Chinese
+  handoff notes and aggregate experiment results.
+- `dev/tests/`: Branch A training and adaptation tests.
 - `preprocessing/`: video-to-frame extraction and preprocessing validation.
 - `dev/REMOTE_SETUP.md`: remote runtime instructions for the separately
   transferred data package. Its historical package audit is not a claim that
   datasets or model weights are included in this Git repository.
 
 Datasets, original videos, PNGs, model weights, embedding caches, checkpoints,
-run reports, local environments and transfer archives are intentionally absent.
+full per-video reports, local environments and transfer archives are intentionally absent.
+Branch C includes named aggregate metrics and scientific plots without video frames.
 The `.gitignore` allowlist prevents these from being accidentally added.
+
+## Branch C
+
+See [Branch C setup and handoff](dev/branch_c/README.md) and its
+[aggregate results](dev/branch_c/results/README.md). Branch C runs in its own
+Python 3.12 environment and reads temporally dense video observations. The
+8 PNGs used by Branch A are not equivalent motion/frequency input.
+
+The current Branch A four-round protocol and Branch C 28-round protocol differ.
+Agree on common grouped manifests, validation roles and OOF folds before fusion;
+these historical scores must not be merged directly. The six-development /
+two-locked-final-test diagram has not been executed by this Branch C version.
+
+The setup, checkpoint and training instructions below apply to Branch A.
 
 ## Setup
 
@@ -37,7 +54,7 @@ python -m pytest tests/test_branch_a.py tests/test_adaptation.py -q
 
 Run all model commands from `dev/`. Keep the original processed indexes and
 PNG frame paths together under `dev/processed/`, transferred separately.
-Original videos are not used by training or evaluation. Frame extraction and
+Original videos are not used by Branch A training or evaluation. Frame extraction and
 preprocessing validation have separate requirements; see preprocessing/README.md.
 
 ## Model weights and splits
