@@ -1,0 +1,134 @@
+{
+  "status": "passed",
+  "verified_at": "2026-10-11T09:19:42.004513+00:00",
+  "plan_id": "6dbc84ed5d345b1a391eba83190bc9368e58791cb7e1c0cf36428a5afee84e82",
+  "protocol": "vida_guard32k_v1",
+  "model_id": "031c615cd5b0f61aa7a32d8c4b713fc767e9c47138a7cdec8263d971a8538502",
+  "model_sha256": "4d67ad3ae1d6adeec2882430569616571559329948c72389e45a50015b028730",
+  "coverage": {
+    "inputs_and_cache": 32000,
+    "real_fit": 8400,
+    "candidate_selection_val": 1800,
+    "threshold_real_calibration": 900,
+    "oof": 16800,
+    "validation": 3600,
+    "in_domain_test": 3600,
+    "cross_test": 8000
+  },
+  "real_only_scaler_numeric_check": true,
+  "real_only_window_scaler_numeric_check": true,
+  "all_final_scores_numerically_reproduced": true,
+  "all_5_oof_fits_and_scores_numerically_reproduced": true,
+  "common_fold_plan_id": "f13e8c5c56f8ca9388c6e97a65ba3cd7404c1ed73b38d387f5eb649c185d6460",
+  "test_started_after_freeze": true,
+  "test_reports": {
+    "in_domain_test": {
+      "n": 3600,
+      "metrics": {
+        "n": 3600,
+        "n_real": 1800,
+        "n_generated": 1800,
+        "auroc": 0.8409944444444445,
+        "macro_f1": 0.6660215714281454,
+        "balanced_accuracy": 0.6888888888888889,
+        "precision_generated": 0.8962703962703963,
+        "recall_generated": 0.4272222222222222,
+        "specificity": 0.9505555555555556,
+        "false_positive_rate": 0.049444444444444444,
+        "confusion_matrix_real_generated": [
+          [
+            1711,
+            89
+          ],
+          [
+            1031,
+            769
+          ]
+        ],
+        "binary_comparison_available": true,
+        "equal_error_rate": 0.2388888888888889
+      },
+      "ci_95": {
+        "method": "group_bootstrap",
+        "requested_repeats": 1000,
+        "valid_repeats": 1000,
+        "n_groups": 1800,
+        "auroc": [
+          0.8287415852205867,
+          0.8530125094595966
+        ],
+        "macro_f1": [
+          0.6519128600003841,
+          0.6800366709002034
+        ]
+      }
+    },
+    "cross_test": {
+      "n": 8000,
+      "metrics": {
+        "n": 8000,
+        "n_real": 4000,
+        "n_generated": 4000,
+        "auroc": 0.8945319999999999,
+        "macro_f1": 0.7690684372108263,
+        "balanced_accuracy": 0.776375,
+        "precision_generated": 0.9289871944121071,
+        "recall_generated": 0.5985,
+        "specificity": 0.95425,
+        "false_positive_rate": 0.04575,
+        "confusion_matrix_real_generated": [
+          [
+            3817,
+            183
+          ],
+          [
+            1606,
+            2394
+          ]
+        ],
+        "binary_comparison_available": true,
+        "equal_error_rate": 0.18400000000000005
+      },
+      "ci_95": {
+        "method": "group_bootstrap",
+        "requested_repeats": 1000,
+        "valid_repeats": 1000,
+        "n_groups": 4000,
+        "auroc": [
+          0.8875416171874999,
+          0.9012051265625001
+        ],
+        "macro_f1": [
+          0.7603888171901488,
+          0.7776742749705037
+        ]
+      }
+    }
+  },
+  "original_real_parents_isolated": 10000,
+  "three_family_shared_prompts_isolated": 3000,
+  "runtime_model_size_bytes": 23173069,
+  "source_sha256": {
+    "src/branch_c/__init__.py": "f078030124b425f2839ca5a56d03d0e29fa6af7ad7729a5b1196d9ea7842b431",
+    "src/branch_c/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/branch_c/benchmark.py": "e2c67415eedd608408f169b08d5ea145b7d9f2df61737229e47726abeee90197",
+    "src/branch_c/cache.py": "790f80ffcd8b191dc2d928816927df90091f84ef093ca42863be75e305881a49",
+    "src/branch_c/cli.py": "1ec73089db74a57dfb68c8ea8a54975c04c78a3b719f206b1b4ec6c03dfd286a",
+    "src/branch_c/config.py": "08da58c7e19f469a41968e06f18d9f1eac74e778a3a9b54ef4c5489fd40b9072",
+    "src/branch_c/evaluation.py": "d2a0aeee59bf632f1b0a70df86ee75270e44cbdd2cc36c31b57d540e647f9a57",
+    "src/branch_c/features.py": "c3ce8a1212bef7395324c4f7b76c1d5a728470b167a17fd67dfbfcd2d1fbf777",
+    "src/branch_c/folds.py": "616da90bfc1003b5c9ed969484d8c74f0395cc674b5abc4e8d6fae8624c78ac3",
+    "src/branch_c/manifest.py": "a94bf7a9ef2a578b8dca5241c93f6fcd9565f195653c93811968a72cc8605c90",
+    "src/branch_c/model.py": "1fb9c425051faf7085dd5828489825df249be95ffeb3827ec79daaeb56b88f71",
+    "src/branch_c/pipeline.py": "10f1cbe1ebcf4e78cb6eb1fef1f1afed38b3d2d0d3b10d672d7c39a195e2e525",
+    "src/branch_c/review.py": "8beed558c75f3be8dc897d62df24cecf44348662bb5a26b79d42fb4aa0abae95",
+    "src/branch_c/selection.py": "dc4ab42aec9945008b5a1c83294948ef086df4279d92cdcba3184af18f27a378",
+    "src/branch_c/video.py": "3e03180bca4927e600663108bd737a38d480e2c4bcd50255f4b777c3ec98dac7"
+  },
+  "limitations": [
+    "A/B scores and A+B versus A+B+C paired ablation are external team dependencies",
+    "Source/group audit cannot rule out unknown semantic duplicates",
+    "This verifies this machine and dataset; it does not establish population-wide accuracy"
+  ],
+  "run_dir": "${BRANCH_C_ROOT}/artifacts/vida_guard32k/run_02"
+}
