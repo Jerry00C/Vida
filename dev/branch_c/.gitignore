@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+tmp/
+data/
+artifacts/
+output/
+.DS_Store
+*.joblib
+*.mp4
+*.mov
+*.avi
+*.npz
