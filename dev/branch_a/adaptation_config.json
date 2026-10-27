@@ -1,0 +1,12 @@
+{
+  "version": "vida-adaptation-v1",
+  "adaptation": {"unfreeze_blocks": 2, "rank": 8, "alpha": 16, "dropout": 0.05, "bias": "none", "targets": "query_value_only"},
+  "training": {
+    "partial_lr": 0.00001, "lora_lr": 0.0001, "head_lr": 0.0001,
+    "weight_decay": 0.0001, "batch_size": 8, "accumulation": 1,
+    "frame_microbatch": 8, "epochs": 20, "seed": 42,
+    "patience": 5, "min_delta": 0.0001,
+    "scheduler_factor": 0.5, "scheduler_patience": 2,
+    "balanced_classes": true, "equal_generators": true, "precision": "auto"
+  }
+}

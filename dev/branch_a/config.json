@@ -1,0 +1,47 @@
+{
+  "version": "vida-rotating-v1",
+  "seed": 42,
+  "pairing_status": "provisional: adjacent pairs of canonical sorted generator names; not performance-selected",
+  "pairs": [
+    [
+      "CogVideo",
+      "Mora"
+    ],
+    [
+      "MuseV",
+      "OpenSora"
+    ],
+    [
+      "Pika",
+      "SVD"
+    ],
+    [
+      "T2V-Zero",
+      "VideoCrafter2"
+    ]
+  ],
+  "checkpoints": {
+    "clip": "openai/clip-vit-base-patch16",
+    "dinov2": "facebook/dinov2-base",
+    "dinov3": "facebook/dinov3-vitb16-pretrain-lvd1689m"
+  },
+  "revision": "main",
+  "training": {
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "epochs": 30,
+    "patience": 5,
+    "min_delta": 0.0001,
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 2,
+    "balanced_classes": true,
+    "equal_generators": true,
+    "seed": 42
+  },
+  "revisions": {
+    "clip": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "dinov2": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+    "dinov3": "5931719e67bbdb9737e363e781fb0c67687896bc"
+  }
+}

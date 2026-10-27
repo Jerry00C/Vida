@@ -1,0 +1,8 @@
+# Python 3.11; exact tested environment is requirements.lock.txt.
+torch>=2.6,<3
+torchvision>=0.21,<1
+transformers>=4.56,<5
+scikit-learn>=1.5
+matplotlib>=3.8
+pillow>=11
+pytest>=8
