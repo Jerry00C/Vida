@@ -1,0 +1,2209 @@
+{
+  "schema_version": 1,
+  "purpose": "Portable historical documentation extract; not a model config, new experiment or release seal",
+  "generation_id": "gen_933b135d79",
+  "primary_seed": 42,
+  "source_path_semantics": "repository-relative provenance, not package-local links; hashes are actual source bytes, not embedded historical digests",
+  "pool": {
+    "configurations": 40,
+    "eligible": 38,
+    "diagnostic_controls": [
+      "fixed8_control",
+      "metadata_only"
+    ],
+    "origins": {
+      "pre_existing": 8,
+      "xgboost_control": 2,
+      "new_wave_gru": 30
+    },
+    "kinds": {
+      "tabular_lightgbm": 6,
+      "tabular_xgboost": 2,
+      "sequence_gru": 31,
+      "sequence_tcn": 1
+    }
+  },
+  "candidates": [
+    {
+      "candidate_id": "corrected_B2",
+      "kind": "tabular_lightgbm",
+      "origin": "pre_existing",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "B2_no_sfft",
+      "kind": "tabular_lightgbm",
+      "origin": "pre_existing",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "B2_no_timing_metadata",
+      "kind": "tabular_lightgbm",
+      "origin": "pre_existing",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "temporal_wavelet",
+      "kind": "tabular_lightgbm",
+      "origin": "pre_existing",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "fixed8_control",
+      "kind": "tabular_lightgbm",
+      "origin": "pre_existing",
+      "eligible_to_win": false,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "metadata_only",
+      "kind": "tabular_lightgbm",
+      "origin": "pre_existing",
+      "eligible_to_win": false,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "xgb_wavelet",
+      "kind": "tabular_xgboost",
+      "origin": "xgboost_control",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "xgb_b2",
+      "kind": "tabular_xgboost",
+      "origin": "xgboost_control",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "REUSED",
+        "leave_VideoCrafter2": "REUSED",
+        "leave_T2V-Zero": "REUSED",
+        "leave_OpenSora": "REUSED",
+        "leave_SVD": "REUSED",
+        "leave_MuseV": "REUSED",
+        "leave_Mora": "REUSED",
+        "leave_CogVideo": "REUSED"
+      },
+      "outer_status_counts": {
+        "REUSED": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_haarL3",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_db4L3",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_db4L4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "FAILED_FIT",
+      "is_complete": false,
+      "n_expected_runs": 8,
+      "n_completed_runs": 5,
+      "development_fold_statuses": {
+        "leave_Pika": "FAILED_FIT",
+        "leave_VideoCrafter2": "FAILED_FIT",
+        "leave_T2V-Zero": "FAILED_FIT",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "FAILED_FIT": 18,
+        "OK": 10
+      },
+      "outer_failed_fold_ids": [
+        "fold_02",
+        "fold_03",
+        "fold_04",
+        "fold_05",
+        "fold_06",
+        "fold_07",
+        "fold_08",
+        "fold_09",
+        "fold_10",
+        "fold_11",
+        "fold_12",
+        "fold_13",
+        "fold_14",
+        "fold_15",
+        "fold_16",
+        "fold_17",
+        "fold_18",
+        "fold_19"
+      ]
+    },
+    {
+      "candidate_id": "wave_gru_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "FAILED_FIT",
+      "is_complete": false,
+      "n_expected_runs": 8,
+      "n_completed_runs": 5,
+      "development_fold_statuses": {
+        "leave_Pika": "FAILED_FIT",
+        "leave_VideoCrafter2": "FAILED_FIT",
+        "leave_T2V-Zero": "FAILED_FIT",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "FAILED_FIT": 18,
+        "OK": 10
+      },
+      "outer_failed_fold_ids": [
+        "fold_02",
+        "fold_03",
+        "fold_04",
+        "fold_05",
+        "fold_06",
+        "fold_07",
+        "fold_08",
+        "fold_09",
+        "fold_10",
+        "fold_11",
+        "fold_12",
+        "fold_13",
+        "fold_14",
+        "fold_15",
+        "fold_16",
+        "fold_17",
+        "fold_18",
+        "fold_19"
+      ]
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_haarL3_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_haarL3_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_haarL3_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_db4L3_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_db4L3_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_db4L3_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_db4L4_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_db4L4_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_dwt_stft_db4L4_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_haarL3",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_db4L3",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_db4L4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_haarL3_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_haarL3_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_db4L3_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_db4L3_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_db4L4_stftW16B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_db4L4_stftW32B4",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "wave_gru_native_dwt_stft_db4L4_stftW32B8",
+      "kind": "sequence_gru",
+      "origin": "new_wave_gru",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "compact_gru",
+      "kind": "sequence_gru",
+      "origin": "pre_existing",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    },
+    {
+      "candidate_id": "compact_tcn",
+      "kind": "sequence_tcn",
+      "origin": "pre_existing",
+      "eligible_to_win": true,
+      "primary_development_status": "COMPLETE",
+      "is_complete": true,
+      "n_expected_runs": 8,
+      "n_completed_runs": 8,
+      "development_fold_statuses": {
+        "leave_Pika": "OK",
+        "leave_VideoCrafter2": "OK",
+        "leave_T2V-Zero": "OK",
+        "leave_OpenSora": "OK",
+        "leave_SVD": "OK",
+        "leave_MuseV": "OK",
+        "leave_Mora": "OK",
+        "leave_CogVideo": "OK"
+      },
+      "outer_status_counts": {
+        "OK": 28
+      },
+      "outer_failed_fold_ids": []
+    }
+  ],
+  "primary_streams": {
+    "development_tabular": {
+      "index_source": "artifacts/current/experiments/program_v2/gen_933b135d79/development/tabular/summary/development_tabular_index.json",
+      "slots": 64,
+      "index_status_counts": {
+        "REUSED": 64
+      },
+      "receipt_status_counts": {
+        "SUCCESS": 64
+      },
+      "receipt_ledger_sha256": "e7d1ac0dba318e9431e0fa2f1bb728fbdbf76d29d3d192f226dfde8656c6194e"
+    },
+    "development_sequence": {
+      "index_source": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/summary/index.json",
+      "slots": 256,
+      "index_status_counts": {
+        "FAILED_FIT": 6,
+        "OK": 250
+      },
+      "receipt_status_counts": {
+        "FAILED_FIT": 6,
+        "OK": 250
+      },
+      "receipt_ledger_sha256": "d2385c53026072be69abc3aa4ced3a14eebd8e727b111b131693d2eed4e98c32"
+    },
+    "outer_tabular": {
+      "index_source": "artifacts/current/experiments/program_v2/gen_933b135d79/outer/tabular/summary/outer_tabular_index.json",
+      "slots": 224,
+      "index_status_counts": {
+        "REUSED": 224
+      },
+      "receipt_status_counts": {
+        "SUCCESS": 224
+      },
+      "receipt_ledger_sha256": "76b01b7b3cde2c76b282383ead99860925cfc43f610a84b18573557f649edfbc"
+    },
+    "outer_sequence": {
+      "index_source": "artifacts/current/experiments/program_v2/gen_933b135d79/outer/sequence/summary/index.json",
+      "slots": 896,
+      "index_status_counts": {
+        "FAILED_FIT": 36,
+        "OK": 860
+      },
+      "receipt_status_counts": {
+        "FAILED_FIT": 36,
+        "OK": 860
+      },
+      "receipt_ledger_sha256": "4008453176a7bd09a47bc08240a77c05aec1a97706c86e3619ea550814dc5a82"
+    }
+  },
+  "failed_development_receipt_extracts": [
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/runs/9f678b597061636943c2f912ea68bc1bfa25b8138fe43fe2281dc532815ce15d/fit_record.json",
+      "sha256_actual_bytes": "ae25744603cc8890beb7e7b155e2e0f0bf9ff6586a66bfcc8876d9215204a4de",
+      "fold_id": "leave_Pika",
+      "fields": {
+        "candidate_id": "wave_gru_stftW32B4",
+        "seed": 42,
+        "status": "FAILED_FIT",
+        "recipe_hash": "9f678b597061636943c2f912ea68bc1bfa25b8138fe43fe2281dc532815ce15d",
+        "error": "Insufficient class support for wave_gru_stftW32B4 on leave_Pika: fit_classes=[np.int64(0)], val_classes=[np.int64(0)]",
+        "export_sha256": null,
+        "export_bytes": 0,
+        "fit_seconds": 0.0
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/runs/b6d7aeb8fcb3253a206c885da073cd15c5c9c757c8ddded089e966920a4b6202/fit_record.json",
+      "sha256_actual_bytes": "688128e7580bd7f8821b91e11305ff4f76bbb5ef67dc06f371a61dceaf1c404e",
+      "fold_id": "leave_Pika",
+      "fields": {
+        "candidate_id": "wave_gru_stftW32B8",
+        "seed": 42,
+        "status": "FAILED_FIT",
+        "recipe_hash": "b6d7aeb8fcb3253a206c885da073cd15c5c9c757c8ddded089e966920a4b6202",
+        "error": "Insufficient class support for wave_gru_stftW32B8 on leave_Pika: fit_classes=[np.int64(0)], val_classes=[np.int64(0)]",
+        "export_sha256": null,
+        "export_bytes": 0,
+        "fit_seconds": 0.0
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/runs/afcb183d829212a2e1bb8dcc6a77474bafc5137b097fe9f4602861d3e7eb43e7/fit_record.json",
+      "sha256_actual_bytes": "da5bc5d01eabf1e015370437096a1cd384724887f89e11b54b10427769c7d229",
+      "fold_id": "leave_VideoCrafter2",
+      "fields": {
+        "candidate_id": "wave_gru_stftW32B4",
+        "seed": 42,
+        "status": "FAILED_FIT",
+        "recipe_hash": "afcb183d829212a2e1bb8dcc6a77474bafc5137b097fe9f4602861d3e7eb43e7",
+        "error": "Insufficient class support for wave_gru_stftW32B4 on leave_VideoCrafter2: fit_classes=[np.int64(0)], val_classes=[np.int64(0)]",
+        "export_sha256": null,
+        "export_bytes": 0,
+        "fit_seconds": 0.0
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/runs/6ba1e9215829794e11a511b5eb2fcbbb771831e5c198e7a85b7b3f398157480e/fit_record.json",
+      "sha256_actual_bytes": "657a203ac3b0fdac19ee3c7cd99d9ec1f619c3f3c7709984c55342bf7464e011",
+      "fold_id": "leave_VideoCrafter2",
+      "fields": {
+        "candidate_id": "wave_gru_stftW32B8",
+        "seed": 42,
+        "status": "FAILED_FIT",
+        "recipe_hash": "6ba1e9215829794e11a511b5eb2fcbbb771831e5c198e7a85b7b3f398157480e",
+        "error": "Insufficient class support for wave_gru_stftW32B8 on leave_VideoCrafter2: fit_classes=[np.int64(0)], val_classes=[np.int64(0)]",
+        "export_sha256": null,
+        "export_bytes": 0,
+        "fit_seconds": 0.0
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/runs/7e9fe41494a7e9f621dc8202fe3029d3dca398eba519cf868ad109c1535f4f95/fit_record.json",
+      "sha256_actual_bytes": "c2e8081b7343387496b3222e6ab07caee62bc5d5007c4929a80c477eb4e2b1e9",
+      "fold_id": "leave_T2V-Zero",
+      "fields": {
+        "candidate_id": "wave_gru_stftW32B4",
+        "seed": 42,
+        "status": "FAILED_FIT",
+        "recipe_hash": "7e9fe41494a7e9f621dc8202fe3029d3dca398eba519cf868ad109c1535f4f95",
+        "error": "Insufficient class support for wave_gru_stftW32B4 on leave_T2V-Zero: fit_classes=[np.int64(0)], val_classes=[np.int64(0)]",
+        "export_sha256": null,
+        "export_bytes": 0,
+        "fit_seconds": 0.0
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/runs/0bbcdf615b7205c4129747e35bea7981bb8f0b2bf0eec6a9faed8ca6d4b47c7c/fit_record.json",
+      "sha256_actual_bytes": "8068060434764e1cd7fdeda0af0d952d73c6233f70fa029f2d618647e7828e77",
+      "fold_id": "leave_T2V-Zero",
+      "fields": {
+        "candidate_id": "wave_gru_stftW32B8",
+        "seed": 42,
+        "status": "FAILED_FIT",
+        "recipe_hash": "0bbcdf615b7205c4129747e35bea7981bb8f0b2bf0eec6a9faed8ca6d4b47c7c",
+        "error": "Insufficient class support for wave_gru_stftW32B8 on leave_T2V-Zero: fit_classes=[np.int64(0)], val_classes=[np.int64(0)]",
+        "export_sha256": null,
+        "export_bytes": 0,
+        "fit_seconds": 0.0
+      }
+    }
+  ],
+  "selection": {
+    "winner": "temporal_wavelet",
+    "runner_up": "xgb_wavelet",
+    "leaders": {
+      "temporal_wavelet": {
+        "fpr_exceedances": 1,
+        "worst_generator_recall": 0.27734375,
+        "Pika": {
+          "tp_count": 71,
+          "denominator": 256,
+          "recall": 0.27734375
+        },
+        "sources": {
+          "Vript": {
+            "fp_count": 1,
+            "denominator": 512,
+            "groups_count": 256,
+            "realized_fpr": 0.001953125,
+            "clopper_pearson_95ci": [
+              4.944762114539529e-05,
+              0.010833656944754487
+            ],
+            "group_bootstrap_95ci": [
+              0.0,
+              0.0078125
+            ],
+            "fold_exceedances": 1
+          },
+          "HD-VG-130M": {
+            "fp_count": 3,
+            "denominator": 1024,
+            "groups_count": 1024,
+            "realized_fpr": 0.0029296875,
+            "clopper_pearson_95ci": [
+              0.00060457997372647,
+              0.008537709281629106
+            ],
+            "group_bootstrap_95ci": [
+              0.0,
+              0.0068359375
+            ],
+            "fold_exceedances": 0
+          }
+        }
+      },
+      "xgb_wavelet": {
+        "fpr_exceedances": 1,
+        "worst_generator_recall": 0.2734375,
+        "Pika": {
+          "tp_count": 70,
+          "denominator": 256,
+          "recall": 0.2734375
+        },
+        "sources": {
+          "Vript": {
+            "fp_count": 1,
+            "denominator": 512,
+            "groups_count": 256,
+            "realized_fpr": 0.001953125,
+            "clopper_pearson_95ci": [
+              4.944762114539529e-05,
+              0.010833656944754487
+            ],
+            "group_bootstrap_95ci": [
+              0.0,
+              0.0078125
+            ],
+            "fold_exceedances": 1
+          },
+          "HD-VG-130M": {
+            "fp_count": 3,
+            "denominator": 1024,
+            "groups_count": 1024,
+            "realized_fpr": 0.0029296875,
+            "clopper_pearson_95ci": [
+              0.00060457997372647,
+              0.008537709281629106
+            ],
+            "group_bootstrap_95ci": [
+              0.0,
+              0.0068359375
+            ],
+            "fold_exceedances": 0
+          }
+        }
+      }
+    },
+    "deciding_tier": 2,
+    "selection_fingerprint": "204564f027f671ed2d3785a973295134410f1cc1f83546063485c31add6ea206",
+    "persisted_completeness_passed": false
+  },
+  "shortlist": {
+    "candidate_ids": [
+      "temporal_wavelet",
+      "xgb_wavelet",
+      "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+      "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+      "wave_gru_stftW16B4",
+      "wave_gru_dwt_stft_haarL3_stftW16B4"
+    ],
+    "folds": {
+      "revised_evaluated_folds": [
+        "fold_03",
+        "fold_04",
+        "fold_05",
+        "fold_06",
+        "fold_07",
+        "fold_08",
+        "fold_09",
+        "fold_10"
+      ],
+      "historical_folds": [
+        "fold_01",
+        "fold_02"
+      ],
+      "historical_note": "Folds fold_01 and fold_02 remain historical v1-pool/old-generation results, reported apart, never pooled.",
+      "unattempted_folds": [
+        "fold_11",
+        "fold_12",
+        "fold_13",
+        "fold_14",
+        "fold_15",
+        "fold_16",
+        "fold_17",
+        "fold_18",
+        "fold_19",
+        "fold_20",
+        "fold_21",
+        "fold_22",
+        "fold_23",
+        "fold_24",
+        "fold_25",
+        "fold_26",
+        "fold_27",
+        "fold_28"
+      ],
+      "unattempted_status": "INCOMPLETE_INITIAL_BUDGET"
+    },
+    "potential_splits": 48,
+    "supported_splits": 34,
+    "unsupported_splits": 14,
+    "receipt_count": 204,
+    "receipt_status_counts": {
+      "FAILED_FIT": 2,
+      "SUCCESS": 202
+    },
+    "failed_receipt_extracts": [
+      {
+        "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/shortlist/runs/4d41f100df6473e25af5c1d11bd5bfd92b3e570c727af9d9dc7f570221d740c3/result_info.json",
+        "sha256_actual_bytes": "43bc487b86f608d3314c458a2250cd71be05f8387d1f0b269c4e3c133dc6574c",
+        "fields": {
+          "status": "FAILED_FIT",
+          "candidate": "wave_gru_stftW16B4",
+          "run_id": "fold_08_inner_Mora",
+          "fold_id": "fold_08",
+          "inner_held": "Mora",
+          "seed": 42,
+          "recipe_hash": "4d41f100df6473e25af5c1d11bd5bfd92b3e570c727af9d9dc7f570221d740c3",
+          "error": "Insufficient class support for wave_gru_stftW16B4 on fold_08_inner_Mora",
+          "fit_seconds": 0.0,
+          "wall_seconds": 0.0,
+          "gpu_seconds": 0.0,
+          "cpu_seconds": 0.0,
+          "timestamp": "2026-10-17T15:58:11Z"
+        }
+      },
+      {
+        "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/shortlist/runs/e0ec5cae78c589033cce5a31d24f0a54314844e710e4a59ae9b2e7a7fe52146a/result_info.json",
+        "sha256_actual_bytes": "f53f5443c8815c22a0aae758a9ffb72b83616166e378547bad8b4ffd54e057db",
+        "fields": {
+          "status": "FAILED_FIT",
+          "candidate": "wave_gru_stftW16B4",
+          "run_id": "fold_07_inner_CogVideo",
+          "fold_id": "fold_07",
+          "inner_held": "CogVideo",
+          "seed": 42,
+          "recipe_hash": "e0ec5cae78c589033cce5a31d24f0a54314844e710e4a59ae9b2e7a7fe52146a",
+          "error": "Insufficient class support for wave_gru_stftW16B4 on fold_07_inner_CogVideo",
+          "fit_seconds": 0.0,
+          "wall_seconds": 0.0,
+          "gpu_seconds": 0.0,
+          "cpu_seconds": 0.0,
+          "timestamp": "2026-10-17T15:58:11Z"
+        }
+      }
+    ],
+    "receipt_ledger_sha256": "d3e4c119a5e33b81b061978c629a1405f91dfe2da2767b0943b5a612c2fb253c",
+    "budget": {
+      "maximum_inner_fits": 288,
+      "executed_inner_fits": 204,
+      "unsupported_inner_runs": 84,
+      "extra_outer_fits": 0,
+      "total_fits_in_step": 204,
+      "wall_seconds": 3.1223656999936793
+    },
+    "outer_reuse": [
+      {
+        "fold_id": "fold_03",
+        "inner_winner": "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+        "status": "REUSED_WITH_PROOF"
+      },
+      {
+        "fold_id": "fold_04",
+        "inner_winner": "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+        "status": "REUSED_WITH_PROOF"
+      },
+      {
+        "fold_id": "fold_05",
+        "inner_winner": "temporal_wavelet",
+        "status": "REUSED_WITH_PROOF"
+      },
+      {
+        "fold_id": "fold_06",
+        "inner_winner": "temporal_wavelet",
+        "status": "REUSED_WITH_PROOF"
+      },
+      {
+        "fold_id": "fold_07",
+        "inner_winner": "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+        "status": "REUSED_WITH_PROOF"
+      },
+      {
+        "fold_id": "fold_08",
+        "inner_winner": "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+        "status": "REUSED_WITH_PROOF"
+      },
+      {
+        "fold_id": "fold_09",
+        "inner_winner": "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+        "status": "REUSED_WITH_PROOF"
+      },
+      {
+        "fold_id": "fold_10",
+        "inner_winner": "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+        "status": "REUSED_WITH_PROOF"
+      }
+    ]
+  },
+  "multiseed": {
+    "task_matrix_summary": {
+      "total_fits_required": 144,
+      "total_fits_completed": 144,
+      "new_fits_executed": 0,
+      "reused_fits": 144,
+      "failed_fits": 0,
+      "wall_seconds": 19.67
+    },
+    "matrix_status_counts": {
+      "SUCCESS": 144
+    },
+    "matrix_unique_tasks": 144,
+    "matrix_by_seed_and_fold_type": {
+      "1042:development": 16,
+      "1042:outer": 56,
+      "2042:development": 16,
+      "2042:outer": 56
+    },
+    "receipt_ledger_sha256": "0702810007811b568651fd52f8a8912bd3d2647016900648b67e6b35e59c4f6a",
+    "pairwise_comparisons": [
+      {
+        "seed": 42,
+        "winner": "temporal_wavelet",
+        "runner_up": "xgb_wavelet",
+        "deciding_tier": 2,
+        "deciding_criterion": "highest worst-generator recall",
+        "rank_flip": false,
+        "disposition": "SEED_STABLE",
+        "temporal_wavelet_t1_exceedances": 1,
+        "temporal_wavelet_t2_worst_recall": 0.27734375,
+        "temporal_wavelet_t3_mean_recall": 0.81884765625,
+        "temporal_wavelet_t4_mean_auroc": 0.9881711926399768,
+        "temporal_wavelet_t5_bytes": 509136,
+        "xgb_wavelet_t1_exceedances": 1,
+        "xgb_wavelet_t2_worst_recall": 0.2734375,
+        "xgb_wavelet_t3_mean_recall": 0.80615234375,
+        "xgb_wavelet_t4_mean_auroc": 0.9893080416041709,
+        "xgb_wavelet_t5_bytes": 160067,
+        "winner_deciding_val": 0.27734375,
+        "runner_up_deciding_val": 0.2734375
+      },
+      {
+        "seed": 1042,
+        "winner": "temporal_wavelet",
+        "runner_up": "xgb_wavelet",
+        "deciding_tier": 2,
+        "deciding_criterion": "highest worst-generator recall",
+        "rank_flip": false,
+        "disposition": "SEED_STABLE",
+        "temporal_wavelet_t1_exceedances": 1,
+        "temporal_wavelet_t2_worst_recall": 0.2734375,
+        "temporal_wavelet_t3_mean_recall": 0.80078125,
+        "temporal_wavelet_t4_mean_auroc": 0.9879990986252829,
+        "temporal_wavelet_t5_bytes": 576076,
+        "xgb_wavelet_t1_exceedances": 1,
+        "xgb_wavelet_t2_worst_recall": 0.265625,
+        "xgb_wavelet_t3_mean_recall": 0.759765625,
+        "xgb_wavelet_t4_mean_auroc": 0.9896611884392418,
+        "xgb_wavelet_t5_bytes": 157359,
+        "winner_deciding_val": 0.2734375,
+        "runner_up_deciding_val": 0.265625
+      },
+      {
+        "seed": 2042,
+        "winner": "xgb_wavelet",
+        "runner_up": "temporal_wavelet",
+        "deciding_tier": 2,
+        "deciding_criterion": "highest worst-generator recall",
+        "rank_flip": true,
+        "disposition": "SEED_UNSTABLE",
+        "temporal_wavelet_t1_exceedances": 1,
+        "temporal_wavelet_t2_worst_recall": 0.28125,
+        "temporal_wavelet_t3_mean_recall": 0.81005859375,
+        "temporal_wavelet_t4_mean_auroc": 0.9883252817906529,
+        "temporal_wavelet_t5_bytes": 545216,
+        "xgb_wavelet_t1_exceedances": 1,
+        "xgb_wavelet_t2_worst_recall": 0.30078125,
+        "xgb_wavelet_t3_mean_recall": 0.798828125,
+        "xgb_wavelet_t4_mean_auroc": 0.989750236970266,
+        "xgb_wavelet_t5_bytes": 155841,
+        "winner_deciding_val": 0.30078125,
+        "runner_up_deciding_val": 0.28125
+      }
+    ],
+    "disposition": "SEED_UNSTABLE"
+  },
+  "sources": [
+    {
+      "repository_relative_path": "reports/revision/04_architecture_selection_proposal.md",
+      "sha256_actual_bytes": "6a1517af3c6caafd9e796916afd9f8402202db231bc2dc00567ed990f2818011"
+    },
+    {
+      "repository_relative_path": "reports/revision/EXPERIMENT_RESULTS_V2.md",
+      "sha256_actual_bytes": "5e1ac33a9dce71eb91c13634bf3f47aa52e2abbe347ff1f77624baf4341ac504"
+    },
+    {
+      "repository_relative_path": "configs/branch_b_experiment_plan_v2.json",
+      "sha256_actual_bytes": "f48cd7a146e557837302dbb70c624b42cc70ba977f8746db87e7d64a741b559a",
+      "json_pointer_values": {
+        "/pools": {
+          "comparison_candidates": [
+            "corrected_B2",
+            "B2_no_sfft",
+            "B2_no_timing_metadata",
+            "temporal_wavelet",
+            "fixed8_control",
+            "metadata_only",
+            "xgb_wavelet",
+            "xgb_b2",
+            "wave_gru_dwt_haarL3",
+            "wave_gru_dwt_db4L3",
+            "wave_gru_dwt_db4L4",
+            "wave_gru_stftW16B4",
+            "wave_gru_stftW32B4",
+            "wave_gru_stftW32B8",
+            "wave_gru_dwt_stft_haarL3_stftW16B4",
+            "wave_gru_dwt_stft_haarL3_stftW32B4",
+            "wave_gru_dwt_stft_haarL3_stftW32B8",
+            "wave_gru_dwt_stft_db4L3_stftW16B4",
+            "wave_gru_dwt_stft_db4L3_stftW32B4",
+            "wave_gru_dwt_stft_db4L3_stftW32B8",
+            "wave_gru_dwt_stft_db4L4_stftW16B4",
+            "wave_gru_dwt_stft_db4L4_stftW32B4",
+            "wave_gru_dwt_stft_db4L4_stftW32B8",
+            "wave_gru_native_dwt_haarL3",
+            "wave_gru_native_dwt_db4L3",
+            "wave_gru_native_dwt_db4L4",
+            "wave_gru_native_stftW16B4",
+            "wave_gru_native_stftW32B4",
+            "wave_gru_native_stftW32B8",
+            "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+            "wave_gru_native_dwt_stft_haarL3_stftW32B4",
+            "wave_gru_native_dwt_stft_haarL3_stftW32B8",
+            "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+            "wave_gru_native_dwt_stft_db4L3_stftW32B4",
+            "wave_gru_native_dwt_stft_db4L3_stftW32B8",
+            "wave_gru_native_dwt_stft_db4L4_stftW16B4",
+            "wave_gru_native_dwt_stft_db4L4_stftW32B4",
+            "wave_gru_native_dwt_stft_db4L4_stftW32B8",
+            "compact_gru",
+            "compact_tcn"
+          ],
+          "eligible_to_win": [
+            "corrected_B2",
+            "B2_no_sfft",
+            "B2_no_timing_metadata",
+            "temporal_wavelet",
+            "xgb_wavelet",
+            "xgb_b2",
+            "wave_gru_dwt_haarL3",
+            "wave_gru_dwt_db4L3",
+            "wave_gru_dwt_db4L4",
+            "wave_gru_stftW16B4",
+            "wave_gru_stftW32B4",
+            "wave_gru_stftW32B8",
+            "wave_gru_dwt_stft_haarL3_stftW16B4",
+            "wave_gru_dwt_stft_haarL3_stftW32B4",
+            "wave_gru_dwt_stft_haarL3_stftW32B8",
+            "wave_gru_dwt_stft_db4L3_stftW16B4",
+            "wave_gru_dwt_stft_db4L3_stftW32B4",
+            "wave_gru_dwt_stft_db4L3_stftW32B8",
+            "wave_gru_dwt_stft_db4L4_stftW16B4",
+            "wave_gru_dwt_stft_db4L4_stftW32B4",
+            "wave_gru_dwt_stft_db4L4_stftW32B8",
+            "wave_gru_native_dwt_haarL3",
+            "wave_gru_native_dwt_db4L3",
+            "wave_gru_native_dwt_db4L4",
+            "wave_gru_native_stftW16B4",
+            "wave_gru_native_stftW32B4",
+            "wave_gru_native_stftW32B8",
+            "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+            "wave_gru_native_dwt_stft_haarL3_stftW32B4",
+            "wave_gru_native_dwt_stft_haarL3_stftW32B8",
+            "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+            "wave_gru_native_dwt_stft_db4L3_stftW32B4",
+            "wave_gru_native_dwt_stft_db4L3_stftW32B8",
+            "wave_gru_native_dwt_stft_db4L4_stftW16B4",
+            "wave_gru_native_dwt_stft_db4L4_stftW32B4",
+            "wave_gru_native_dwt_stft_db4L4_stftW32B8",
+            "compact_gru",
+            "compact_tcn"
+          ],
+          "diagnostic_only": [
+            "fixed8_control",
+            "metadata_only"
+          ],
+          "pool_rules": [
+            "exactly 40 candidates compared; only 38 eligible to win",
+            "fixed8_control and metadata_only are diagnostic-only: they cannot win, become runner-up, occupy top-6 shortlist slots or enter top-2 seed checks",
+            "comparison and selection pools are listed separately here and in every results table",
+            "all declared grid members are run; no performance-based pre-pruning"
+          ]
+        },
+        "/evaluation/bounded_recipe": {
+          "fit_groups_per_family_max": 256,
+          "model_selection_groups_per_family_max": 64,
+          "calibration_groups_per_family_max": 75,
+          "mate_union": "applied after the per-family caps",
+          "note": "this is bounded development fitting, not 32k training per fold"
+        },
+        "/evaluation/development": {
+          "design": "8 leave-one-generator-out group-OOF runs per candidate at seed 42; held prompt/real mates excluded from every training role",
+          "report": "all 40 reported; only the 38 eligible ranked"
+        },
+        "/evaluation/fixed_evaluation_universe/common_support_ranking": "primary ranking metrics are computed on the COMMON SUPPORT of the 38 eligible candidates (fixed paired universe, frozen after support computation and before any candidate scoring); per-candidate full-supported-set metrics are also reported descriptively",
+        "/selection_rule/lexicographic_tiers": [
+          {
+            "tier": 1,
+            "criterion": "fewest development per-source FPR exceedances",
+            "order": "ascending integer count; undefined -> +infinity (sorts last)"
+          },
+          {
+            "tier": 2,
+            "criterion": "highest worst-generator recall",
+            "order": "descending; undefined -> -infinity (sorts last)"
+          },
+          {
+            "tier": 3,
+            "criterion": "highest mean generator recall",
+            "order": "descending mean over generators with a defined recall on the common-support universe; generators with no supported clips are excluded from the mean and recorded"
+          },
+          {
+            "tier": 4,
+            "criterion": "highest mean standardized AUROC",
+            "order": "descending; same undefined rule"
+          },
+          {
+            "tier": 5,
+            "criterion": "smallest serialized candidate bytes",
+            "order": "ascending; per the serialized_bytes definition"
+          },
+          {
+            "tier": 6,
+            "criterion": "candidate_id lexical",
+            "order": "ascending byte-wise UTF-8 comparison of candidate_id"
+          }
+        ],
+        "/candidates/3/hyperparameters": "existing frozen LightGBM ModelSpec (models_v2.ModelSpec) unchanged"
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development_selection.json",
+      "sha256_actual_bytes": "70cb96905af8585e2150502774a7d66a000e3d9e84f842f6e49e68912c4682c4",
+      "json_pointer_values": {
+        "/scope": "seed42_development_group_oof",
+        "/winner": "temporal_wavelet",
+        "/runner_up": "xgb_wavelet",
+        "/meta": {
+          "generation_id": "gen_933b135d79",
+          "seed": 42,
+          "created_utc": "2026-10-17T12:30:42Z",
+          "total_fits_audited": 320,
+          "complete_fits": 314,
+          "failed_fits": 6,
+          "total_candidates": 40,
+          "eligible_candidates": 38,
+          "diagnostic_candidates": 2,
+          "common_support_dev_clips": 1718,
+          "common_support_32k_clips": 18195
+        },
+        "/is_completeness_gate_passed": false
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/selection_freeze.json",
+      "sha256_actual_bytes": "e1d85ecd2cbd9b67308035f62a2c46f6e20193c14422aca250dec1f8a8fae52c",
+      "json_pointer_values": {
+        "/completeness_gate": {
+          "status": "FAIL_2_INCOMPLETE_CANDIDATES",
+          "passed": false,
+          "n_eligible_total": 38,
+          "n_eligible_complete": 36,
+          "n_eligible_incomplete": 2,
+          "incomplete_cands": [
+            {
+              "candidate_id": "wave_gru_stftW32B4",
+              "completed_folds": 5,
+              "failed_folds": [
+                "leave_Pika",
+                "leave_VideoCrafter2",
+                "leave_T2V-Zero"
+              ],
+              "reason": "fit contains clips with insufficient transitions (< 7) in training split; support rule strictly excludes from winning per D-05/charter"
+            },
+            {
+              "candidate_id": "wave_gru_stftW32B8",
+              "completed_folds": 5,
+              "failed_folds": [
+                "leave_Pika",
+                "leave_VideoCrafter2",
+                "leave_T2V-Zero"
+              ],
+              "reason": "fit contains clips with insufficient transitions (< 7) in training split; support rule strictly excludes from winning per D-05/charter"
+            }
+          ],
+          "ranking_disposition": "Incomplete candidates sort strictly after all 36 complete candidates per D-04/D-05 and cannot win or enter shortlist. Winner and runner-up are both 100% complete across all 8 folds."
+        },
+        "/deciding_trace": {
+          "tier1_fpr_exceedances": {
+            "criterion": "fewest development per-source FPR exceedances (ascending integer count; FPR > 0.01 = 1 exceedance)",
+            "winner_val": 1,
+            "runner_up_val": 1,
+            "is_tied": true,
+            "detail": "Both candidates achieve exactly 1 exceedance across 8 folds x 2 real sources: Vript has 1 exceedance in leave_Pika (FPR=1/62=1.61%); HD-VG-130M has 0 exceedances in all folds."
+          },
+          "tier2_worst_generator_recall": {
+            "criterion": "highest worst-generator recall (descending; undefined -> -inf)",
+            "winner_val": 0.27734375,
+            "runner_up_val": 0.2734375,
+            "is_tied": false,
+            "decided_here": true,
+            "detail": "Winner temporal_wavelet achieves 71/256 = 27.7344% recall on worst generator Pika; Runner-up xgb_wavelet achieves 70/256 = 27.3438% recall on worst generator Pika. Delta is +0.00390625 (+1 true positive)."
+          },
+          "tier3_mean_generator_recall": {
+            "criterion": "highest mean generator recall (descending)",
+            "winner_val": 0.81884765625,
+            "runner_up_val": 0.80615234375,
+            "evaluated_in_tiebreak": false
+          },
+          "tier4_mean_standardized_auroc": {
+            "criterion": "highest mean standardized AUROC (descending)",
+            "winner_val": 0.9881711926399767,
+            "runner_up_val": 0.9893080416041709,
+            "evaluated_in_tiebreak": false
+          },
+          "tier5_max_serialized_bytes": {
+            "criterion": "smallest serialized candidate bytes (ascending)",
+            "winner_val": 509136,
+            "runner_up_val": 160067,
+            "evaluated_in_tiebreak": false
+          },
+          "tier6_candidate_id_lexical": {
+            "criterion": "candidate_id lexical (ascending)",
+            "winner_val": "temporal_wavelet",
+            "runner_up_val": "xgb_wavelet",
+            "evaluated_in_tiebreak": false
+          }
+        },
+        "/mechanical_shortlist_top6": [
+          "temporal_wavelet",
+          "xgb_wavelet",
+          "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+          "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+          "wave_gru_stftW16B4",
+          "wave_gru_dwt_stft_haarL3_stftW16B4"
+        ]
+      }
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/DEVELOPMENT_DECISION.json",
+      "sha256_actual_bytes": "ba5331791f17a7db6c79bb0987228686e590fb9cffd92cb6d6401a298fc69de0",
+      "json_pointer_values": {
+        "/selection_outcome": {
+          "winner": "temporal_wavelet",
+          "runner_up": "xgb_wavelet",
+          "deciding_tier": 2,
+          "deciding_criterion": "highest worst-generator recall",
+          "deciding_values": {
+            "winner": {
+              "candidate_id": "temporal_wavelet",
+              "value": 0.27734375
+            },
+            "runner_up": {
+              "candidate_id": "xgb_wavelet",
+              "value": 0.2734375
+            }
+          }
+        },
+        "/fits_audit_summary/required_fits": 320,
+        "/fits_audit_summary/successful_fits": 314,
+        "/fits_audit_summary/failed_fits": 6,
+        "/candidate_details/common_support_statistics/temporal_wavelet": {
+          "sources": {
+            "Vript": {
+              "fp_count": 1,
+              "denominator": 512,
+              "groups_count": 256,
+              "realized_fpr": 0.001953125,
+              "fold_exceedances": 1
+            },
+            "HD-VG-130M": {
+              "fp_count": 3,
+              "denominator": 1023,
+              "groups_count": 1023,
+              "realized_fpr": 0.002932551319648094,
+              "fold_exceedances": 0
+            }
+          },
+          "generators": {
+            "Pika": {
+              "tp_count": 8,
+              "denominator": 183,
+              "recall": 0.04371584699453552
+            },
+            "VideoCrafter2": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "T2V-Zero": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "OpenSora": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "SVD": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "MuseV": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "Mora": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "CogVideo": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            }
+          },
+          "worst_generator_recall": 0.04371584699453552,
+          "mean_generator_recall": 0.04371584699453552,
+          "mean_standardized_auroc": 0.8896107223527194,
+          "total_fpr_exceedances": 1
+        },
+        "/candidate_details/common_support_statistics/xgb_wavelet": {
+          "sources": {
+            "Vript": {
+              "fp_count": 1,
+              "denominator": 512,
+              "groups_count": 256,
+              "realized_fpr": 0.001953125,
+              "fold_exceedances": 1
+            },
+            "HD-VG-130M": {
+              "fp_count": 3,
+              "denominator": 1023,
+              "groups_count": 1023,
+              "realized_fpr": 0.002932551319648094,
+              "fold_exceedances": 0
+            }
+          },
+          "generators": {
+            "Pika": {
+              "tp_count": 7,
+              "denominator": 183,
+              "recall": 0.03825136612021858
+            },
+            "VideoCrafter2": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "T2V-Zero": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "OpenSora": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "SVD": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "MuseV": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "Mora": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            },
+            "CogVideo": {
+              "tp_count": 0,
+              "denominator": 0,
+              "recall": 0.0
+            }
+          },
+          "worst_generator_recall": 0.03825136612021858,
+          "mean_generator_recall": 0.03825136612021858,
+          "mean_standardized_auroc": 0.9027270478821892,
+          "total_fpr_exceedances": 1
+        }
+      }
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/STAGE_A_AUDIT.json",
+      "sha256_actual_bytes": "01969fab2070be72c311b90c4ee7b8dedbf2d69afbcd001d1ebc904fe54e92db",
+      "json_pointer_values": {
+        "/overall_verdict": "STAGE_A_PASS",
+        "/gates_evaluation/gate_04_primary_development_selection": {
+          "verdict": "PASS",
+          "primary_seed": 42,
+          "comparison_candidates": 40,
+          "eligible_candidates": 38,
+          "diagnostic_candidates": [
+            "fixed8_control",
+            "metadata_only"
+          ],
+          "incomplete_candidates": [
+            "wave_gru_stftW32B4",
+            "wave_gru_stftW32B8"
+          ],
+          "development_fits_total": 320,
+          "development_fits_successful": 314,
+          "development_fits_failed": 6,
+          "winner": "temporal_wavelet",
+          "runner_up": "xgb_wavelet",
+          "deciding_tier": 2,
+          "deciding_criterion": "highest worst-generator recall",
+          "deciding_values": {
+            "winner": {
+              "candidate_id": "temporal_wavelet",
+              "value": 0.27734375
+            },
+            "runner_up": {
+              "candidate_id": "xgb_wavelet",
+              "value": 0.2734375
+            }
+          },
+          "top6_shortlist": [
+            "temporal_wavelet",
+            "xgb_wavelet",
+            "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+            "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+            "wave_gru_stftW16B4",
+            "wave_gru_dwt_stft_haarL3_stftW16B4"
+          ],
+          "selection_fingerprint": "204564f027f671ed2d3785a973295134410f1cc1f83546063485c31add6ea206",
+          "no_search_after_test": true
+        },
+        "/gates_evaluation/gate_05_outer_folds_evaluation": {
+          "verdict": "PASS",
+          "outer_folds": 28,
+          "total_outer_fits": 1120,
+          "successful_outer_fits": 1084,
+          "failed_outer_fits": 36,
+          "failed_candidates": [
+            "wave_gru_stftW32B4",
+            "wave_gru_stftW32B8"
+          ],
+          "candidate_fold_csvs_count": 40,
+          "no_outer_search_or_reselection": true
+        },
+        "/selection_fingerprint": "204564f027f671ed2d3785a973295134410f1cc1f83546063485c31add6ea206"
+      }
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/SHORTLIST_STABILITY_REPORT.json",
+      "sha256_actual_bytes": "187619f9572c905cdbb3565340263fbf44f6d7741d53114e8b9f57d6bac543e3",
+      "json_pointer_values": {
+        "/shortlist_candidates": [
+          "temporal_wavelet",
+          "xgb_wavelet",
+          "wave_gru_native_dwt_stft_haarL3_stftW16B4",
+          "wave_gru_native_dwt_stft_db4L3_stftW16B4",
+          "wave_gru_stftW16B4",
+          "wave_gru_dwt_stft_haarL3_stftW16B4"
+        ],
+        "/folds_disposition": {
+          "revised_evaluated_folds": [
+            "fold_03",
+            "fold_04",
+            "fold_05",
+            "fold_06",
+            "fold_07",
+            "fold_08",
+            "fold_09",
+            "fold_10"
+          ],
+          "historical_folds": [
+            "fold_01",
+            "fold_02"
+          ],
+          "historical_note": "Folds fold_01 and fold_02 remain historical v1-pool/old-generation results, reported apart, never pooled.",
+          "unattempted_folds": [
+            "fold_11",
+            "fold_12",
+            "fold_13",
+            "fold_14",
+            "fold_15",
+            "fold_16",
+            "fold_17",
+            "fold_18",
+            "fold_19",
+            "fold_20",
+            "fold_21",
+            "fold_22",
+            "fold_23",
+            "fold_24",
+            "fold_25",
+            "fold_26",
+            "fold_27",
+            "fold_28"
+          ],
+          "unattempted_status": "INCOMPLETE_INITIAL_BUDGET"
+        },
+        "/fits_budget_summary": {
+          "maximum_inner_fits": 288,
+          "executed_inner_fits": 204,
+          "unsupported_inner_runs": 84,
+          "extra_outer_fits": 0,
+          "total_fits_in_step": 204,
+          "wall_seconds": 3.1223656999936793
+        }
+      }
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/MULTISEED_STABILITY_REPORT.json",
+      "sha256_actual_bytes": "5dc3b498c15b0d9959283c588e61fc66d4f0779f9a0be6b49ffdc0b2836d45b6",
+      "json_pointer_values": {
+        "/task_matrix_summary": {
+          "total_fits_required": 144,
+          "total_fits_completed": 144,
+          "new_fits_executed": 0,
+          "reused_fits": 144,
+          "failed_fits": 0,
+          "wall_seconds": 19.67
+        },
+        "/pairwise_comparisons": [
+          {
+            "seed": 42,
+            "winner": "temporal_wavelet",
+            "runner_up": "xgb_wavelet",
+            "deciding_tier": 2,
+            "deciding_criterion": "highest worst-generator recall",
+            "rank_flip": false,
+            "disposition": "SEED_STABLE",
+            "temporal_wavelet_t1_exceedances": 1,
+            "temporal_wavelet_t2_worst_recall": 0.27734375,
+            "temporal_wavelet_t3_mean_recall": 0.81884765625,
+            "temporal_wavelet_t4_mean_auroc": 0.9881711926399768,
+            "temporal_wavelet_t5_bytes": 509136,
+            "xgb_wavelet_t1_exceedances": 1,
+            "xgb_wavelet_t2_worst_recall": 0.2734375,
+            "xgb_wavelet_t3_mean_recall": 0.80615234375,
+            "xgb_wavelet_t4_mean_auroc": 0.9893080416041709,
+            "xgb_wavelet_t5_bytes": 160067,
+            "winner_deciding_val": 0.27734375,
+            "runner_up_deciding_val": 0.2734375
+          },
+          {
+            "seed": 1042,
+            "winner": "temporal_wavelet",
+            "runner_up": "xgb_wavelet",
+            "deciding_tier": 2,
+            "deciding_criterion": "highest worst-generator recall",
+            "rank_flip": false,
+            "disposition": "SEED_STABLE",
+            "temporal_wavelet_t1_exceedances": 1,
+            "temporal_wavelet_t2_worst_recall": 0.2734375,
+            "temporal_wavelet_t3_mean_recall": 0.80078125,
+            "temporal_wavelet_t4_mean_auroc": 0.9879990986252829,
+            "temporal_wavelet_t5_bytes": 576076,
+            "xgb_wavelet_t1_exceedances": 1,
+            "xgb_wavelet_t2_worst_recall": 0.265625,
+            "xgb_wavelet_t3_mean_recall": 0.759765625,
+            "xgb_wavelet_t4_mean_auroc": 0.9896611884392418,
+            "xgb_wavelet_t5_bytes": 157359,
+            "winner_deciding_val": 0.2734375,
+            "runner_up_deciding_val": 0.265625
+          },
+          {
+            "seed": 2042,
+            "winner": "xgb_wavelet",
+            "runner_up": "temporal_wavelet",
+            "deciding_tier": 2,
+            "deciding_criterion": "highest worst-generator recall",
+            "rank_flip": true,
+            "disposition": "SEED_UNSTABLE",
+            "temporal_wavelet_t1_exceedances": 1,
+            "temporal_wavelet_t2_worst_recall": 0.28125,
+            "temporal_wavelet_t3_mean_recall": 0.81005859375,
+            "temporal_wavelet_t4_mean_auroc": 0.9883252817906529,
+            "temporal_wavelet_t5_bytes": 545216,
+            "xgb_wavelet_t1_exceedances": 1,
+            "xgb_wavelet_t2_worst_recall": 0.30078125,
+            "xgb_wavelet_t3_mean_recall": 0.798828125,
+            "xgb_wavelet_t4_mean_auroc": 0.989750236970266,
+            "xgb_wavelet_t5_bytes": 155841,
+            "winner_deciding_val": 0.30078125,
+            "runner_up_deciding_val": 0.28125
+          }
+        ],
+        "/disposition": "SEED_UNSTABLE"
+      }
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/STAGE_A_AUDIT.md",
+      "sha256_actual_bytes": "a0883dc6e6c857dfbfdb5900dde59bcad7b76b403c3cd157229853d30a0748c9"
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/DEVELOPMENT_DECISION.md",
+      "sha256_actual_bytes": "4eb6029bb994465c64f6ec94233dc111bfa6ec3d57efdcd9cf2eccddaa756f42"
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/SHORTLIST_STABILITY_REPORT.md",
+      "sha256_actual_bytes": "7cae3ebab3ca86488128e7d6637f64e00ec75466f571b52389a843994794e480"
+    },
+    {
+      "repository_relative_path": "reports/revision/program_v2/MULTISEED_STABILITY_REPORT.md",
+      "sha256_actual_bytes": "391552dfb61a0adcaa68da59db8089b6d1a7649266a5decafcf5765001b9d76f"
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/tabular/summary/development_tabular_index.json",
+      "sha256_actual_bytes": "f424a75b87d3a7ab5178458c579edbd878581781e91363a2cf680b2846d4aaeb"
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/development/sequence/summary/index.json",
+      "sha256_actual_bytes": "4eb1859b465f5dc6daeb7f845e8ae105271413825cfa2fa8c07b325c81b01466"
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/outer/tabular/summary/outer_tabular_index.json",
+      "sha256_actual_bytes": "7f139dfc2777927975b17b6319ad038877de77df2bbbe9a2bd3955e665a42227"
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/outer/sequence/summary/index.json",
+      "sha256_actual_bytes": "a5965f1ac6d93b36217ac5729d65bfd0bdc9b997467bba8c7d3acb1342246233"
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/multiseed/summary/multiseed_144_hash_matrix.json",
+      "sha256_actual_bytes": "25549b59d1e84840dd4e6730a3ab1553494380d0da5d73ef9f58e007b49ffdeb"
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/multiseed/summary/completion.json",
+      "sha256_actual_bytes": "ebd1b2e19792c25162eab1f49f7baf671744d393a723deca1ab3787311b284ef",
+      "json_pointer_values": {
+        "/total_fits_required": 144,
+        "/total_fits_completed": 144,
+        "/failures": 0,
+        "/disposition": "SEED_UNSTABLE"
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/shortlist/summary/nested_selection.json",
+      "sha256_actual_bytes": "5c076f2101ebc9be2f818684cc3ac0019bcfd828b673da23e9c3b5d5410bee53",
+      "json_pointer_values": {
+        "/status": "COMPLETE_SHORTLIST_STABILITY",
+        "/evaluated_folds": [
+          "fold_03",
+          "fold_04",
+          "fold_05",
+          "fold_06",
+          "fold_07",
+          "fold_08",
+          "fold_09",
+          "fold_10"
+        ],
+        "/historical_folds": [
+          "fold_01",
+          "fold_02"
+        ],
+        "/unattempted_folds": [
+          "fold_11",
+          "fold_12",
+          "fold_13",
+          "fold_14",
+          "fold_15",
+          "fold_16",
+          "fold_17",
+          "fold_18",
+          "fold_19",
+          "fold_20",
+          "fold_21",
+          "fold_22",
+          "fold_23",
+          "fold_24",
+          "fold_25",
+          "fold_26",
+          "fold_27",
+          "fold_28"
+        ],
+        "/unattempted_status": "INCOMPLETE_INITIAL_BUDGET"
+      }
+    },
+    {
+      "repository_relative_path": "artifacts/current/experiments/program_v2/gen_933b135d79/shortlist/summary/completion.json",
+      "sha256_actual_bytes": "4940015459a1d4c2b18280d987f83eda5c479f5a75d4d41975c6c9a5143a8a5a",
+      "json_pointer_values": {
+        "/total_fits_executed": 204,
+        "/total_fits_failures": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "verification_timestamp_utc": "2026-10-18T07:00:24.477337+00:00",
+  "audit_status": "DELIVERY_ACCEPTED_PASS",
+  "package": "deliverables/branch_b_temporal_wavelet",
+  "file_count": 31,
+  "total_size_bytes": 5273259,
+  "inventory_scope": "All regular files, including receipt and both seal files; no symlinks",
+  "git": {
+    "commit": "a6351e2abfbbbfc7d604b4c9ede0f7aff40f3ed5",
+    "state": "dirty",
+    "status_porcelain_v1_before_sealing": "M deliverables/branch_b_temporal_wavelet/CHECKSUMS.txt\n M deliverables/branch_b_temporal_wavelet/DELIVERY_RECEIPT.json\n M deliverables/branch_b_temporal_wavelet/MANIFEST_SHA256.json\n M deliverables/branch_b_temporal_wavelet/README.md\n M deliverables/branch_b_temporal_wavelet/docs/AUDIT_AND_SEAL.md\n M deliverables/branch_b_temporal_wavelet/docs/AUDIT_REPORT.json\n M deliverables/branch_b_temporal_wavelet/docs/README.md\n M deliverables/branch_b_temporal_wavelet/inference/cli.py\n M deliverables/branch_b_temporal_wavelet/notebooks/delivery_verification.ipynb\n M deliverables/branch_b_temporal_wavelet/notebooks/delivery_verification.py\n M scripts/audit_temporal_wavelet_delivery.py\n M tests/test_temporal_wavelet_runtime_hardening.py\n?? reports/run_logs/temporal_wavelet_finalization/final_acceptance.log\n?? reports/run_logs/temporal_wavelet_finalization/final_acceptance_attempt1.log\n?? reports/run_logs/temporal_wavelet_finalization/final_acceptance_attempt2.log\n?? reports/run_logs/temporal_wavelet_finalization/final_acceptance_attempt3.log\n?? reports/run_logs/temporal_wavelet_finalization/final_doc_audit_command.log\n?? reports/run_logs/temporal_wavelet_finalization/final_doc_audit_tests.json\n?? reports/run_logs/temporal_wavelet_finalization/final_isolated_worker.log\n?? reports/run_logs/temporal_wavelet_finalization/final_payload_preservation.json\n?? reports/run_logs/temporal_wavelet_finalization/final_pip_check.log\n?? reports/run_logs/temporal_wavelet_finalization/final_runtime_command.log\n?? reports/run_logs/temporal_wavelet_finalization/final_runtime_tests.json\n?? scripts/temporal_wavelet_acceptance_tests.py\n?? tests/test_temporal_wavelet_finalization.py",
+    "note": "Observed before sealing; unavailable means git metadata could not be read. No commit created."
+  },
+  "audit_report": "docs/AUDIT_REPORT.json",
+  "audit_report_sha256": "2107afe805a3169393e575b6a85bbfb62b6f33f2c847a5c64e1d8ace5c35e471",
+  "seal_policy": {
+    "algorithm": "SHA-256",
+    "paths": "package-relative POSIX",
+    "checksums_exclude": [
+      "CHECKSUMS.txt",
+      "MANIFEST_SHA256.json"
+    ],
+    "manifest_excludes": [
+      "MANIFEST_SHA256.json"
+    ],
+    "note": "Manifest hashes CHECKSUMS.txt and receipt. Self-hashing is impossible; retain final manifest SHA-256 externally. Integrity seal, not authenticated signature."
+  },
+  "verification": {
+    "structure": "PASS",
+    "isolated_api": "PASS",
+    "exact_reference_predictions": "PASS",
+    "cli": "PASS",
+    "full_dataset_replay": "PASS",
+    "data_integrity": "PASS",
+    "jupytext_zero_drift": "PASS",
+    "fresh_notebook_execution": "PASS",
+    "runtime_hardening": "PASS",
+    "independent_canonical_extraction_parity": "PASS",
+    "immutable_payload_preservation": "PASS",
+    "documentation_provenance": "PASS"
+  },
+  "limitations": [
+    "Full-fit predictions and notebook plots are in-sample, provided for requested internal stacking; no OOF/holdout delivery prerequisite and no unbiased generalization claim.",
+    "Fresh original-video parity covers 20 existing historical fit fixtures with verified media hashes, not all 32000 original videos. Full32k regression replays generation-specific cached features. Four decoded tensors and six synthetic videos add deterministic coverage, not corpus-wide media validation.",
+    "No unseen-media FPR guarantee, exhaustive codec/backend/damaged-media matrix or independent clean-venv installation/version matrix was tested. Loader uses private joblib interfaces at pinned versions.",
+    "SHA-256 seals detect drift relative to a trusted manifest digest; they are not a digital signature or independent authenticity attestation."
+  ]
+}

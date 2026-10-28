@@ -1,7 +1,11 @@
 # Code-only repository: new files are excluded unless explicitly allowed.
 /*
 !/.gitignore
+!/.gitattributes
 !/README.md
+!/deliverables/
+/deliverables/*
+!/deliverables/branch_b_temporal_wavelet/
 !/preprocessing/
 /preprocessing/*
 !/preprocessing/*.py

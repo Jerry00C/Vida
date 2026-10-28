@@ -1,0 +1,16 @@
+# Tested reference environment: CPython 3.14.6, Windows AMD64.
+# Installed versions inspected and exercised by the documentation smoke checks.
+# These are exact reference pins, NOT minimum-supported version claims.
+# Native libraries may require platform-compatible wheels/OpenMP runtime.
+# See docs/README.md for installation and trusted-joblib precautions.
+numpy==2.4.6
+scipy==1.18.1
+pandas==3.0.6
+PyWavelets==1.10.0
+opencv-python-headless==5.0.0.93
+lightgbm==4.7.0
+joblib==1.6.0
+# Needed by serialized scaler/calibration objects even for wrapper inference.
+scikit-learn==1.9.1
+# Parquet inputs and outputs.
+pyarrow==26.0.0

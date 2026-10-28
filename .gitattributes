@@ -1,0 +1,2 @@
+# Preserve the sealed Branch B package byte-for-byte across platforms.
+/deliverables/branch_b_temporal_wavelet/** -text whitespace=cr-at-eol
