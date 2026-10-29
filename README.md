@@ -28,7 +28,10 @@ The `.gitignore` allowlist prevents these from being accidentally added.
 ## Branch C
 
 See [Branch C setup and handoff](dev/branch_c/README.md) and its
-[aggregate results](dev/branch_c/results/README.md). Branch C runs in its own
+[aggregate results](dev/branch_c/results/README.md). Download its trained models and
+per-video OOF/validation/test scores from the [artifact release guide](dev/branch_c/docs/ARTIFACTS_ZH.md).
+These binary artifacts are release assets; raw media, input manifests and caches remain excluded.
+Branch C runs in its own
 Python 3.12 environment and reads temporally dense video observations. The
 8 PNGs used by Branch A are not equivalent motion/frequency input.
 
