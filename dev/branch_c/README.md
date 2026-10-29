@@ -4,7 +4,7 @@
 
 本目录是 Lang Heran 的 Branch C，可独立安装和运行。以下命令均从仓库的 `dev/branch_c/` 执行。
 
-已上传源码、配置、测试、中文交接说明及 [汇总实验结果](results/README.md)。原始视频、视频帧、正式逐视频清单与预测、模型文件、缓存、完整案例报告和数据压缩包均需团队另行传输，未放入 Git。下文历史 `data/`、`artifacts/` 链接仅在拥有相应本地数据和实验输出时可用。
+已上传源码、配置、测试、中文交接说明及 [汇总实验结果](results/README.md)。**已训练模型和逐视频 OOF / 验证 / 测试分数已通过 [GitHub Release 单独提供](docs/ARTIFACTS_ZH.md)**。原始视频、视频帧、正式输入清单、特征缓存、完整案例帧报告和原始数据压缩包未上传。下文历史 `data/`、`artifacts/` 链接仅在拥有相应本地数据和实验输出时可用。
 
 ```bash
 cd dev/branch_c
