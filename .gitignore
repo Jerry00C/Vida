@@ -1,24 +1,35 @@
-# Code-only repository: new files are excluded unless explicitly allowed.
+# Source and downloaded results are allowed; datasets stay local.
 /*
 !/.gitignore
 !/README.md
+!/.gitattributes
+!/stacking/
+/stacking/*
+!/stacking/*.py
+!/stacking/*.md
+!/stacking/*.sh
+!/stacking/requirements.txt
+!/stacking/tests/
+/stacking/tests/*
+!/stacking/tests/test_*.py
 !/preprocessing/
 /preprocessing/*
 !/preprocessing/*.py
 !/preprocessing/*.md
 !/preprocessing/requirements*.txt
-!/dev/
-/dev/*
-!/dev/REMOTE_SETUP.md
-!/dev/branch_a/
-/dev/branch_a/*
-!/dev/branch_a/*.py
-!/dev/branch_a/*.json
-!/dev/branch_a/*.md
-!/dev/branch_a/requirements*.txt
-!/dev/tests/
-/dev/tests/*
-!/dev/tests/test_*.py
+!/branch_a/
+/branch_a/*
+!/branch_a/REMOTE_SETUP.md
+!/branch_a/run_all_remote.sh
+!/branch_a/dev/
+/branch_a/dev/*
+!/branch_a/dev/*.py
+!/branch_a/dev/*.json
+!/branch_a/dev/*.md
+!/branch_a/dev/requirements*.txt
+!/branch_a/tests/
+/branch_a/tests/*
+!/branch_a/tests/test_*.py
 
 # Always exclude generated data, credentials, environments and caches.
 **/__pycache__/
@@ -37,3 +48,8 @@
 *.npy
 *.zip
 *.tar
+
+# Downloaded experiment reports and LFS checkpoints.
+!/remote-results/
+/remote-results/**/.run.lock
+!/remote-results/**/*.pt

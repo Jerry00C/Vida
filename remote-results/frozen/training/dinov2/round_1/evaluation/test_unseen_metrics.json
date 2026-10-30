@@ -1,0 +1,85 @@
+{
+  "n": 4098,
+  "auroc": 0.9392397521448999,
+  "auroc_undefined_reason": null,
+  "f1": 0.8591932689928236,
+  "precision": 0.850563449289564,
+  "recall": 0.868,
+  "confusion_matrix": [
+    [
+      1793,
+      305
+    ],
+    [
+      264,
+      1736
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.3530997633934021,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 1000,
+      "shared_real_count": 2098,
+      "generated_recall": 0.841,
+      "against_shared_real": {
+        "n": 3098,
+        "auroc": 0.92684795042898,
+        "auroc_undefined_reason": null,
+        "f1": 0.7837837837837838,
+        "precision": 0.7338568935427574,
+        "recall": 0.841,
+        "confusion_matrix": [
+          [
+            1793,
+            305
+          ],
+          [
+            159,
+            841
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 1000,
+      "shared_real_count": 2098,
+      "generated_recall": 0.895,
+      "against_shared_real": {
+        "n": 3098,
+        "auroc": 0.9516315538608199,
+        "auroc_undefined_reason": null,
+        "f1": 0.8136363636363636,
+        "precision": 0.7458333333333333,
+        "recall": 0.895,
+        "confusion_matrix": [
+          [
+            1793,
+            305
+          ],
+          [
+            105,
+            895
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.25,
+    "Vript": 0.12791991101223582
+  },
+  "round_id": "round_1",
+  "partition": "test_unseen",
+  "smoke": false,
+  "backbone": "facebook/dinov2-base",
+  "checkpoint_epoch": 30,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "be8d42f8a4498a12f97bf241b9080ba464f8e5eee82a4b9f476cd76677a9a074",
+  "shared_real_test_examples": true
+}

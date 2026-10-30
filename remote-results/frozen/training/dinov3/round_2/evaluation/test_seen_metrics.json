@@ -1,0 +1,185 @@
+{
+  "n": 4048,
+  "auroc": 0.9706694839857652,
+  "auroc_undefined_reason": null,
+  "f1": 0.9161326274728336,
+  "precision": 0.9189491335941867,
+  "recall": 0.9133333333333333,
+  "confusion_matrix": [
+    [
+      2103,
+      145
+    ],
+    [
+      156,
+      1644
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.23517422378063202,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9533333333333334,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9885172004744959,
+        "auroc_undefined_reason": null,
+        "f1": 0.6529680365296804,
+        "precision": 0.4965277777777778,
+        "recall": 0.9533333333333334,
+        "confusion_matrix": [
+          [
+            2103,
+            145
+          ],
+          [
+            7,
+            143
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.94,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9868505338078292,
+        "auroc_undefined_reason": null,
+        "f1": 0.6467889908256881,
+        "precision": 0.493006993006993,
+        "recall": 0.94,
+        "confusion_matrix": [
+          [
+            2103,
+            145
+          ],
+          [
+            9,
+            141
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Pika": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9955555555555555,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9972914195334124,
+        "auroc_undefined_reason": null,
+        "f1": 0.8590604026845637,
+        "precision": 0.7554806070826307,
+        "recall": 0.9955555555555555,
+        "confusion_matrix": [
+          [
+            2103,
+            145
+          ],
+          [
+            2,
+            448
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "SVD": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.30666666666666664,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.753902728351127,
+        "auroc_undefined_reason": null,
+        "f1": 0.2697947214076246,
+        "precision": 0.24083769633507854,
+        "recall": 0.30666666666666664,
+        "confusion_matrix": [
+          [
+            2103,
+            145
+          ],
+          [
+            104,
+            46
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "T2V-Zero": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9266666666666666,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9776482799525503,
+        "auroc_undefined_reason": null,
+        "f1": 0.8241106719367589,
+        "precision": 0.7419928825622776,
+        "recall": 0.9266666666666666,
+        "confusion_matrix": [
+          [
+            2103,
+            145
+          ],
+          [
+            33,
+            417
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "VideoCrafter2": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9977777777777778,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9979814155792803,
+        "auroc_undefined_reason": null,
+        "f1": 0.8601532567049809,
+        "precision": 0.7558922558922558,
+        "recall": 0.9977777777777778,
+        "confusion_matrix": [
+          [
+            2103,
+            145
+          ],
+          [
+            1,
+            449
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.09333333333333334,
+    "Vript": 0.05728587319243604
+  },
+  "round_id": "round_2",
+  "partition": "test_seen",
+  "smoke": false,
+  "backbone": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+  "checkpoint_epoch": 30,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "948becc16a5b69cc190a85cfb6774c1b61611b72f4da88b9bb10087ebe4e6b81",
+  "shared_real_test_examples": true
+}
