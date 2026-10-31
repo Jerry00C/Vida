@@ -1,4 +1,4 @@
-"""Run image-based partial fine-tuning and LoRA without modifying frozen runs."""
+"""Run image-based partial fine-tuning without modifying frozen runs."""
 import argparse
 import copy
 from pathlib import Path
@@ -24,10 +24,10 @@ def verify_resume(first,second):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('command',choices=['inspect','smoke','train','train-all','evaluate','compare'])
-    p.add_argument('--mode',choices=['frozen','partial','lora'],default='partial')
+    p.add_argument('--mode',choices=['frozen','partial'],default='partial')
     p.add_argument('--backbones',nargs='+',choices=['clip','dinov2','dinov3'],default=['clip','dinov2','dinov3'])
     p.add_argument('--config',default=str(Path(__file__).with_name('adaptation_config.json')))
-    p.add_argument('--unfreeze-blocks',type=int);p.add_argument('--rank',type=int);p.add_argument('--alpha',type=int);p.add_argument('--dropout',type=float)
+    p.add_argument('--unfreeze-blocks',type=int)
     p.add_argument('--cache-root',default='runs/branch_a/cache')
     p.add_argument('--root',default='processed');p.add_argument('--output',default='runs/branch_a_adapt')
     p.add_argument('--split');p.add_argument('--round',default='round_1');p.add_argument('--checkpoint')
@@ -37,7 +37,7 @@ def main():
     p.add_argument('--precision',choices=['auto','fp32','fp16','bf16'])
     for name in ('epochs','batch-size','accumulation','frame-microbatch','seed'):
         p.add_argument('--'+name,type=int)
-    for name in ('partial-lr','lora-lr','head-lr'):p.add_argument('--'+name,type=float)
+    for name in ('partial-lr','head-lr'):p.add_argument('--'+name,type=float)
     a=p.parse_args();out=Path(a.output)
     for protected in (Path('runs/branch_a'),Path(a.root)):
         check(not out.resolve().is_relative_to(protected.resolve()),'Adaptation output must be outside frozen runs and processed data')

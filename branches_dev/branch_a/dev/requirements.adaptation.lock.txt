@@ -21,7 +21,6 @@ narwhals==2.27.1
 networkx==3.6.1
 numpy==2.4.6
 packaging==26.3
-peft==0.17.1
 pillow==13.0.0
 pluggy==1.7.0
 psutil==7.2.2

@@ -31,7 +31,7 @@ printf 'Output directory: %s\n' "$RUN_DIR"
 "$PYTHON" - <<'PY'
 import os,sys,hashlib,json,shutil,subprocess
 from pathlib import Path
-import torch,transformers,peft,sklearn
+import torch,transformers,sklearn
 from dev.splits import load_split
 root=Path(os.environ['PROJECT_ROOT']); out=Path(os.environ['RUN_DIR'])
 data=Path(os.environ['DATA_ROOT']).resolve(); hf=Path(os.environ['HF_CACHE']).resolve()
@@ -48,7 +48,7 @@ for name,value in split['index_fingerprints'].items():
 files=list((root/'branches_dev/branch_a/dev').glob('*.py'))+list((root/'branches_dev/branch_a/dev').glob('*.json'))+list((root/'branches_dev/branch_a/dev').glob('*.txt'))+list((root/'stacking').glob('*.py'))+[root/'branches_dev/branch_a/run_all_remote.sh']
 spec={'round_training':'sequential_previous_best; later unseen scores are not held-out estimates','split_identity':split['split_identity'],
       'settings':{k:os.environ[k] for k in ('DEVICE','WORKERS','FRAME_BATCH_SIZE','BATCH_SIZE','ACCUMULATION','PRECISION')},
-      'versions':{'python':sys.version,'torch':torch.__version__,'transformers':transformers.__version__,'peft':peft.__version__,'sklearn':sklearn.__version__},
+      'versions':{'python':sys.version,'torch':torch.__version__,'transformers':transformers.__version__,'sklearn':sklearn.__version__},
       'source_sha256':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
 p=out/'run_manifest.json'
 if p.exists():
@@ -92,7 +92,7 @@ for backbone in clip dinov2 dinov3; do
   done
 done
 
-for mode in partial lora; do
+for mode in partial; do
   for backbone in clip dinov2 dinov3; do
     previous=""
     for round in round_1 round_2 round_3 round_4; do
@@ -123,8 +123,8 @@ from pathlib import Path
 from dev.adapt_comparison import compare
 root=Path(sys.argv[1])
 rows=compare(root/'adapt', frozen_root=root/'frozen')
-assert len(rows)==72, f'Expected 36 runs x 2 test partitions; found {len(rows)}'
-print('Verified 36 experiments with seen/unseen evaluation outputs.')
+assert len(rows)==48, f'Expected 24 runs x 2 test partitions; found {len(rows)}'
+print('Verified 24 experiments with seen/unseen evaluation outputs.')
 PY
 # Hash saved artifacts for transfer verification; excludes the actively written log.
 (cd "$RUN_DIR" && find source huggingface frozen adapt -type f -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)

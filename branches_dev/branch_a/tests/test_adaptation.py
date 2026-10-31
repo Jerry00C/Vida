@@ -17,7 +17,7 @@ def encoder(name):
     return model(config(**kwargs))
 
 @pytest.mark.parametrize('name',['clip','dinov2','dinov3'])
-@pytest.mark.parametrize('mode',['partial','lora','frozen'])
+@pytest.mark.parametrize('mode',['partial','frozen'])
 def test_policy_gradients_reload(name,mode):
     torch.manual_seed(7)
     base=encoder(name);original=copy.deepcopy(base)
@@ -32,9 +32,6 @@ def test_policy_gradients_reload(name,mode):
     if mode=='partial':
         assert not model.encoder.get_submodule(model.structure['blocks'][0]).training
         assert all(model.encoder.get_submodule(n).training for n in model.unfrozen)
-    if mode=='lora':
-        assert not model.encoder.training
-        assert all(m.training for n,m in model.encoder.named_modules() if '.lora_dropout.' in n)
     audit=ParameterAudit(model);opt=optimizer_for(model,CFG['training'])
     for _ in range(3):
         opt.zero_grad(set_to_none=True)
@@ -64,7 +61,7 @@ def test_incomplete_accumulation(samples,batch,accumulation):
 
 
 def test_identity_rejection_and_precision(tmp_path):
-    path=tmp_path/'checkpoint.pt';spec={'mode':'lora','seed':42}
+    path=tmp_path/'checkpoint.pt';spec={'mode':'partial','seed':42}
     torch.save({'spec':spec,'experiment_identity':identity(spec)},path)
     assert load_adapted_checkpoint(path)['spec']==spec
     with pytest.raises(ValueError,match='Incompatible'):load_adapted_checkpoint(path,'wrong')

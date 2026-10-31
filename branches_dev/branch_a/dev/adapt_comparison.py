@@ -63,7 +63,7 @@ def compare(output,frozen_root='runs/branch_a'):
         for ax,partition in zip(axes,('test_seen','test_unseen')):
             keys=[]
             for backbone in ('clip','dinov2','dinov3'):
-                for mode in ('frozen','partial','lora'):
+                for mode in ('frozen','partial'):
                     rows=[r for r in entries if (r['smoke'],r['split_identity'],r['partition'],r['backbone'],r['mode'])==(smoke,split,partition,backbone,mode)]
                     if not rows:continue
                     x=len(keys);keys.append(f'{backbone}\n{mode}')

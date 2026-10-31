@@ -28,7 +28,7 @@ def verify(output,root):
     rid=next(iter(split['rounds']));rows=split['rounds'][rid]
     validate_round(rows,split['pairs'][0],videos)
     results=[]
-    for mode in ('partial','lora'):
+    for mode in ('partial',):
         for backbone in ('clip','dinov2','dinov3'):
             folder=output/'smoke'/mode/backbone;run=folder/'resumed'
             check(read_json(folder/'smoke_verification.json')['passed'],'Incomplete real smoke run')

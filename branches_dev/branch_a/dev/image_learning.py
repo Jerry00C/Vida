@@ -48,7 +48,7 @@ def optimizer_for(model,config):
     for name,p in model.named_parameters():
         if not p.requires_grad:continue
         section='head' if name.startswith('head.') else model.mode
-        lr=config['head_lr'] if section=='head' else config['partial_lr'] if section=='partial' else config['lora_lr']
+        lr=config['head_lr'] if section=='head' else config['partial_lr']
         decay=0. if name.endswith('.bias') or id(p) in norm_ids else config['weight_decay']
         group=groups.setdefault((section,decay),{'params':[],'lr':lr,'weight_decay':decay,
                                                'name':section+('_decay' if decay else '_no_decay'),'parameter_names':[]})
@@ -109,14 +109,14 @@ def setup(backbone,mode,base,adaptation,config,split,rid,hf_cache,device_name):
     if device_name=='mps':check(torch.backends.mps.is_available(),'MPS requested but unavailable')
     device=device_for(device_name);precision=precision_policy(device,config['precision'])
     model,processor=build_model(backbone,mode,base,adaptation,hf_cache,device)
-    import transformers,peft
+    import transformers
     spec={'version':'vida-adaptation-v1','backbone':backbone,'checkpoint':base['checkpoints'][backbone],
           'revision':base['revisions'][backbone],'mode':mode,'adaptation':adaptation,
           'round_id':rid,'split_identity':split['split_identity'],'index_fingerprints':split['index_fingerprints'],
           'initialization':'original_pretrained_plus_fresh_head','seed':config['seed'],
           'processor':processor.to_dict(),'representation':model.structure['representation'],
           'structure':model.structure,'training':config,'precision':precision,'device_type':device.type,
-          'versions':{'torch':str(torch.__version__),'transformers':transformers.__version__,'peft':peft.__version__}}
+          'versions':{'torch':str(torch.__version__),'transformers':transformers.__version__}}
     return model,processor,device,precision,spec
 
 
@@ -155,7 +155,7 @@ def train_images(root,split,rid,backbone,mode,base,adaptation,config,hf_cache,ou
 
 
 def _train(root,split,rid,backbone,mode,base,adaptation,config,hf_cache,output,device_name,workers,resume,stop_after,audit_parameters,init_checkpoint):
-    check(mode in ('partial','lora'),'Image adaptation trainer requires partial or lora')
+    check(mode == 'partial','Image adaptation trainer requires partial mode')
     check(config['batch_size']>0 and config['accumulation']>0 and config['epochs']>0 and config['frame_microbatch']>0,'Invalid batch/epoch settings')
     videos,frames=data_for(root,split)
     rows=split['rounds'][rid];training=[r for r in rows if r['role']=='train'];validation=[r for r in rows if r['role']=='validation']

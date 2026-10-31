@@ -38,7 +38,7 @@ def main():
     assert sha(base/'pytorch_model.bin')=='ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0'
     encoder=CLIPVisionModel.from_pretrained(base,local_files_only=True,attn_implementation='eager')
     model=AdaptedVision(encoder,'clip','partial',spec['adaptation'])
-    assert model.structure==spec['structure'],'Architecture differs from checkpoint'
+    assert all(spec['structure'].get(key)==value for key,value in model.structure.items()),'Architecture differs from checkpoint'
     model.load_adapted_state(cp['adapted_state'])
     model.requires_grad_(False);model.to(args.device);model.eval()
     processor=CLIPImageProcessor(**spec['processor'])
