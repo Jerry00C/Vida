@@ -1,0 +1,283 @@
+{
+  "date": "2026-10-10",
+  "iteration": 4,
+  "goal_status": "active",
+  "previous_goal_turn_classification": "progress: failure-review export, corrected input dimensions, reproducible cache, model card and 112 tests were implemented and verified",
+  "status": "proposal_scoped_iteration_verified_formal_data_pending",
+  "scope": "Existing real-only motion/temporal descriptors and IF/OCSVM; common training folds, early metadata/duplicate/fold checks and frozen input identity",
+  "automated_tests": {
+    "passed": 134,
+    "failed": 0,
+    "warnings": 17,
+    "command": ".venv/bin/python -m pytest -q",
+    "warning_note": "Expected coarse real-validation quantiles in small fixtures",
+    "focused_fold_suite": {
+      "passed": 22,
+      "failed": 0,
+      "command": ".venv/bin/python -m pytest tests/test_fold_planning.py -q"
+    }
+  },
+  "isolation_forest_smoke": {
+    "run_kind": "synthetic_smoke",
+    "is_benchmark_result": false,
+    "status": "passed",
+    "toy_clips": 72,
+    "real_only_fit_clips": 20,
+    "oof_folds": 5,
+    "npz_frames_api_agree": true,
+    "mp4_decode_predict": "passed",
+    "test_threshold_unchanged": true,
+    "total_seconds": 3.293945375131443,
+    "note": "TOY data only. No claim about AI-video detection accuracy or unseen-generator generalisation."
+  },
+  "one_class_svm_smoke": {
+    "fit": "passed",
+    "evaluate": "passed",
+    "oof_folds": 5,
+    "oof_clips": 40,
+    "run_kind": "synthetic_smoke",
+    "is_benchmark_result": false,
+    "test_threshold_unchanged": true
+  },
+  "common_fold_smoke": {
+    "run_kind": "synthetic_smoke",
+    "is_benchmark_result": false,
+    "common_plan_id": "55fb04051247b7729f38b5ad3d01bf9c8f87df3a294e52467f56f3e5463643e5",
+    "train_clips": 40,
+    "folds": 5,
+    "fold_preparation_video_decodes": 0,
+    "fold_preparation_models_fitted": 0,
+    "fold_preparation_val_test_files_read": 0,
+    "common_manifest_oof_matches_direct_and_previous_iteration": true,
+    "if_svm_selected_use_same_plan": true,
+    "fixed_test_thresholds": "passed",
+    "formal_data": "pending"
+  },
+  "fold_plan": {
+    "plan_id": "55fb04051247b7729f38b5ad3d01bf9c8f87df3a294e52467f56f3e5463643e5",
+    "n_groups": 20,
+    "fold_summary": [
+      {
+        "fold_id": 0,
+        "n_heldout": 8,
+        "n_heldout_real": 4,
+        "n_heldout_generated": 4,
+        "n_real_fit": 16,
+        "n_heldout_groups": 4,
+        "n_training_groups": 16
+      },
+      {
+        "fold_id": 1,
+        "n_heldout": 8,
+        "n_heldout_real": 4,
+        "n_heldout_generated": 4,
+        "n_real_fit": 16,
+        "n_heldout_groups": 4,
+        "n_training_groups": 16
+      },
+      {
+        "fold_id": 2,
+        "n_heldout": 8,
+        "n_heldout_real": 4,
+        "n_heldout_generated": 4,
+        "n_real_fit": 16,
+        "n_heldout_groups": 4,
+        "n_training_groups": 16
+      },
+      {
+        "fold_id": 3,
+        "n_heldout": 8,
+        "n_heldout_real": 4,
+        "n_heldout_generated": 4,
+        "n_real_fit": 16,
+        "n_heldout_groups": 4,
+        "n_training_groups": 16
+      },
+      {
+        "fold_id": 4,
+        "n_heldout": 8,
+        "n_heldout_real": 4,
+        "n_heldout_generated": 4,
+        "n_real_fit": 16,
+        "n_heldout_groups": 4,
+        "n_training_groups": 16
+      }
+    ],
+    "source": "common_folds/fold_plan.json",
+    "models_fitted": 0,
+    "video_decodes": 0,
+    "val_test_files_read": 0,
+    "nonvideo_train_and_missing_val_test": "covered_by_regression_test",
+    "source_manifest_preservation_and_path_rebasing": "covered_by_regression_test",
+    "frozen_hash_cold_and_warm_rejection": "covered_by_regression_test",
+    "metadata_and_duplicate_failures_before_features": "covered_by_regression_test"
+  },
+  "finite_selection_smoke": {
+    "status": "passed",
+    "candidate_budget": 6,
+    "selection_split": "val",
+    "test_files_read": 0,
+    "inputs_read": 36,
+    "selected_candidate_id": "if_100_128",
+    "note": "TOY choice only; not a recommended final benchmark configuration",
+    "selected_oof_plan_matches_common": true
+  },
+  "error_review_checks": [
+    {
+      "evaluation": "evaluation",
+      "counts_match_confusion": true,
+      "threshold_unchanged": true
+    },
+    {
+      "evaluation": "svm_evaluation",
+      "counts_match_confusion": true,
+      "threshold_unchanged": true
+    },
+    {
+      "evaluation": "selected_evaluation",
+      "counts_match_confusion": true,
+      "threshold_unchanged": true
+    }
+  ],
+  "score_content_sha256_checks": {
+    "status": "passed",
+    "exported_csvs": [
+      "common_oof/fold_assignments.csv",
+      "common_oof/oof_scores.csv",
+      "evaluation/test_scores.csv",
+      "fit/validation_scores.csv",
+      "oof/fold_assignments.csv",
+      "oof/oof_scores.csv",
+      "selected_evaluation/test_scores.csv",
+      "selected_oof/fold_assignments.csv",
+      "selected_oof/oof_scores.csv",
+      "selection/candidates/if_100_128_validation_scores.csv",
+      "selection/candidates/if_100_256_validation_scores.csv",
+      "selection/candidates/if_200_128_validation_scores.csv",
+      "selection/candidates/if_200_256_validation_scores.csv",
+      "selection/candidates/svm_nu_0.01_validation_scores.csv",
+      "selection/candidates/svm_nu_0.05_validation_scores.csv",
+      "selection/selected/validation_scores.csv",
+      "svm_evaluation/test_scores.csv",
+      "svm_fit/validation_scores.csv",
+      "svm_oof/fold_assignments.csv",
+      "svm_oof/oof_scores.csv"
+    ]
+  },
+  "cache_format": "descriptor-cache-v2",
+  "resource_smoke": {
+    "status": "passed",
+    "run_kind": "synthetic_smoke",
+    "is_detection_benchmark_result": false,
+    "input": "TOY MP4, 10s, 160x120, native 30 fps",
+    "fresh_process_repeats": 3,
+    "summary": {
+      "process_wall_seconds": {
+        "min": 0.8791631669737399,
+        "median": 0.8953767078928649,
+        "max": 0.9920694997999817
+      },
+      "inference_seconds_excluding_model_load": {
+        "min": 0.09996433299966156,
+        "median": 0.10037175007164478,
+        "max": 0.1772051660809666
+      },
+      "total_seconds_including_model_load": {
+        "min": 0.11212566588073969,
+        "median": 0.11265437491238117,
+        "max": 0.19375899992883205
+      },
+      "peak_rss_bytes": {
+        "min": 189087744,
+        "median": 189317120,
+        "max": 189644800
+      }
+    },
+    "environment": {
+      "system": "Darwin",
+      "release": "25.6.0",
+      "machine": "arm64",
+      "processor": "arm",
+      "logical_cpu_count": 10,
+      "python_executable": "${BRANCH_C_ROOT}/.venv/bin/python",
+      "versions": {
+        "python": "3.12.14",
+        "numpy": "2.5.3",
+        "scikit_learn": "1.9.1",
+        "opencv": "4.14.0",
+        "joblib": "1.6.0"
+      },
+      "opencv_threads": 10,
+      "thread_environment": {
+        "OMP_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "VECLIB_MAXIMUM_THREADS": null
+      }
+    },
+    "note": "Software verification only; formal real-video resource measurement pending"
+  },
+  "model_card": {
+    "path": "docs/MODEL_CARD.md",
+    "state": "development_formal_data_pending"
+  },
+  "runtime_versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1",
+    "opencv": "4.14.0",
+    "joblib": "1.6.0"
+  },
+  "source_sha256": {
+    ".gitignore": "d8ac5e673c72b43b98e00b4acc53a2e7c760e56a3963b63d24a5bad3634c824d",
+    "README.md": "345bf3d2cc2cdd77e2868a1b0b20b4b70f8684370bd716d3fe2b495ec4a9e577",
+    "configs/baseline.json": "231cd639c4be1b89f91f666c2c2239f37a82e928f0ee3670ad2112f5181a73fe",
+    "configs/one_class_svm.json": "2abfcc4e60599b191b6a3e24e227de4958632bd0279c439eee6a058c78f6c03d",
+    "docs/DATA_CONTRACT.md": "e2081f567f4cb4c6d1866b5411c89d79989a060ce268a5f5a5cba79eddf2a502",
+    "docs/HANDOFF_ZH.md": "e6ad3ddb5fef97afaa6d143bd69928d2b60726a39ca288140bd8b872e881909e",
+    "docs/INTEGRATION.md": "627d5b54f1e36802916c2e09d869b31f6752f7e135de5a9ef9a06d2767a1739e",
+    "docs/ITERATION_LOG.md": "09b27d8771fa6198dea0dbd0df3e2b96942f9fc093db42eca74de9658828d1f2",
+    "docs/METHOD_AND_EXPERIMENTS.md": "cadc5389800a64258916b9de8d1380a40f29e26c943e43972cf39616a1d4d5da",
+    "docs/MODEL_CARD.md": "7424030e8d5953dea3eda04e6ada4624c64e93fd59f61ddde4a131f34710513f",
+    "examples/manifest.csv": "e7f79d90add1ffcfedcc6465972c217ed2a090d9e0307c7979aa9b53138a6cfd",
+    "pyproject.toml": "3665e8eebdfd8c6ddfa5ff8296475d4ef4a9b02ab197d977746808fb6547cce2",
+    "requirements-lock.txt": "381642081b9a8148f83a7eb424e43abcc998534940c63952b29767a43fcaaffd",
+    "scripts/smoke_test.py": "4cdf8f63d933766d367ff30a63e2167987889f455083e31ff2b3ce9ab972558f",
+    "src/branch_c/__init__.py": "f078030124b425f2839ca5a56d03d0e29fa6af7ad7729a5b1196d9ea7842b431",
+    "src/branch_c/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/branch_c/benchmark.py": "e2c67415eedd608408f169b08d5ea145b7d9f2df61737229e47726abeee90197",
+    "src/branch_c/cache.py": "790f80ffcd8b191dc2d928816927df90091f84ef093ca42863be75e305881a49",
+    "src/branch_c/cli.py": "6ef36c7cc43c58f1db9ba483f943e5d9b4303eca7da9d4ee965344c475fc2bb9",
+    "src/branch_c/config.py": "9cd75f9a9e3e7b610a00abd9adf39af7bf90579132314f20d765e5daac5d0b27",
+    "src/branch_c/evaluation.py": "d2a0aeee59bf632f1b0a70df86ee75270e44cbdd2cc36c31b57d540e647f9a57",
+    "src/branch_c/features.py": "40ac72738a0f9af3e0daea56f989402085f89486a210eba4f326952e7356d6a3",
+    "src/branch_c/folds.py": "616da90bfc1003b5c9ed969484d8c74f0395cc674b5abc4e8d6fae8624c78ac3",
+    "src/branch_c/manifest.py": "9556a0e2dbe59bafa8877c814e3c886cb384f8b2114bad94cbb8db1bfe78175a",
+    "src/branch_c/model.py": "1fb9c425051faf7085dd5828489825df249be95ffeb3827ec79daaeb56b88f71",
+    "src/branch_c/pipeline.py": "9b93c4faa08c15d7fae8220e41d143124f63573dfbdde5dcb70af79c9c93ae51",
+    "src/branch_c/review.py": "8beed558c75f3be8dc897d62df24cecf44348662bb5a26b79d42fb4aa0abae95",
+    "src/branch_c/selection.py": "433e0edba60e1f76179537f7c2bb194d2f1c0055b0c9aa13ade7f132a28eb1e1",
+    "src/branch_c/video.py": "6f4c7f8a8fc55b1e524e34761c6e1f57989dabc536ec08634c4cb833332ebb8a",
+    "tests/test_branch_c.py": "3ebf39ac0e0f469d4c2330396fd75d14f2127211f4fdb036970a8fe178d11256",
+    "tests/test_fold_planning.py": "5071fc487cdde38738aad2a4d6a1e688eddb24611155141d221bf3343faac3ad",
+    "tests/test_iteration_guards.py": "c109b496e884952732ef5007eb5e70f166426ad1e0b8db5fd6fb2bd025623eb3",
+    "tests/test_review_and_cache.py": "dc962622cbcb4d33b46a6d01bf9375d7856a76b81ea9a8e8e7adda1d04a8900c",
+    "tests/test_selection_and_benchmark.py": "a450f7124f0c1bd8d9cd60b061d246b153fac8f568979466ee5bae44ff14a4fd"
+  },
+  "formal_training": "pending_actual_dataset",
+  "formal_detection_metrics": "not_available",
+  "formal_data_check": {
+    "project_data_directory_exists": false,
+    "training_manifest": null
+  },
+  "artifact_compatibility": "Feature/decoder signature and scoring unchanged. Current direct/planned OOF matches iteration 3 exactly on the same TOY clip IDs; prior compatible models remain loadable.",
+  "completion_audit": {
+    "branch_c_implementation": "verified_on_software_fixtures_and_TOY_only",
+    "formal_real_only_fit": "incomplete_without_actual_dataset",
+    "formal_cross_generator_metrics": "incomplete_without_actual_dataset",
+    "paired_fusion_ablation": "requires_A_B_outputs_and_shared_final_test",
+    "formal_failure_analysis": "requires_human_review_of_actual_test_cases",
+    "formal_resource_measurement": "requires_agreed_machine_and_actual_10s_video",
+    "full_goal_achieved": false
+  }
+}

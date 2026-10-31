@@ -22,12 +22,19 @@ and query/value LoRA adapters with a linear head.
 
 - `branch_a/dev/`: model loading, adaptation policies, training, evaluation,
   split generation, configuration and dependency files.
+- `dev/branch_c/`: real-only motion/temporal anomaly detection, tests, Chinese
+  handoff notes and aggregate experiment results.
+- `dev/tests/`: Branch A training and adaptation tests.
 - `branch_a/tests/`: training and adaptation tests.
 - `preprocessing/`: video-to-frame extraction and preprocessing validation.
 - `branch_a/REMOTE_SETUP.md`: remote runtime instructions for the separately
   transferred data package. Its historical package audit is not a claim that
   datasets or model weights are included in this Git repository.
 
+Datasets, original videos, PNGs, model weights, embedding caches, checkpoints,
+full per-video reports, local environments and transfer archives are intentionally absent.
+Branch C includes named aggregate metrics and scientific plots without video frames.
+The `.gitignore` allowlist prevents these from being accidentally added.
 `remote-results/` contains downloaded metrics, predictions, plots and training
 histories. Its `.pt` model checkpoints are stored with Git LFS; install Git LFS
 and run `git lfs pull` after cloning to retrieve them. Pretrained encoder weights
@@ -39,6 +46,23 @@ transfer archives are excluded. Run the sequential experiment runner with
 best weights, so their generator holdouts are not independent unseen tests.
 Do not overwrite the source of an active remote run with this renamed layout;
 its saved source identity belongs to the previous layout.
+
+## Branch C
+
+See [Branch C setup and handoff](dev/branch_c/README.md) and its
+[aggregate results](dev/branch_c/results/README.md). Download its trained models and
+per-video OOF/validation/test scores from the [artifact release guide](dev/branch_c/docs/ARTIFACTS_ZH.md).
+These binary artifacts are release assets; raw media, input manifests and caches remain excluded.
+Branch C runs in its own
+Python 3.12 environment and reads temporally dense video observations. The
+8 PNGs used by Branch A are not equivalent motion/frequency input.
+
+The current Branch A four-round protocol and Branch C 28-round protocol differ.
+Agree on common grouped manifests, validation roles and OOF folds before fusion;
+these historical scores must not be merged directly. The six-development /
+two-locked-final-test diagram has not been executed by this Branch C version.
+
+The setup, checkpoint and training instructions below apply to Branch A.
 
 ## Setup
 
@@ -53,6 +77,9 @@ python -m pip install -r dev/requirements.adaptation.txt
 python -m pytest tests/test_branch_a.py tests/test_adaptation.py -q
 ```
 
+Run all model commands from `dev/`. Keep the original processed indexes and
+PNG frame paths together under `dev/processed/`, transferred separately.
+Original videos are not used by Branch A training or evaluation. Frame extraction and
 Run all model commands from `branch_a/`. Keep the original processed indexes and
 PNG frame paths together under `branch_a/processed/`, transferred separately.
 Original videos are not used by training or evaluation. Frame extraction and

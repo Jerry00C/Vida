@@ -31,6 +31,48 @@
 /branch_a/tests/*
 !/branch_a/tests/test_*.py
 
+# Branch C: source, documentation, tests and named aggregate results only.
+!/dev/branch_c/
+/dev/branch_c/*
+!/dev/branch_c/.gitignore
+!/dev/branch_c/README.md
+!/dev/branch_c/pyproject.toml
+!/dev/branch_c/requirements*.txt
+!/dev/branch_c/configs/
+/dev/branch_c/configs/*
+!/dev/branch_c/configs/*.json
+!/dev/branch_c/docs/
+/dev/branch_c/docs/*
+!/dev/branch_c/docs/*.md
+!/dev/branch_c/examples/
+/dev/branch_c/examples/*
+!/dev/branch_c/examples/manifest.csv
+!/dev/branch_c/scripts/
+/dev/branch_c/scripts/*
+!/dev/branch_c/scripts/*.py
+!/dev/branch_c/src/
+/dev/branch_c/src/*
+!/dev/branch_c/src/branch_c/
+/dev/branch_c/src/branch_c/*
+!/dev/branch_c/src/branch_c/*.py
+!/dev/branch_c/tests/
+/dev/branch_c/tests/*
+!/dev/branch_c/tests/test_*.py
+!/dev/branch_c/validation/
+/dev/branch_c/validation/*
+!/dev/branch_c/validation/formal_verification.json
+!/dev/branch_c/validation/verification.json
+!/dev/branch_c/results/
+/dev/branch_c/results/*
+!/dev/branch_c/results/README.md
+!/dev/branch_c/results/summary.json
+!/dev/branch_c/results/protocol_summary.json
+!/dev/branch_c/results/verification_summary.json
+!/dev/branch_c/results/metrics_by_round.csv
+!/dev/branch_c/results/generator_summary.csv
+!/dev/branch_c/results/holdout_pairs.png
+!/dev/branch_c/results/generator_holdouts.png
+
 # Always exclude generated data, credentials, environments and caches.
 **/__pycache__/
 **/.pytest_cache/
@@ -48,6 +90,22 @@
 *.npy
 *.zip
 *.tar
+**/data/
+**/artifacts/
+**/output/
+**/*.egg-info/
+*.joblib
+*.pkl
+*.pickle
+*.npz
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.tar.gz
+*.7z
+*.rar
 
 # Downloaded experiment reports and LFS checkpoints.
 !/remote-results/

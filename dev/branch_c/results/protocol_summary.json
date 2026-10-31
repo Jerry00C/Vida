@@ -1,0 +1,27 @@
+{
+  "protocol": "vida_guard32k_rotation_6seen_2unseen_v1",
+  "seed": 42,
+  "n_rounds": 28,
+  "base_partition": "source/prompt connected groups, stratified by family signature; 60% train,10% model_selection,10% calibration,20% test",
+  "validation": "600 real (300/source) + 100/generated-family for each of six seen families in each validation role; final threshold only600realcal",
+  "test": "200 fixed clips/family; unseen2:400gen+400real, seen6:1200gen+1200real; each real pool50/50Vript/HDVG and disjoint",
+  "excluded": "Unseen generator development rows quarantined; unused quota rows recorded; no video relabelled or copied",
+  "selection": "Same six predeclared IF/OCSVM candidates; AUROC,macroF1,predeclared order; each round uses only its seen-family model_selection",
+  "reuse": "Only identical real-fit IDs+hashes, feature signature and estimator parameters permit model reuse; generated data never fitC",
+  "limitations": [
+    "Repartitioned analysis of an already evaluated cohort, not a fresh blind test",
+    "Generator families share architecture/conditioning; Mora includesSVD; two namedI2V versus sixT2V is not independently certified",
+    "Duration/fps/content/source confounds and unknown semantic duplicates remain",
+    "28 overlapping rounds are dependent; mean/range are descriptive, no iid28-round confidence interval",
+    "A/B/fusion outputs require respective teammates; no fusion gain claimed"
+  ],
+  "plan_id": "c49a65bf7000a596ade1e2f143685e083d16c6604088f2b5057af6595fd257de",
+  "execution_plan_id": "eaa8b802016f671e5ec0acb168ecadb31da6dca37a458695714dc8b8519a13fe",
+  "not_included": [
+    "Original videos and sampled video frames",
+    "Per-video manifests, labels, hashes and prediction scores",
+    "Fitted models and feature caches",
+    "Full reports containing video case images",
+    "Data delivery archives"
+  ]
+}
