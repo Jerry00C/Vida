@@ -2,12 +2,12 @@
 
 ## GitHub 交付说明
 
-本目录是 Lang Heran 的 Branch C，可独立安装和运行。以下命令均从仓库的 `dev/branch_c/` 执行。
+本目录是 Lang Heran 的 Branch C，可独立安装和运行。以下命令均从仓库的 `branches_dev/branch_c/` 执行。
 
 已上传源码、配置、测试、中文交接说明及 [汇总实验结果](results/README.md)。**已训练模型和逐视频 OOF / 验证 / 测试分数已通过 [GitHub Release 单独提供](docs/ARTIFACTS_ZH.md)**。原始视频、视频帧、正式输入清单、特征缓存、完整案例帧报告和原始数据压缩包未上传。下文历史 `data/`、`artifacts/` 链接仅在拥有相应本地数据和实验输出时可用。
 
 ```bash
-cd dev/branch_c
+cd branches_dev/branch_c
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-lock.txt
@@ -182,3 +182,5 @@ A/B/C 共同使用导出的 `manifest_with_folds.csv`，上述 fit/select/evalua
 模型的 `is_anomalous` 只表示超过真实验证集确定的异常阈值。最终概率、风险等级及 Brier/ECE 应由融合和校准层提供。只加载自己或团队可信的 joblib 模型文件。
 
 评价会同时导出 `test_scores.csv` 与 `error_review.csv`，最后写入 `test_report.json` 作为完成记录。审阅表的 FP/FN 仅用于二分类评价，人工观看后填写 `failure_type` 和 `notes`；程序不会从分数推断失效原因。已有分数或审阅文件的目录会被拒绝，以免覆盖人工笔记。各阶段分数 CSV 的 `content_sha256` 记录被评分文件的字节哈希，合并时仍以 `clip_id` 为主键。
+
+路径说明：上面的 `artifacts/` HTML 报告属于原始实验生成物，不包含在当前 Git 检出中；目录迁移不会生成它们。仓库内可直接查看 [汇总结果](results/README.md)，完整生成物请按 [下载指南](docs/ARTIFACTS_ZH.md) 获取。

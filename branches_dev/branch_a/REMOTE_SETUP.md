@@ -1,9 +1,13 @@
 # Remote training package
 
-Transfer this entire `branch_a/` directory, preserving symlinks (for example with
+Transfer this entire `branches_dev/branch_a/` directory, preserving symlinks (for example with
 `rsync -a`). On the remote machine, **cd into the transferred directory** before
 running the commands below. Its name does not matter; it must contain sibling
 directories `dev/`, `processed/`, `runs/`, and `tests/`.
+
+The module commands below work from the transferred folder. For the full
+`run_all_remote.sh` orchestration script, preserve the repository layout
+`PR2/branches_dev/branch_a/run_all_remote.sh` and invoke it from any directory.
 
 ## Environment
 
@@ -75,7 +79,7 @@ remote folders. Full training is not launched by packaging or verification.
 
 ## Package audit (2026-10-26)
 
-- Moved processed/ from inside branch_a/ to this directory to match CLI defaults.
+- Moved processed/ from inside branches_dev/branch_a/ to this directory to match CLI defaults.
 - All 256,000 indexed frame paths exist for 32,000 videos.
 - Both original index hashes match the full split manifest.
 - All three pinned pretrained snapshots include config, processor and weights;

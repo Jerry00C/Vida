@@ -1,1 +1,1 @@
--r ../branch_a/dev/requirements.txt
+-r ../branches_dev/branch_a/dev/requirements.txt

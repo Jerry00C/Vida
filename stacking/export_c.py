@@ -10,7 +10,7 @@ import sys
 import time
 
 REPO = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO / 'dev/branch_c/src'))
+sys.path.insert(0, str(REPO / 'branches_dev/branch_c/src'))
 from branch_c.model import load_bundle, runtime_versions
 from branch_c.video import read_video
 from branch_c.features import extract_features

@@ -15,10 +15,10 @@ def main():
     c = sub.add_parser('branch-a')
     c.add_argument('--plan', required=True); c.add_argument('--split', required=True)
     c.add_argument('--cache', required=True); c.add_argument('--output', required=True)
-    c.add_argument('--config', default='branch_a/dev/config.json'); c.add_argument('--resume', action='store_true')
+    c.add_argument('--config', default='branches_dev/branch_a/dev/config.json'); c.add_argument('--resume', action='store_true')
     c = sub.add_parser('export-a')
     c.add_argument('--cache', required=True); c.add_argument('--checkpoint', required=True)
-    c.add_argument('--hf-cache', default='branch_a/runs/branch_a/huggingface'); c.add_argument('--output', required=True)
+    c.add_argument('--hf-cache', default='branches_dev/branch_a/runs/branch_a/huggingface'); c.add_argument('--output', required=True)
     for name in ('validate', 'fit', 'evaluate'):
         c = sub.add_parser(name)
         c.add_argument('--plan', required=True)

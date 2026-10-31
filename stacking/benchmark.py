@@ -29,7 +29,7 @@ def main():
         import av
         import torch
         from transformers import CLIPVisionModel,CLIPImageProcessor
-        from branch_a.dev.adapters import AdaptedVision
+        from branches_dev.branch_a.dev.adapters import AdaptedVision
         torch.set_num_threads(1)
         cp=torch.load(root/'models/branch_a/partial_clip_round4/best.pt',map_location='cpu',weights_only=False)
         spec=cp['spec'];encoder=CLIPVisionModel.from_pretrained(root/'models/branch_a/clip_base_57c2164',local_files_only=True,attn_implementation='eager')
@@ -49,7 +49,7 @@ def main():
         runtime={'torch':str(torch.__version__),'device':torch.cuda.get_device_name(),'precision':'bf16','frames':8}
     elif args.branch=='B':
         import cv2
-        cv2.setNumThreads(1);sys.path.insert(0,str(repo/'deliverables/branch_b_temporal_wavelet'))
+        cv2.setNumThreads(1);sys.path.insert(0,str(repo/'branches_dev/branch_b'))
         from inference import load_detector
         model=load_detector()
         def infer(row):
@@ -58,7 +58,7 @@ def main():
         runtime={'device':'CPU','frames':'native B at most 64','opencv':cv2.__version__}
     else:
         import cv2
-        cv2.setNumThreads(1);sys.path.insert(0,str(repo/'dev/branch_c/src'))
+        cv2.setNumThreads(1);sys.path.insert(0,str(repo/'branches_dev/branch_c/src'))
         from branch_c.model import load_bundle,runtime_versions
         from branch_c.video import read_video
         from branch_c.features import extract_features

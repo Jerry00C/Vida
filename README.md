@@ -20,14 +20,14 @@ and query/value LoRA adapters with a linear head.
 
 ## Repository layout
 
-- `branch_a/dev/`: model loading, adaptation policies, training, evaluation,
+- `branches_dev/branch_a/dev/`: model loading, adaptation policies, training, evaluation,
   split generation, configuration and dependency files.
-- `dev/branch_c/`: real-only motion/temporal anomaly detection, tests, Chinese
+- `branches_dev/branch_c/`: real-only motion/temporal anomaly detection, tests, Chinese
   handoff notes and aggregate experiment results.
 - `dev/tests/`: Branch A training and adaptation tests.
-- `branch_a/tests/`: training and adaptation tests.
+- `branches_dev/branch_a/tests/`: training and adaptation tests.
 - `preprocessing/`: video-to-frame extraction and preprocessing validation.
-- `branch_a/REMOTE_SETUP.md`: remote runtime instructions for the separately
+- `branches_dev/branch_a/REMOTE_SETUP.md`: remote runtime instructions for the separately
   transferred data package. Its historical package audit is not a claim that
   datasets or model weights are included in this Git repository.
 
@@ -42,16 +42,16 @@ are separate and still required to reconstruct the complete models.
 
 Dataset frames, original videos, pretrained model caches, local environments and
 transfer archives are excluded. Run the sequential experiment runner with
-`bash branch_a/run_all_remote.sh`. Later rounds inherit the preceding round's
+`bash branches_dev/branch_a/run_all_remote.sh`. Later rounds inherit the preceding round's
 best weights, so their generator holdouts are not independent unseen tests.
 Do not overwrite the source of an active remote run with this renamed layout;
 its saved source identity belongs to the previous layout.
 
 ## Branch C
 
-See [Branch C setup and handoff](dev/branch_c/README.md) and its
-[aggregate results](dev/branch_c/results/README.md). Download its trained models and
-per-video OOF/validation/test scores from the [artifact release guide](dev/branch_c/docs/ARTIFACTS_ZH.md).
+See [Branch C setup and handoff](branches_dev/branch_c/README.md) and its
+[aggregate results](branches_dev/branch_c/results/README.md). Download its trained models and
+per-video OOF/validation/test scores from the [artifact release guide](branches_dev/branch_c/docs/ARTIFACTS_ZH.md).
 These binary artifacts are release assets; raw media, input manifests and caches remain excluded.
 Branch C runs in its own
 Python 3.12 environment and reads temporally dense video observations. The
@@ -69,7 +69,7 @@ The setup, checkpoint and training instructions below apply to Branch A.
 Use Python 3.11. From the repository root:
 
 ```bash
-cd branch_a
+cd branches_dev/branch_a
 python3.11 -m venv .venv-branch-a
 source .venv-branch-a/bin/activate
 # Install a PyTorch build appropriate for your GPU/runtime, then:
@@ -80,15 +80,15 @@ python -m pytest tests/test_branch_a.py tests/test_adaptation.py -q
 Run all model commands from `dev/`. Keep the original processed indexes and
 PNG frame paths together under `dev/processed/`, transferred separately.
 Original videos are not used by Branch A training or evaluation. Frame extraction and
-Run all model commands from `branch_a/`. Keep the original processed indexes and
-PNG frame paths together under `branch_a/processed/`, transferred separately.
+Run all model commands from `branches_dev/branch_a/`. Keep the original processed indexes and
+PNG frame paths together under `branches_dev/branch_a/processed/`, transferred separately.
 Original videos are not used by training or evaluation. Frame extraction and
 preprocessing validation have separate requirements; see preprocessing/README.md.
 
 ## Model weights and splits
 
 Either transfer the existing `runs/branch_a/huggingface/` cache and split manifests
-into `branch_a/`, or download the configured pretrained checkpoints and build splits:
+into `branches_dev/branch_a/`, or download the configured pretrained checkpoints and build splits:
 
 ```bash
 python -m dev download
@@ -128,6 +128,8 @@ python -m dev.adapt train-all --mode lora --device cuda
 ```
 
 Use `--device cpu` for a CPU-only machine. Choose batch sizes for available memory.
-Test evaluation is separate from training. See `branch_a/dev/README.md` and
-`branch_a/dev/ADAPTATION.md` for evaluation, resume and comparison commands.
+Test evaluation is separate from training. See `branches_dev/branch_a/dev/README.md` and
+`branches_dev/branch_a/dev/ADAPTATION.md` for evaluation, resume and comparison commands.
 Smoke metrics verify the pipeline and are not full research results.
+
+Branch implementations are grouped under `branches_dev/branch_a`, `branches_dev/branch_b`, and `branches_dev/branch_c`. Branch B is preserved as a sealed package; historical paths in its documentation refer to its former `deliverables/branch_b_temporal_wavelet` location. Run its relative commands from `branches_dev/branch_b`.

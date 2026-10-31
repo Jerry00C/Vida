@@ -35,12 +35,12 @@ difference. All new-suite A predictions use one fixed local runtime and model.
 
 ## Branch dependencies
 
-A implementation is in the current upstream `branch_a/dev` directory. Its
+A implementation is in the current upstream `branches_dev/branch_a/dev` directory. Its
 selected checkpoint is tracked through upstream LFS, while its exact pretrained
 CLIP base is obtained separately. B's sealed implementation/model is in
 [PR #2](https://github.com/Jerry00C/Vida/pull/2), expected at
-`deliverables/branch_b_temporal_wavelet`. C implementation is in
-[PR #1](https://github.com/Jerry00C/Vida/pull/1), expected at `dev/branch_c`.
+`branches_dev/branch_b`. C implementation is in
+[PR #1](https://github.com/Jerry00C/Vida/pull/1), expected at `branches_dev/branch_c`.
 C weights are in the upstream `branch-c-artifacts-2026-10-29` release.
 These independent branch deliveries are prerequisites for raw-video adapters;
 they are not needed for the released fusion model when A/B/C scores are supplied.

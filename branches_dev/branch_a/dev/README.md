@@ -11,6 +11,7 @@ resize/crop/rescale/normalization once, starting from the original RGB PNG.
 
 ## Setup and checkpoints
 
+Run the following commands from `PR2/branches_dev/branch_a/`.
 Use Python 3.11 in a separate environment from preprocessing:
 
 ```sh
@@ -265,7 +266,7 @@ The review tightened leakage validation to reject non-heldout members even when 
 .venv-branch-a/bin/python -B -m dev.verify_run
 ```
 
-Reports: `runs/branch_a/verification_report.json`, `smoke_report.json`, `model_access.json`, `smoke_comparison/`. Logs: `branch_a/dev_audit.log`, `branch_a_smoke.log`, `branch_a_tests.log`, `branch_a_verification.log`, `branch_a_dinov3_smoke.log`.
+Reports: `runs/branch_a/verification_report.json`, `smoke_report.json`, `model_access.json`, `smoke_comparison/`. Logs: `branches_dev/branch_a/dev_audit.log`, `branch_a_smoke.log`, `branch_a_tests.log`, `branch_a_verification.log`, `branch_a_dinov3_smoke.log`.
 
 **No full-dataset feature extraction or training was launched.** No paid resources or hyperparameter sweep was started. Smoke metrics are pipeline verification only.
 

@@ -25,8 +25,8 @@ def main():
     import numpy as np
     import torch
     from transformers import CLIPVisionModel,CLIPImageProcessor
-    from branch_a.dev.adapters import AdaptedVision
-    from branch_a.dev.common import identity
+    from branches_dev.branch_a.dev.adapters import AdaptedVision
+    from branches_dev.branch_a.dev.common import identity
     torch.set_num_threads(4);torch.manual_seed(42)
     root=Path(args.root);checkpoint=Path(args.checkpoint);base=Path(args.base)
     manifest=Path(args.manifest) if args.manifest else root/'manifests/manifest.csv'

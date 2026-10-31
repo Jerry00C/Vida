@@ -24,7 +24,7 @@
 
 解压得到 branch_c_trained_artifacts/。对最新协议，先打开 rotation_6seen_2unseen_v1/round_XX/model_reference.json，根据 selected_candidate 和 model_path 找到实际共享模型。不要随意挑一个模型替代所有轮次。
 
-在 dev/branch_c/ 下按 README 安装 Python 3.12.14 的锁定依赖和源码，然后使用原有命令：
+在 branches_dev/branch_c/ 下按 README 安装 Python 3.12.14 的锁定依赖和源码，然后使用原有命令：
 
     branch-c predict --model /本机路径/branch_c_trained_artifacts/rotation_6seen_2unseen_v1/shared_models/svm_nu_0.01/model.joblib --video /本机路径/new_video.mp4 --output artifacts/new_video_result.json
 

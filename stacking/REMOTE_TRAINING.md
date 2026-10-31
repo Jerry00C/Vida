@@ -11,14 +11,14 @@ previous rounds. OOF generation remains a separate, independent-fold workflow.
 
 `run_all_remote.sh` runs 3 backbones x 3 methods x 4 rounds = 36 experiments,
 sequentially. It is an orchestration script, not a remote job launcher. Copy the
-script to `PR2/branch_a/run_all_remote.sh` on the server; creating it locally does
-not update GitHub or the server automatically. Keep `branch_a/` beside `stacking/`.
+script to `PR2/branches_dev/branch_a/run_all_remote.sh` on the server; creating it locally does
+not update GitHub or the server automatically. Keep `branches_dev/` and `stacking/` under the project root.
 
-Activate a Python 3.11 environment with `branch_a/dev/requirements.adaptation.txt`
+Activate a Python 3.11 environment with `branches_dev/branch_a/dev/requirements.adaptation.txt`
 and GPU-compatible PyTorch already installed. Supply the full dataset frames and
-indexes in `branch_a/processed`, full splits in `branch_a/runs/branch_a/splits_v1.json`, and
-all three pretrained snapshots in `branch_a/runs/branch_a/huggingface`. Download models
-with `python -m dev download` from `branch_a/` first if missing. DINOv3 requires
+indexes in `branches_dev/branch_a/processed`, full splits in `branches_dev/branch_a/runs/branch_a/splits_v1.json`, and
+all three pretrained snapshots in `branches_dev/branch_a/runs/branch_a/huggingface`. Download models
+with `python -m dev download` from `branches_dev/branch_a/` first if missing. DINOv3 requires
 approved access. The runner defaults to offline model loading and CUDA.
 
 On the remote server, start a persistent terminal session:
@@ -27,19 +27,19 @@ On the remote server, start a persistent terminal session:
 tmux new -s vida
 cd /path/to/PR2
 source /path/to/your/venv/bin/activate
-bash branch_a/run_all_remote.sh
+bash branches_dev/branch_a/run_all_remote.sh
 ```
 
 Detach with Ctrl-B then D. Reattach with `tmux attach -t vida`. If tmux is not
 installed, use the server's job scheduler or another persistent session manager.
 The script writes logs itself and stops at the first failed stage.
 
-The default output is `PR2/branch_a/runs/remote_sequential`. To choose another disk/location
+The default output is `PR2/branches_dev/branch_a/runs/remote_sequential`. To choose another disk/location
 and change memory-related settings before starting:
 
 ```bash
 BATCH_SIZE=4 ACCUMULATION=2 FRAME_BATCH_SIZE=4 \
-  bash branch_a/run_all_remote.sh /workspace/vida-results
+  bash branches_dev/branch_a/run_all_remote.sh /workspace/vida-results
 ```
 
 Use the **identical command and environment** to resume after interruption. Keep
@@ -97,7 +97,7 @@ Run this **on your local machine**, adapting user, host, port and remote path:
 ```bash
 mkdir -p remote-results
 rsync -avP -e 'ssh -p 22' \
-  USER@HOST:/path/to/PR2/branch_a/runs/remote_sequential/ ./remote-results/
+  USER@HOST:/path/to/PR2/branches_dev/branch_a/runs/remote_sequential/ ./remote-results/
 cd remote-results
 shasum -a 256 -c SHA256SUMS
 ```
@@ -108,8 +108,8 @@ for evaluating new videos; frozen cached evaluation only needs matching caches.
 For a single archive after COMPLETE exists, run on the server:
 
 ```bash
-cd /path/to/PR2/branch_a/runs
-tar -cf remote_all.tar remote_all
+cd /path/to/PR2/branches_dev/branch_a/runs
+tar -cf remote_sequential.tar remote_sequential
 ```
 
 ## Portable frozen-model export after transfer
@@ -117,7 +117,7 @@ tar -cf remote_all.tar remote_all
 From local PR2, using one selected backbone/round (example: CLIP, round 1):
 
 ```bash
-python -m stacking export-a \
+python -m stacking.legacy_oof_cli export-a \
   --cache remote-results/frozen/cache/clip \
   --checkpoint remote-results/frozen/training/clip/round_1/best.pt \
   --hf-cache remote-results/huggingface \
@@ -126,15 +126,15 @@ python -m stacking export-a \
 
 Then `stacking.branch_a.load_frozen(path)` returns the frozen encoder, processor
 and head. For partial/LoRA, reconstruct `AdaptedVision` with the checkpoint's
-`spec` and load `cp['adapted_state']`; existing `branch_a.adapt evaluate` already
-performs this reconstruction. For example, from local `branch_a/`:
+`spec` and load `cp['adapted_state']`; existing `dev.adapt evaluate` already
+performs this reconstruction. For example, from local `branches_dev/branch_a/`:
 
 ```bash
 python -m dev.adapt evaluate \
-  --root processed --split ../remote-results/splits.json --round round_1 \
-  --checkpoint ../remote-results/adapt/training/lora/clip/round_1/best.pt \
-  --hf-cache ../remote-results/huggingface \
-  --output ../remote-results/local-evaluation/lora-clip-round_1 --device cpu
+  --root processed --split runs/branch_a/splits_v1.json --round round_1 \
+  --checkpoint ../../remote-results/adapt/training/partial/clip/round_1/best.pt \
+  --hf-cache runs/branch_a/huggingface \
+  --output ../../remote-results/local-evaluation/partial-clip-round_1 --device cpu
 ```
 
 This is evaluation, not resumption of GPU training on a different device.

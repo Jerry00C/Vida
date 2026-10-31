@@ -1,5 +1,5 @@
 # Preserve the sealed Branch B package byte-for-byte across platforms.
-/deliverables/branch_b_temporal_wavelet/** -text whitespace=cr-at-eol
+/branches_dev/branch_b/** -text whitespace=cr-at-eol
 remote-results/**/*.pt filter=lfs diff=lfs merge=lfs -text
 remote-results/**/*.csv whitespace=cr-at-eol
 

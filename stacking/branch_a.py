@@ -9,7 +9,7 @@ from .core import digest, read, require, seal, template, verify, write
 
 def imports():
     # Support `python -m stacking` from PR2; dev remains independently runnable.
-    dev = str(Path(__file__).resolve().parents[1] / 'branch_a')
+    dev = str(Path(__file__).resolve().parents[1] / 'branches_dev' / 'branch_a')
     if dev not in sys.path:
         sys.path.insert(0, dev)
     from dev.features import FeatureCache

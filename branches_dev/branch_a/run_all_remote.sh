@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Run from any directory. This script lives inside branch_a/.
+# Run from any directory. This script lives inside branches_dev/branch_a/.
 set -Eeuo pipefail
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-cd "$PROJECT_ROOT/branch_a"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+cd "$PROJECT_ROOT/branches_dev/branch_a"
 PYTHON="${PYTHON:-python}"
 DEVICE="${DEVICE:-cuda}"
 WORKERS="${WORKERS:-0}"
@@ -13,10 +13,10 @@ PRECISION="${PRECISION:-auto}"
 export PYTHONUNBUFFERED=1 MPLBACKEND=Agg
 # Download/authenticate beforehand if weights are not already cached.
 export HF_HUB_OFFLINE="${HF_HUB_OFFLINE:-1}"
-SPLITS="${SPLITS:-$PROJECT_ROOT/branch_a/runs/branch_a/splits_v1.json}"
-HF_CACHE="${HF_CACHE:-$PROJECT_ROOT/branch_a/runs/branch_a/huggingface}"
-DATA_ROOT="${DATA_ROOT:-$PROJECT_ROOT/branch_a/processed}"
-RUN_DIR="${1:-$PROJECT_ROOT/branch_a/runs/remote_sequential}"
+SPLITS="${SPLITS:-$PROJECT_ROOT/branches_dev/branch_a/runs/branch_a/splits_v1.json}"
+HF_CACHE="${HF_CACHE:-$PROJECT_ROOT/branches_dev/branch_a/runs/branch_a/huggingface}"
+DATA_ROOT="${DATA_ROOT:-$PROJECT_ROOT/branches_dev/branch_a/processed}"
+RUN_DIR="${1:-$PROJECT_ROOT/branches_dev/branch_a/runs/remote_sequential}"
 RUN_DIR="$($PYTHON -c 'import pathlib,sys; print(pathlib.Path(sys.argv[1]).resolve())' "$RUN_DIR")"
 export PROJECT_ROOT RUN_DIR DEVICE WORKERS FRAME_BATCH_SIZE BATCH_SIZE ACCUMULATION PRECISION SPLITS HF_CACHE DATA_ROOT
 mkdir -p "$RUN_DIR/logs"
@@ -45,7 +45,7 @@ assert not split['smoke'], 'Full training requires the full split, not smoke spl
 assert set(split['rounds'])=={'round_1','round_2','round_3','round_4'}
 for name,value in split['index_fingerprints'].items():
  assert hashlib.sha256((data/'indexes'/name).read_bytes()).hexdigest()==value, 'Data index mismatch'
-files=list((root/'branch_a/dev').glob('*.py'))+list((root/'branch_a/dev').glob('*.json'))+list((root/'branch_a/dev').glob('*.txt'))+list((root/'stacking').glob('*.py'))+[root/'branch_a/run_all_remote.sh']
+files=list((root/'branches_dev/branch_a/dev').glob('*.py'))+list((root/'branches_dev/branch_a/dev').glob('*.json'))+list((root/'branches_dev/branch_a/dev').glob('*.txt'))+list((root/'stacking').glob('*.py'))+[root/'branches_dev/branch_a/run_all_remote.sh']
 spec={'round_training':'sequential_previous_best; later unseen scores are not held-out estimates','split_identity':split['split_identity'],
       'settings':{k:os.environ[k] for k in ('DEVICE','WORKERS','FRAME_BATCH_SIZE','BATCH_SIZE','ACCUMULATION','PRECISION')},
       'versions':{'python':sys.version,'torch':torch.__version__,'transformers':transformers.__version__,'peft':peft.__version__,'sklearn':sklearn.__version__},
@@ -68,8 +68,8 @@ PY
 mkdir -p "$RUN_DIR/huggingface"
 cp -a "$HF_CACHE/." "$RUN_DIR/huggingface/"
 HF_SAVED="$RUN_DIR/huggingface"
-BASE_CONFIG="$RUN_DIR/source/branch_a/dev/config.json"
-ADAPT_CONFIG="$RUN_DIR/source/branch_a/dev/adaptation_config.json"
+BASE_CONFIG="$RUN_DIR/source/branches_dev/branch_a/dev/config.json"
+ADAPT_CONFIG="$RUN_DIR/source/branches_dev/branch_a/dev/adaptation_config.json"
 SPLIT_SAVED="$RUN_DIR/splits.json"
 
 for backbone in clip dinov2 dinov3; do

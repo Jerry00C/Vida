@@ -54,7 +54,7 @@ def read_cache(path):
 
 
 def worker(tasks_path, output_path):
-    package=Path(__file__).resolve().parents[1]/"deliverables/branch_b_temporal_wavelet"
+    package=Path(__file__).resolve().parents[1]/"branches_dev/branch_b"
     initialize(str(package))
     tasks=json.loads(Path(tasks_path).read_text(encoding="utf-8"))
     with Path(output_path).open("w",encoding="utf-8") as stream:
@@ -64,7 +64,7 @@ def worker(tasks_path, output_path):
 
 def export(manifest_path, data_root, output, workers=2, limit=None):
     manifest_path=Path(manifest_path).resolve();data_root=Path(data_root).resolve();output=Path(output).resolve()
-    package=Path(__file__).resolve().parents[1]/"deliverables/branch_b_temporal_wavelet"
+    package=Path(__file__).resolve().parents[1]/"branches_dev/branch_b"
     model=package/"model/branch_b_temporal_wavelet_full.joblib"
     p.require(model.exists(), "Branch B sealed delivery is missing")
     frame=p.table(manifest_path)

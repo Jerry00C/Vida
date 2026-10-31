@@ -1,7 +1,7 @@
 # Three-branch video stacking
 
-Run commands from **PR2**, not `branch_a/`. This separate package imports the existing
-frozen trainer from `branch_a/dev` without modifying it. It combines:
+Run commands from **PR2**, not `branches_dev/branch_a/`. This separate package imports the existing
+frozen trainer from `branches_dev/branch_a/dev` without modifying it. It combines:
 
 - A: mean of eight frozen appearance-head frame logits.
 - B: one temporal-model video logit (GRU or shallow temporal transformer).
@@ -20,7 +20,7 @@ outputs outside tracked code. Examples put outputs in `stacking/runs/`.
 
 Use the full processed-data split and matching full embedding cache. The old
 75-video smoke cache is insufficient for a full experiment. Generate full caches
-using the existing `branch_a/dev` feature-extraction commands first.
+using the existing `branches_dev/branch_a/dev` feature-extraction commands first.
 
 All branches share clip IDs, group-disjoint splits, labels (0 real, 1 generated)
 and round. B may need a separate consecutive-frame sampling pipeline, timestamp
@@ -31,7 +31,7 @@ its real-only fitting policy. Original videos may be needed for B's preprocessin
 ## 1. Freeze the experiment design and generate a fold plan
 
 ```bash
-python -m stacking.legacy_oof_cli folds --split branch_a/runs/branch_a/splits_v1.json \
+python -m stacking.legacy_oof_cli folds --split branches_dev/branch_a/runs/branch_a/splits_v1.json \
   --round round_1 --folds 5 --output stacking/runs/round_1/plan.json
 ```
 
@@ -56,8 +56,8 @@ out. Shared real videos in seen/unseen tests are preserved as separate role rows
 ```bash
 python -m stacking.legacy_oof_cli branch-a \
   --plan stacking/runs/round_1/plan.json \
-  --split branch_a/runs/branch_a/splits_v1.json \
-  --cache branch_a/runs/branch_a/cache/clip \
+  --split branches_dev/branch_a/runs/branch_a/splits_v1.json \
+  --cache branches_dev/branch_a/runs/branch_a/cache/clip \
   --output stacking/runs/round_1/A
 ```
 
@@ -134,7 +134,7 @@ columns A, B, C, and exactly the same score conventions. No labels are needed.
 ## 5. Save and reload all frozen encoder parameters
 
 ```bash
-python -m stacking.legacy_oof_cli export-a --cache branch_a/runs/branch_a/cache/clip \
+python -m stacking.legacy_oof_cli export-a --cache branches_dev/branch_a/runs/branch_a/cache/clip \
   --checkpoint stacking/runs/round_1/A/final/best.pt \
   --output stacking/runs/round_1/export/A
 ```
