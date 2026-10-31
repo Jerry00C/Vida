@@ -1,7 +1,11 @@
 # Source and downloaded results are allowed; datasets stay local.
 /*
 !/.gitignore
+!/.gitattributes
 !/README.md
+!/deliverables/
+/deliverables/*
+!/deliverables/branch_b_temporal_wavelet/
 !/.gitattributes
 !/stacking/
 /stacking/*

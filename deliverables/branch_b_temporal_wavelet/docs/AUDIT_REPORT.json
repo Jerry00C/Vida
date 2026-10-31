@@ -1,0 +1,617 @@
+{
+  "audit_status": "PASS",
+  "verification_timestamp_utc": "2026-10-18T07:00:24.407706+00:00",
+  "audit_script": "scripts/audit_temporal_wavelet_delivery.py",
+  "audit_script_sha256": "d3169cab59515140bc2bc1e42a64155b17b3f6299a292a5bcf7a64afc0c35ce3",
+  "structure": {
+    "model": "PASS",
+    "predictions": "PASS",
+    "inference": "PASS",
+    "notebooks": "PASS",
+    "docs": "PASS"
+  },
+  "model_sha256": "66e13e1e787c12e88dd9b66d9d789d6654e117e3a9a59db77d25c83cba38a646",
+  "feature_count": 113,
+  "tree_count": 600,
+  "data": {
+    "rows": 32000,
+    "unique_clip_ids": true,
+    "nonfinite_scores": 0,
+    "probabilities_in_unit_interval": true,
+    "raw_margin_label_pearson_r": 0.9771810191937017,
+    "strong_correlation_gate": "> 0.90",
+    "label_counts": {
+      "0": 16000,
+      "1": 16000
+    },
+    "family_counts": {
+      "Vript": 12000,
+      "HD-VG-130M": 4000,
+      "Pika": 3000,
+      "VideoCrafter2": 3000,
+      "T2V-Zero": 3000,
+      "OpenSora": 3000,
+      "SVD": 1000,
+      "MuseV": 1000,
+      "Mora": 1000,
+      "CogVideo": 1000
+    },
+    "all_32000_scores_exactly_replayed": true,
+    "labels_and_families_match_features": true,
+    "csv_parquet_parity": "exact float64, CSV round_trip parser",
+    "feature_input": "artifacts/current/features/gen_933b135d79/tabular_377_diag6.parquet",
+    "feature_input_sha256": "8a22507d24a82f3c24df92586804fbe0730b63636a34b324e7638d8de4ff9cf7",
+    "generation_note": "Replay uses the generation-specific training input declared in scripts/train_temporal_wavelet_full.py, not the older current_all32k_merged feature values. The latter is used only to cross-check labels/families."
+  },
+  "operating_points_full_fit_descriptive_only": {
+    "target_1pct_real_fpr": {
+      "pooled_real_fpr": 0.007625,
+      "family_weighted_real_fpr": 0.005249999999999999,
+      "generated_recall": 1.0,
+      "per_source_fpr": {
+        "Vript": 0.01,
+        "HD-VG-130M": 0.0005
+      }
+    },
+    "pooled_1pct_real_fpr": {
+      "pooled_real_fpr": 0.01475,
+      "family_weighted_real_fpr": 0.009999999999999997,
+      "generated_recall": 1.0,
+      "per_source_fpr": {
+        "Vript": 0.0195,
+        "HD-VG-130M": 0.0005
+      }
+    },
+    "macro_f1": {
+      "pooled_real_fpr": 0.0,
+      "family_weighted_real_fpr": 0.0,
+      "generated_recall": 1.0,
+      "per_source_fpr": {
+        "Vript": 0.0,
+        "HD-VG-130M": 0.0
+      }
+    }
+  },
+  "isolated_regression": {
+    "status": "PASS",
+    "isolation": "Fresh subprocess and notebook kernel; copied deliverable only; repository PYTHONPATH replaced by temporary import blocker; branch_b/deliverables imports actively rejected; no training-source modules",
+    "reference_rows": 40,
+    "raw_margin_exact_equal": true,
+    "calibrated_prob_exact_equal": true,
+    "interfaces": [
+      "DataFrame",
+      "reordered DataFrame",
+      "mapping",
+      "1D ndarray",
+      "2D ndarray",
+      "direct CLI",
+      "module CLI"
+    ],
+    "invalid_inputs_rejected": 9,
+    "actual_binary_tamper_rejected": true,
+    "missing_video_abstains": true,
+    "corrupt_video_abstains": true,
+    "unsupported_mjpg_abstains": true,
+    "synthetic_video_vs_feature_interface_consistency": true,
+    "canonical_parity_note": "Not claimed by this self-consistency check; see separate independent canonical subprocess metrics.",
+    "notebook_code_cells_executed": 9,
+    "notebook_error_count": 0,
+    "independent_calibration_atol": 2e-16,
+    "samples": [
+      {
+        "clip_id": "cogvideo_00007",
+        "raw_margin": 8.67795769174424,
+        "calibrated_prob": 0.9995734529970343,
+        "prediction": 1,
+        "decision": "GENERATED"
+      },
+      {
+        "clip_id": "hd_vg_130m_04436",
+        "raw_margin": -3.6877332897899335,
+        "calibrated_prob": 0.035683968201451643,
+        "prediction": 1,
+        "decision": "GENERATED"
+      }
+    ]
+  },
+  "runtime_hardening_and_independent_parity": {
+    "command": "python -B scripts/temporal_wavelet_acceptance_tests.py --runtime",
+    "counts": {
+      "passed": 119,
+      "failed": 0,
+      "skipped": 0
+    },
+    "metrics": {
+      "portable_replay": {
+        "rows": 40,
+        "max_raw_abs_error": 0.0,
+        "max_prob_abs_error": 0.0,
+        "exact": true
+      },
+      "generation_replay": {
+        "rows": 32000,
+        "feature_input": "artifacts/current/features/gen_933b135d79/tabular_377_diag6.parquet",
+        "feature_sha256": "8a22507d24a82f3c24df92586804fbe0730b63636a34b324e7638d8de4ff9cf7",
+        "exact": true,
+        "max_raw_abs_error": 0.0,
+        "max_prob_abs_error": 0.0
+      },
+      "canonical_generation_fingerprints": {
+        "branch_b/program_v2/video.py": "b74a62f6fc1bd92f4920142bcd253a4926279d49a0ce8f86f0f1da94454e2c67",
+        "branch_b/program_v2/descriptors.py": "4a59e6caabe40c33f7d7c6c9383c282a470efd5dda289af707db82a1e7237fde",
+        "branch_b/program_v2/fingerprints.py": "38403a4896787d243a49f613cd8a4fdd24538c16f3553f72408ef94ac1fdfceb",
+        "branch_b/program_v2/feature_store.py": "40476a4ae75a95f5e3024b2e1578272c527f0e71e8c7f115f902962f60c91628",
+        "branch_b/program_v2/spec.py": "27054aabbef5b3f4b4916d673efd6d245c51d2d43ff69467dbf866b8fb43d73d",
+        "branch_b/v2/video_v2.py": "da3236f3cc5b6b686ad9a0eaeaa3bf6419829d3ed2949b3e015cbde607ccd64d",
+        "branch_b/v2/evidence.py": "d41b4335cc11414d4feb700c77db520decdd0af9814fb83e6a1064c3956502ca",
+        "branch_b/v2/features.py": "2c01939712ebd7809e8badcfb52d315c03b74676171471969961797c65084767",
+        "branch_b/v2/sequence_data_v2.py": "568b2d5e69c89e91d8d80f65de0085ea8b5ce8fb9c7565858e62f287c887c068"
+      },
+      "canonical_parity": {
+        "original_cogvideo_08640": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "3e0970ea97935ca18b82d09838bf017572e3702486a519a83ca7e3ee37cb9be0",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 33,
+          "observations": 33,
+          "codec": "h264"
+        },
+        "original_cogvideo_04725": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "208d7713afdd5c700760ef1b204e7072cfdc975960be3c47650300678a656af9",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 33,
+          "observations": 33,
+          "codec": "h264"
+        },
+        "original_hd_vg_130m_08640": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "88238ec798d341942cfe77cd94922f5ea0ed9b7ce13e63fecda5f18850c0bf0c",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 59,
+          "observations": 64,
+          "codec": "h264"
+        },
+        "original_hd_vg_130m_04725": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "a1f65d48c2e0992f8ffc910c10c9cbd906edc57a0c9fd15ad4e793b0c12d9fde",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 69,
+          "observations": 64,
+          "codec": "h264"
+        },
+        "original_mora_12936": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "248c338862c9cc9e7642ee12319307a6531a25bab3023713145b158b7e3b41ff",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 24,
+          "observations": 24,
+          "codec": "h264"
+        },
+        "original_mora_08052": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "b7acae54c65603fcaf1290d1cde52872a8db6b0e2d0f18e7b3b70fec6d076722",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 24,
+          "observations": 24,
+          "codec": "h264"
+        },
+        "original_musev_05616": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "e8c107d49ba6f75b50f77ee8b751e970a26d57e7c0b2f51c8b255bbd8b278715",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 11,
+          "observations": 13,
+          "codec": "h264"
+        },
+        "original_musev_10572": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "398a9a3a6f62d70f6440124339a87d7a538ee8b5d73ed9caca5861bc4388e08b",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 11,
+          "observations": 13,
+          "codec": "h264"
+        },
+        "original_OpenSoraL_11006": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "7873e9971adfa4204e3a6304fb634aa223a91c67730b52e185f4d1b95516c2df",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 16,
+          "observations": 16,
+          "codec": "h264"
+        },
+        "original_OpenSoraL_104865": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "8862a388f37302f8ed945d6cc03bf4c8279fc87edb9f3cc926e08e3e3c196a4c",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 16,
+          "observations": 16,
+          "codec": "h264"
+        },
+        "original_pika_cfa909db-eb6b-50e5-a82b-7549cf8c8d35": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "d2de4c278a2261964ae654186ae989cdbe6bfad47c1c289065ba25087e1a79e8",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 31,
+          "observations": 64,
+          "codec": "h264"
+        },
+        "original_pika_d94f59ac-6233-54de-820e-3cb964b09d1d": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "c5503436373c527041ea916d49fbdde41588786f3c53ce586c049681a7b3c234",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 31,
+          "observations": 64,
+          "codec": "h264"
+        },
+        "original_svd_03758": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "a4983e5bfc6695befd70f8cfc42260345dbf39dcf2c2c2220834cca6dec377e1",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 14,
+          "observations": 14,
+          "codec": "h264"
+        },
+        "original_svd_12887": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "5867d626be679ac381235565f77402734fd150e4a3b05cf044bbb6f32d7fac0d",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 14,
+          "observations": 14,
+          "codec": "h264"
+        },
+        "original_t2vz_cfa909db-eb6b-50e5-a82b-7549cf8c8d35": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "cb7a42be89db09542d9378a22d9d5d84a038a0abd51b672da39864e8ffb0f05a",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 8,
+          "observations": 8,
+          "codec": "h264"
+        },
+        "original_t2vz_d94f59ac-6233-54de-820e-3cb964b09d1d": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "bbb25486a45ffc577aef8e82daa79ca52ac5a77dca1b9ae53fbdd556e6b64475",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 8,
+          "observations": 8,
+          "codec": "h264"
+        },
+        "original_vc2_cfa909db-eb6b-50e5-a82b-7549cf8c8d35": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "938eb888404a2fe75e4ad727be50121d2c97d2c8b9770cdfa99dce80101f8a18",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 16,
+          "observations": 16,
+          "codec": "h264"
+        },
+        "original_vc2_d94f59ac-6233-54de-820e-3cb964b09d1d": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "2168194d6d70d0a9149b6dc5e0207fd95d58fba2ef5977c7aeea2296783e1c54",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 16,
+          "observations": 16,
+          "codec": "h264"
+        },
+        "original_vript_3SMolOvHwqk-Scene-051": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "568690af59519ff91c1e5082163d913c686fd082dd2940c361c9e05a1ba2416d",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 39,
+          "observations": 64,
+          "codec": "h264"
+        },
+        "original_vript_3SMolOvHwqk-Scene-055": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "source_sha256": "3cfc7c4df353bfaa4eac7a77f655fe9ddeed6fbb7def8748fe6cf5925a28f8eb",
+          "historical_source_sha256_verified": true,
+          "generation_cached_features_float32_exact": true,
+          "saved_scores_exact": true,
+          "decoded_arrays_bitwise_equal": true,
+          "n_grid": 21,
+          "observations": 48,
+          "codec": "h264"
+        },
+        "tensor_8_7.0_still": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0
+        },
+        "tensor_17_23.976_texture": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0
+        },
+        "tensor_64_25.0_moving": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0
+        },
+        "tensor_71_20.0_moving": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0
+        },
+        "video_8_5.0_still": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "n_grid": 8,
+          "observations": 8,
+          "codec": "mpeg4",
+          "decoded_arrays_bitwise_equal": true
+        },
+        "video_33_23.976_texture": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "n_grid": 14,
+          "observations": 33,
+          "codec": "mpeg4",
+          "decoded_arrays_bitwise_equal": true
+        },
+        "video_64_29.97_moving": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "n_grid": 22,
+          "observations": 64,
+          "codec": "mpeg4",
+          "decoded_arrays_bitwise_equal": true
+        },
+        "video_97_24.0_texture": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "n_grid": 41,
+          "observations": 64,
+          "codec": "mpeg4",
+          "decoded_arrays_bitwise_equal": true
+        },
+        "video_36_20.0_moving": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "n_grid": 19,
+          "observations": 36,
+          "codec": "mpeg4",
+          "decoded_arrays_bitwise_equal": true
+        },
+        "video_161_5.0_still": {
+          "features": 113,
+          "features_bitwise_equal": true,
+          "raw_margin_abs_error": 0.0,
+          "prob_abs_error": 0.0,
+          "n_grid": 128,
+          "observations": 64,
+          "codec": "mpeg4",
+          "decoded_arrays_bitwise_equal": true
+        }
+      }
+    },
+    "test_source_sha256": {
+      "tests/test_temporal_wavelet_runtime_hardening.py": "9b31db151ddf057dc3dbc2a0968bea6ec61bf9492c4cf1b751d8fa3823dcdb47"
+    },
+    "evidence_path": "reports/run_logs/temporal_wavelet_finalization/final_runtime_tests.json",
+    "evidence_sha256": "b892d7699f45f986d494a630b218f2d3b2033ca9c34723f022c8f2b58eb1397d",
+    "isolation": "Fresh subprocess; independent canonical decoder/extractor, no module shims"
+  },
+  "documentation_and_sealing_tests": {
+    "command": "python -B scripts/temporal_wavelet_acceptance_tests.py",
+    "counts": {
+      "passed": 154,
+      "failed": 0,
+      "skipped": 0
+    },
+    "counts_note": "Outcome count includes unittest subtests; pytest stdout reports functions and subtests separately",
+    "stdout": "...........................                                                               [100%]\n27 passed, 127 subtests passed in 3.87s\n{\"exit_code\": 0, \"counts\": {\"passed\": 154, \"failed\": 0, \"skipped\": 0}, \"metrics_file\": \"final_doc_audit_tests.json\"}\n",
+    "test_source_sha256": {
+      "tests/test_temporal_wavelet_delivery_audit.py": "6e2aeeb9d69bf1844df20bb2f113f1b44474ae45e143deaab0b721d75bcc7d23",
+      "tests/test_temporal_wavelet_delivery_docs.py": "372da3109fa00893ec586a8b42b11fe5274cb75a8ea3dc34dc2bd09d67ffb1be",
+      "tests/test_temporal_wavelet_selection_scope.py": "470844073189076bea66aaf08bc29e969057266447b9f44e0a126cf9b9251a70",
+      "tests/test_temporal_wavelet_finalization.py": "5f143046f1ed1fa44bbc448fa40700f4c3597af38d9d4ee01240616342820072"
+    }
+  },
+  "immutable_payload_preservation": {
+    "deliverables/branch_b_temporal_wavelet/model/branch_b_temporal_wavelet_full.joblib": {
+      "before": "66e13e1e787c12e88dd9b66d9d789d6654e117e3a9a59db77d25c83cba38a646",
+      "after": "66e13e1e787c12e88dd9b66d9d789d6654e117e3a9a59db77d25c83cba38a646"
+    },
+    "deliverables/branch_b_temporal_wavelet/model/branch_b_temporal_wavelet_full.json": {
+      "before": "5559dfed402e759ff36de67dd6b1ee1462a12f05a52c873aa84edfdab6d4f989",
+      "after": "5559dfed402e759ff36de67dd6b1ee1462a12f05a52c873aa84edfdab6d4f989"
+    },
+    "deliverables/branch_b_temporal_wavelet/model/model_config.json": {
+      "before": "7db22e280a3987a4c11340b3a123e49bb0a6e4f83032e8df39e52fd8287df702",
+      "after": "7db22e280a3987a4c11340b3a123e49bb0a6e4f83032e8df39e52fd8287df702"
+    },
+    "deliverables/branch_b_temporal_wavelet/predictions/predictions_full_dataset.csv": {
+      "before": "868883066562581f5da3a8066af107dfbec1fa85474bb0a4278fbbfb632098aa",
+      "after": "868883066562581f5da3a8066af107dfbec1fa85474bb0a4278fbbfb632098aa"
+    },
+    "deliverables/branch_b_temporal_wavelet/predictions/predictions_full_dataset.parquet": {
+      "before": "5bf27754c32aa017f534afb1b59a00f69e841b124077c6ebe42fe021669835be",
+      "after": "5bf27754c32aa017f534afb1b59a00f69e841b124077c6ebe42fe021669835be"
+    },
+    "deliverables/branch_b_temporal_wavelet/predictions/regression_expected.json": {
+      "before": "7e751e530b919ae39bd58d7197adc6acb9d4e673e0271f557dc96d41468e3fd5",
+      "after": "7e751e530b919ae39bd58d7197adc6acb9d4e673e0271f557dc96d41468e3fd5"
+    },
+    "deliverables/branch_b_temporal_wavelet/predictions/regression_sample_features.parquet": {
+      "before": "b1363afb3619e426da4d73fa1e75899d4fb332263ba869a80af1d91a87081a92",
+      "after": "b1363afb3619e426da4d73fa1e75899d4fb332263ba869a80af1d91a87081a92"
+    }
+  },
+  "threshold_policy_note": "Secondary pooled_1pct_real_fpr is family-weighted: 1.0% weighted versus 1.475% unweighted on this corpus. Default is per-source, not pooled.",
+  "notebook": {
+    "percent_syntax": "PASS; canonical Jupytext percent roundtrip and Python compile",
+    "sync": "PASS; exact cell sources and zero byte drift after sync",
+    "sync_command": "python -B -m jupytext --to ipynb --update delivery_verification.py (authoritative percent source; short staging cwd avoids Windows MAX_PATH); followed by read-only --sync zero-drift check",
+    "sync_stdout": "[jupytext] Reading delivery_verification.py in format py\n[jupytext] Warning: Notebook is not trusted\n[jupytext] Unchanged delivery_verification.ipynb\n[jupytext] Updating the timestamp of delivery_verification.py\n[jupytext] Reading delivery_verification.py in format py\n[jupytext] Warning: Notebook is not trusted\n[jupytext] Writing delivery_verification.ipynb (destination file updated)\n[jupytext] Updating the timestamp of delivery_verification.py\n[jupytext] Reading delivery_verification.py in format py\n[jupytext] Warning: Notebook is not trusted\n[jupytext] Unchanged delivery_verification.ipynb\n[jupytext] Updating the timestamp of delivery_verification.py\n[jupytext] Reading delivery_verification.py in format py\n[jupytext] Loading delivery_verification.ipynb\n[jupytext] Warning: Notebook is not trusted\n[jupytext] Unchanged delivery_verification.ipynb\n[jupytext] Warning: Notebook is not trusted\n[jupytext] Unchanged delivery_verification.py\n",
+    "sha256": {
+      "delivery_verification.py": "21ff044a4e99ae90d81beb772131f0a720fa6e025a8df050b6cb8e02942457aa",
+      "delivery_verification.ipynb": "0a6a2cd9077a8794a34afdc48604ec258aa1a94a98eaee5acc8f7553e84b1349"
+    },
+    "fresh_isolated_execution": "PASS"
+  },
+  "fixes": [
+    "Scoped trusted legacy unpickler without sys.modules poisoning",
+    "Required metadata/checksum/schema/calibration fail closed",
+    "Canonical frame rounding, uint8 resize/flow and 128x128 time-grid extraction restored",
+    "Codec and duration QC enforced without relaxing frozen policy",
+    "Authoritative package-only notebook; no fits, synthetic branch scores or replacement predictions",
+    "Fixed ModelSpec vs architecture selection; historical 597 vs full32k600 provenance",
+    "Exact thresholds and class/source/generator weights; in-sample internal stacker scope",
+    "Historical selection failures and seed instability preserved; no reselection"
+  ],
+  "environment": {
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "lightgbm": "4.7.0",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "jupytext": "1.19.6",
+      "nbclient": "0.11.0",
+      "nbformat": "5.11.1",
+      "pyarrow": "26.0.0"
+    }
+  },
+  "requirements_validation": {
+    "method": "Pinned versions checked against installed distributions and imports by documentation tests; isolated copied-package subprocess/kernel execution using the installed host interpreter",
+    "clean_venv_install": false,
+    "constraint": "CPython 3.14.6 Windows AMD64 observed reference environment, not minimum versions or a tested cross-platform matrix; no independent dependency installation claimed"
+  },
+  "limitations": [
+    "Full-fit predictions and notebook plots are in-sample, provided for requested internal stacking; no OOF/holdout delivery prerequisite and no unbiased generalization claim.",
+    "Fresh original-video parity covers 20 existing historical fit fixtures with verified media hashes, not all 32000 original videos. Full32k regression replays generation-specific cached features. Four decoded tensors and six synthetic videos add deterministic coverage, not corpus-wide media validation.",
+    "No unseen-media FPR guarantee, exhaustive codec/backend/damaged-media matrix or independent clean-venv installation/version matrix was tested. Loader uses private joblib interfaces at pinned versions.",
+    "SHA-256 seals detect drift relative to a trusted manifest digest; they are not a digital signature or independent authenticity attestation."
+  ]
+}

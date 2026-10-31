@@ -1,0 +1,385 @@
+{
+  "format": "branch_b_documentation_provenance_v1",
+  "purpose": "Portable answer to which proposal, winner and parameters; evidence excerpts, not a replacement release seal.",
+  "source_path_base": "project root (references need not exist inside the copied package)",
+  "hash_policy": "sha256 is recomputed from actual source bytes in this checkout; embedded historical hashes are retained values, not silently substituted for current hashes. Line numbers refer to this hashed version.",
+  "answer": {
+    "governing_proposal": "reports/revision/04_architecture_selection_proposal.md (review revision r1)",
+    "winner": "temporal_wavelet",
+    "runner_up": "xgb_wavelet",
+    "selection_scope": "architecture/feature-view comparison using the unchanged frozen LightGBM ModelSpec, not independent LightGBM hyperparameter optimization",
+    "recipe_origin": "branch_b/v2/models_v2.py:ModelSpec",
+    "recipe_freeze": "configs/branch_b_v3_final.json#/hyperparameters",
+    "historical_option_1": {
+      "fit_clips": 22400,
+      "best_iteration": 597,
+      "trees": 597,
+      "early_stopping": true
+    },
+    "current_full32k": {
+      "fit_clips": 32000,
+      "trees": 600,
+      "validation": false,
+      "early_stopping_rounds": 0,
+      "calibration": "full-data weighted Platt C=1.0",
+      "threshold_selection": "full-data weighted",
+      "directive": "Latest user explicitly requested the already-selected temporal_wavelet on ALL current 32,000 clips with no partition/leakage concern; overrides proposal Option-1 role geometry for this distinct refit.",
+      "directive_evidence": "model/model_config.json#/training_metadata/directive; scripts/train_temporal_wavelet_full.py"
+    },
+    "no_historical_relabeling": "600 is the full32k realized tree count, NOT historical Option-1 best_iteration (597)."
+  },
+  "sources": [
+    {
+      "path": "reports/revision/04_architecture_selection_proposal.md",
+      "sha256": "6a1517af3c6caafd9e796916afd9f8402202db231bc2dc00567ed990f2818011",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "section_locations": [
+        "Title: v2 program, review revision r1",
+        "Section 2.1: candidate pool and wave_gru per-frame spatial 2D DWT grid",
+        "Section 3.1: versioned freeze v3",
+        "Section 3.3: operative Option 1, 22400/2400/2400/4800 role geometry"
+      ]
+    },
+    {
+      "path": "configs/branch_b_experiment_plan_v2.json",
+      "sha256": "f48cd7a146e557837302dbb70c624b42cc70ba977f8746db87e7d64a741b559a",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "json_pointer_values": {
+        "/authority/governing_design": "reports/revision/04_architecture_selection_proposal.md (review revision r1, 2026-10-16T13:55:58Z)",
+        "/authority/r1_sha256": "6a1517af3c6caafd9e796916afd9f8402202db231bc2dc00567ed990f2818011",
+        "/candidates/3/candidate_id": "temporal_wavelet",
+        "/candidates/3/hyperparameters": "existing frozen LightGBM ModelSpec (models_v2.ModelSpec) unchanged",
+        "/candidates/3/budget": {
+          "max_iterations": 600,
+          "early_stopping_rounds": 50,
+          "max_seconds_per_fit": 60
+        },
+        "/candidates/3/input_view/feature_groups": [
+          "tfft_v2",
+          "local_temporal_v2_no_diag",
+          "twavelet_v2"
+        ]
+      }
+    },
+    {
+      "path": "branch_b/v2/models_v2.py",
+      "sha256": "bff300d2b1b97e239fd55d7771e8f32971b9fdbac7f573b04a9038a1030e27fd",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "symbol_evidence": [
+        {
+          "symbol": "ModelSpec",
+          "line_start": 61,
+          "line_end": 77
+        },
+        {
+          "symbol": "WeightedGBMModel",
+          "line_start": 133,
+          "line_end": 231
+        }
+      ]
+    },
+    {
+      "path": "configs/branch_b_v3_final.json",
+      "sha256": "b7553b57798a214206beac328db4bb5aec70ed6f60c0dd92c8d2091224d65857",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "json_pointer_values": {
+        "/candidate_id": "temporal_wavelet",
+        "/hyperparameters": {
+          "n_estimators": 600,
+          "learning_rate": 0.05,
+          "num_leaves": 31,
+          "max_depth": 5,
+          "min_child_samples": 20,
+          "subsample": 0.9,
+          "colsample_bytree": 0.9,
+          "reg_lambda": 1.0,
+          "early_stopping_rounds": 50,
+          "n_jobs": 8,
+          "seed": 42
+        },
+        "/stopping_policy": {
+          "early_stopping_rounds": 50,
+          "metric": "binary_logloss",
+          "eval_role": "model_selection",
+          "max_iterations": 600
+        },
+        "/option_1_geometry": {
+          "requested": {
+            "fit": 22400,
+            "selection": 2400,
+            "calibration": 2400,
+            "final_role": 4800
+          },
+          "supported": {
+            "fit": 22400,
+            "selection": 2400,
+            "calibration": 2400,
+            "final_role": 4800
+          },
+          "final_role_read_only_enforced": 1
+        },
+        "/stage_a_winner": "temporal_wavelet",
+        "/stage_a_runner_up": "xgb_wavelet"
+      }
+    },
+    {
+      "path": "reports/revision/program_v2/STAGE_A_AUDIT.json",
+      "sha256": "01969fab2070be72c311b90c4ee7b8dedbf2d69afbcd001d1ebc904fe54e92db",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "json_pointer_values": {
+        "/stage_b_authorization/winner": "temporal_wavelet",
+        "/stage_b_authorization/runner_up": "xgb_wavelet",
+        "/stage_b_authorization/deciding_criterion": "highest worst-generator recall",
+        "/stage_b_authorization/deciding_values": {
+          "winner": {
+            "candidate_id": "temporal_wavelet",
+            "value": 0.27734375
+          },
+          "runner_up": {
+            "candidate_id": "xgb_wavelet",
+            "value": 0.2734375
+          }
+        },
+        "/gates_evaluation/gate_07_top2_multiseed_stability": {
+          "verdict": "PASS",
+          "seeds_evaluated": [
+            42,
+            1042,
+            2042
+          ],
+          "required_fits_total": 144,
+          "completed_fits_total": 144,
+          "failed_fits_total": 0,
+          "overall_disposition": "SEED_UNSTABLE",
+          "rank_flip_seed_2042": true,
+          "primary_winner_retained": true
+        }
+      }
+    },
+    {
+      "path": "experiments/gen_933b135d79/stage_b/training_manifest.json",
+      "sha256": "a5d7dbf3221d813456d887b4ce7bc822200954db5be218856c6efa3332eebd1e",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "json_pointer_values": {
+        "/training_execution/fit_clips_actual": 22400,
+        "/training_execution/selection_clips_actual": 2400,
+        "/training_execution/best_iteration": 597,
+        "/training_execution/total_trees_built": 597,
+        "/training_execution/early_stopping_triggered": true,
+        "/disclosures/option": 1
+      }
+    },
+    {
+      "path": "scripts/train_temporal_wavelet_full.py",
+      "sha256": "d6ff3184c93886cf146455ab2834a31c645b6ccd4d2627eb7c8631cf1f2c3f47",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "symbol_evidence": [
+        {
+          "symbol": "train_temporal_wavelet_full",
+          "line_start": 86,
+          "line_end": 447
+        }
+      ],
+      "section_locations": [
+        "FROZEN_HYPERPARAMETERS constant",
+        "train_temporal_wavelet_full: ModelSpec(early_stopping_rounds=0), no validation arguments; assert realized_trees == 600",
+        "train_temporal_wavelet_full: full-data calibrator.fit and weighted select_real_fpr_threshold calls"
+      ]
+    },
+    {
+      "path": "branch_b/v2/protocol.py",
+      "sha256": "eee01b7a8cfdf8aecc60020165e281c3d5a0e8b2d8d87c29937e7f295dac5d34",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "symbol_evidence": [
+        {
+          "symbol": "compute_training_weights",
+          "line_start": 440,
+          "line_end": 519
+        },
+        {
+          "symbol": "build_master_manifest",
+          "line_start": 254,
+          "line_end": 295
+        }
+      ]
+    },
+    {
+      "path": "branch_b/io.py",
+      "sha256": "fb2b2ff00690078e8f06fb5b18e9e2c245486efd6412f4f1e035c8cbbb25fe22",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "symbol_evidence": [
+        {
+          "symbol": "resolve_splits_dir",
+          "line_start": 62,
+          "line_end": 67
+        },
+        {
+          "symbol": "load_split",
+          "line_start": 86,
+          "line_end": 94
+        }
+      ]
+    },
+    {
+      "path": "branch_b/v2/features.py",
+      "sha256": "2c01939712ebd7809e8badcfb52d315c03b74676171471969961797c65084767",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "symbol_evidence": [
+        {
+          "symbol": "_compute_1d_twavelet_on_patches",
+          "line_start": 937,
+          "line_end": 1014
+        },
+        {
+          "symbol": "compute_twavelet_v2_features",
+          "line_start": 1017,
+          "line_end": 1053
+        }
+      ]
+    },
+    {
+      "path": "deliverables/branch_b_temporal_wavelet/model/model_config.json",
+      "sha256": "7db22e280a3987a4c11340b3a123e49bb0a6e4f83032e8df39e52fd8287df702",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "json_pointer_values": {
+        "/candidate_id": "temporal_wavelet",
+        "/hyperparameters": {
+          "n_estimators": 600,
+          "learning_rate": 0.05,
+          "num_leaves": 31,
+          "max_depth": 5,
+          "min_child_samples": 20,
+          "subsample": 0.9,
+          "colsample_bytree": 0.9,
+          "reg_lambda": 1.0,
+          "seed": 42,
+          "n_jobs": 8
+        },
+        "/sample_counts": {
+          "total": 32000,
+          "real": 16000,
+          "generated": 16000,
+          "by_family": {
+            "Vript": 12000,
+            "HD-VG-130M": 4000,
+            "Pika": 3000,
+            "VideoCrafter2": 3000,
+            "T2V-Zero": 3000,
+            "OpenSora": 3000,
+            "SVD": 1000,
+            "MuseV": 1000,
+            "Mora": 1000,
+            "CogVideo": 1000
+          }
+        },
+        "/training_metadata": {
+          "directive": "Train final Branch B winning architecture 'temporal_wavelet' on full dataset of 32,000 clips without role partitioning or held-out leakage concerns",
+          "dataset_size": 32000,
+          "real_count": 16000,
+          "generated_count": 16000,
+          "role_partitioning": "none_full_dataset",
+          "leakage_concern": "none_approved_full_fit",
+          "calibrator": "MarginCalibrator(C=1.0)",
+          "local_evidence_reference_real_clips": 16000,
+          "training_folds": "full_dataset_32000_unpartitioned"
+        },
+        "/feature_groups": {
+          "tfft_v2": 17,
+          "local_temporal_v2": 54,
+          "twavelet_v2": 42
+        },
+        "/calibrator": {
+          "type": "MarginCalibrator",
+          "calibration_mode": "platt_logistic",
+          "params": {
+            "type": "MarginCalibrator",
+            "C": 1.0,
+            "standardize": 1,
+            "coef": 10.298891625772269,
+            "intercept": 0.06745986202738435
+          }
+        },
+        "/operating_thresholds": {
+          "target_1pct_real_fpr": {
+            "threshold": 0.025049979809292647,
+            "score_space": "calibrated_probability",
+            "margin_threshold": -4.095739606463252,
+            "achieved_fpr": 0.009999999999999998,
+            "per_source_fpr": {
+              "HD-VG-130M": 0.0004999999999999999,
+              "Vript": 0.009999999999999998
+            },
+            "target_fpr": 0.01,
+            "mode": "per_source"
+          },
+          "pooled_1pct_real_fpr": {
+            "threshold": 0.015457025337482144,
+            "score_space": "calibrated_probability",
+            "margin_threshold": -4.646689782063401,
+            "achieved_fpr": 0.01,
+            "target_fpr": 0.01,
+            "mode": "pooled"
+          },
+          "macro_f1": {
+            "threshold": 0.9196089333917218,
+            "score_space": "calibrated_probability",
+            "margin_threshold": 2.7252040699627056,
+            "macro_f1": 1.0,
+            "balanced_accuracy": 1.0
+          }
+        }
+      }
+    },
+    {
+      "path": "deliverables/branch_b_temporal_wavelet/model/branch_b_temporal_wavelet_full.json",
+      "sha256": "5559dfed402e759ff36de67dd6b1ee1462a12f05a52c873aa84edfdab6d4f989",
+      "hash_scope": "actual file bytes (no newline normalization)",
+      "json_pointer_values": {
+        "/provenance/realized_epoch_or_iterations": 600,
+        "/provenance/training_partition": "full_dataset_32000",
+        "/provenance/sample_count": 32000,
+        "/provenance/hyperparameters": {
+          "n_estimators": 600,
+          "learning_rate": 0.05,
+          "num_leaves": 31,
+          "max_depth": 5,
+          "min_child_samples": 20,
+          "subsample": 0.9,
+          "colsample_bytree": 0.9,
+          "reg_lambda": 1.0,
+          "seed": 42,
+          "n_jobs": 8
+        },
+        "/operating_thresholds": {
+          "target_1pct_real_fpr": {
+            "threshold": 0.025049979809292647,
+            "score_space": "calibrated_probability",
+            "margin_threshold": -4.095739606463252,
+            "achieved_fpr": 0.009999999999999998,
+            "per_source_fpr": {
+              "HD-VG-130M": 0.0004999999999999999,
+              "Vript": 0.009999999999999998
+            },
+            "target_fpr": 0.01,
+            "mode": "per_source"
+          },
+          "pooled_1pct_real_fpr": {
+            "threshold": 0.015457025337482144,
+            "score_space": "calibrated_probability",
+            "margin_threshold": -4.646689782063401,
+            "achieved_fpr": 0.01,
+            "target_fpr": 0.01,
+            "mode": "pooled"
+          },
+          "macro_f1": {
+            "threshold": 0.9196089333917218,
+            "score_space": "calibrated_probability",
+            "margin_threshold": 2.7252040699627056,
+            "macro_f1": 1.0,
+            "balanced_accuracy": 1.0
+          }
+        }
+      }
+    }
+  ]
+}
