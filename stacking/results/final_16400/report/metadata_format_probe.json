@@ -1,0 +1,24 @@
+{
+  "plan": {
+    "kind": "predeclared metadata-only confound probe",
+    "rule": "predict generated if native_fps <= 12.0",
+    "ranking_score": "negative native_fps",
+    "fixed_from": "historical V1 diagnostic; no V2 performance used to choose rule",
+    "evaluate_only_after": "fusion model frozen and main tests sealed",
+    "scope": "same 2000 external-test originals; diagnostic only, not a learned detector or selection criterion"
+  },
+  "n": 2000,
+  "negative_fps_auroc": 1.0,
+  "fixed_rule_macro_f1": 1.0,
+  "confusion_matrix_real_generated": [
+    [
+      1000,
+      0
+    ],
+    [
+      0,
+      1000
+    ]
+  ],
+  "used_to_fit_or_choose_fusion": false
+}

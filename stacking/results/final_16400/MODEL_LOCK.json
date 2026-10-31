@@ -1,0 +1,47 @@
+{
+  "model_sha256": "81b7bcb42d9e3e647faff2cda2719bdee77c545e939d6aca10a321c3fbd67dd1",
+  "manifest_sha256": "805ef1f53380a763cd6c2057fb8777f57c800d92831a47ed37f0236ac8c41b4e",
+  "protocol_id": "vida-eight-family-ms-v2-20261030",
+  "branch_lineage": {
+    "A": {
+      "branch": "A",
+      "model_id": "12d7c3898482ada16b45f99832c9e95914388eec8c7f07bd5184ef554b86b2e1",
+      "run_kind": "research",
+      "protocol_id": "vida-eight-family-ms-v2-20261030",
+      "manifest_sha256": "805ef1f53380a763cd6c2057fb8777f57c800d92831a47ed37f0236ac8c41b4e",
+      "source_file_sha256": "4712d6fa44c6c226b769a0cfcd6da962ad57d8aba20d3f53cfb7cac45583ae88",
+      "csv_sha256": "188d0a68580656eace92d512d17e8152054169cf528b0db4f04636013836481d",
+      "base_manifest_sha256": "8fd163a08bbc60ef49d78ff0599aca1b4c43b90332b3a18954ad48c70ab2b705",
+      "direction": "higher_is_fake",
+      "source_score_column": "video_logit",
+      "frozen_inference_only": true
+    },
+    "B": {
+      "branch": "B",
+      "model_id": "66e13e1e787c12e88dd9b66d9d789d6654e117e3a9a59db77d25c83cba38a646",
+      "run_kind": "research",
+      "protocol_id": "vida-eight-family-ms-v2-20261030",
+      "manifest_sha256": "805ef1f53380a763cd6c2057fb8777f57c800d92831a47ed37f0236ac8c41b4e",
+      "source_file_sha256": "39d68203121351115e6b55e030110237cad7368e014fa5534cc8696511ac7c58",
+      "csv_sha256": "2d698b27d81a8af241197b3027663aaf0b5dc2dc91280889504d6dee5fba808b",
+      "base_manifest_sha256": "8fd163a08bbc60ef49d78ff0599aca1b4c43b90332b3a18954ad48c70ab2b705",
+      "direction": "higher_is_fake",
+      "source_score_column": "raw_margin",
+      "frozen_inference_only": true
+    },
+    "C": {
+      "branch": "C",
+      "model_id": "5649461f74586745570f74b2b0db77222780391c12c734feeb973ec743d6ddc6",
+      "run_kind": "research",
+      "protocol_id": "vida-eight-family-ms-v2-20261030",
+      "manifest_sha256": "805ef1f53380a763cd6c2057fb8777f57c800d92831a47ed37f0236ac8c41b4e",
+      "source_file_sha256": "b554afc287ef4dc6a64eaebc6310d802c54be6ef2e1a67d53d262d53bcfee3ca",
+      "csv_sha256": "8ffb92176421fcf749ea3f4c0b958b78a99175c83e8ebdc593b83b26788a232c",
+      "base_manifest_sha256": "8fd163a08bbc60ef49d78ff0599aca1b4c43b90332b3a18954ad48c70ab2b705",
+      "direction": "higher_is_fake",
+      "source_score_column": "branch_c_score",
+      "frozen_inference_only": true
+    }
+  },
+  "threshold": 0.4495125162248878
+}

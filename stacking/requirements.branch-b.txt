@@ -1,0 +1,4 @@
+-r requirements.lock.txt
+lightgbm==4.7.0
+PyWavelets==1.10.0
+opencv-python-headless==5.0.0.93

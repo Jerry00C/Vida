@@ -1,5 +1,15 @@
 # VIDA video detection
 
+## Final three-branch fusion
+
+The completed fusion layer, frozen 3–8–1 MLP, training records and final evaluation
+are in [stacking/README.md](stacking/README.md). It combines the existing Partial
+CLIP, temporal LightGBM and real-reference SVM scores. Fusion uses 5,120 videos,
+with separate calibration/threshold sets and 10,000 final-test originals.
+The calibrated model can predict from `clip_id,A,B,C` scores without raw videos
+or retraining branch models. Native and paired format-control results are included.
+
+
 Real-versus-AI-generated video classification using pretrained CLIP, DINOv2,
 and DINOv3 image encoders. Each video has eight extracted PNG frames. Evaluation
 averages frame logits before sigmoid to produce a video score.

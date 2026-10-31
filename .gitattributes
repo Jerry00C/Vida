@@ -1,2 +1,6 @@
 remote-results/**/*.pt filter=lfs diff=lfs merge=lfs -text
 remote-results/**/*.csv whitespace=cr-at-eol
+
+# Preserve exact artifact and recorded result bytes across platforms.
+/stacking/released_model/** -text whitespace=cr-at-eol
+/stacking/results/** -text whitespace=cr-at-eol
