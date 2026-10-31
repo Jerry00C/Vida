@@ -53,3 +53,15 @@
 !/remote-results/
 /remote-results/**/.run.lock
 !/remote-results/**/*.pt
+
+# Final fusion implementation, frozen small model and numeric/aggregate results.
+!/stacking/requirements*.txt
+!/stacking/config.example.json
+!/stacking/config.expanded.example.json
+!/stacking/released_model/
+!/stacking/released_model/**
+!/stacking/results/
+!/stacking/results/**
+/stacking/config.local.json
+/stacking/config.*.local.json
+!/stacking/RELEASE_CHECKSUMS.json

@@ -1,0 +1,6 @@
+# CPU-only PyTorch candidate fitting. Frozen inference uses NumPy and sklearn only.
+torch==2.14.1
+numpy==2.4.6
+scikit-learn==1.9.1
+scipy==1.18.1
+joblib==1.6.0

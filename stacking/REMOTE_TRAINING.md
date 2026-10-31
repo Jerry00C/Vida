@@ -1,3 +1,5 @@
+> This document describes the retained OOF interface. Use `python -m stacking.legacy_oof_cli` for its commands. For the released fusion model, see [README.md](README.md).
+
 # Run all Branch A experiments on a remote Linux server
 
 The runner now carries each round's **best model parameters** into the next

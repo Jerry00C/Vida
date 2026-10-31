@@ -1,0 +1,54 @@
+{
+  "amendment": "pre-fitting joint media compatibility correction 1",
+  "excluded_clip_id": "hd_vg_130m_02547",
+  "replacement_clip_id": "hd_vg_130m_04113",
+  "phase": "probability_calibration",
+  "before_manifest_sha256": "8ca45e3777d608dd128c73a2974385f97a9d53a2281789fd61bda2fd58c64e67",
+  "after_manifest_sha256": "805ef1f53380a763cd6c2057fb8777f57c800d92831a47ed37f0236ac8c41b4e",
+  "replacement_QC_checks": [
+    {
+      "clip_id": "hd_vg_130m_04113",
+      "QC_only": {
+        "fps": 29.97002997002997,
+        "n_frames": 359,
+        "duration_seconds": 11.978633333333333,
+        "codec": "h264",
+        "decode_truncated": false
+      },
+      "passed": true
+    }
+  ],
+  "candidate_prediction_scores_consulted": false,
+  "new_test_metrics_consulted": false,
+  "no_branch_retraining": true,
+  "no_QC_bypass_or_score_imputation": true,
+  "unchanged_video_scores_reused": {
+    "A": {
+      "same_byte_same_model_scores_preserved": 3200
+    },
+    "C": {
+      "same_byte_same_model_scores_preserved": 16399
+    },
+    "B": {
+      "same_byte_same_model_scores_preserved": 16399
+    }
+  },
+  "original_evidence_preserved_at": "E:\\VIDA-Guard32K\\stacking_16400_v2\\internal\\pre_joint_media_correction_20261030",
+  "unchanged_phase_manifest_sha256": {
+    "fusion_train": "e6133f20ca02aa50cf8a6b68ae47b5eb9962babd9eb923c4e85c0d0ed2a280fc",
+    "threshold_selection": "c39d382eb30fc653334818efb07fe51442c6bcad233e8424c26dc5278d11451d",
+    "in_domain_test": "1781f2a5d7766d44e5d3aae06d50508b22ba9917bbea12d958fc23486d5995d1",
+    "external_test": "a4470a8ff2068840890e82264b887ab04661419ffd3a3920e4ec8e18cc43479e"
+  },
+  "unchanged_media_sampling_fields_verified": [
+    "sha256",
+    "frame_count",
+    "width",
+    "height",
+    "native_fps",
+    "duration_seconds",
+    "label",
+    "family",
+    "split"
+  ]
+}

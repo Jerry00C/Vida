@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "run_kind": "research",
+  "protocol_id": "vida-frozen-holdout-v2-20261029",
+  "manifest": "../data/stacking_v2/manifests/manifest.csv",
+  "base_manifest": "../data/base32k/manifests/manifest.csv",
+  "predictions_dir": "../data/stacking_v2/branch_scores",
+  "output_dir": "../outputs/legacy_fusion_run",
+  "compare_mlp": false
+}

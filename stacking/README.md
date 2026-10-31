@@ -1,167 +1,117 @@
-# Three-branch video stacking
+# VIDA final three-branch fusion
 
-Run commands from **PR2**, not `branch_a/`. This separate package imports the existing
-frozen trainer from `branch_a/dev` without modifying it. It combines:
+This directory contains the completed score-fusion implementation, its frozen
+MLP model, training records, per-video final-test predictions and evaluation plots.
+Branch checkpoints remain fixed while the fusion layer learns from independent
+videos. Run all commands from the repository root.
 
-- A: mean of eight frozen appearance-head frame logits.
-- B: one temporal-model video logit (GRU or shallow temporal transformer).
-- C: one anomaly score, larger meaning more anomalous, from an estimator fitted
-  only on real training videos.
+## Use the trained model
 
-B and C are integration interfaces, not implementations of those branches.
-They must supply actual predictions before fusion training can run. No synthetic
-scores are used outside tests. No full experiment is launched by setup.
-
-## Environment and data
-
-Use the existing Python 3.11 training environment, or install with
-`python -m pip install -r stacking/requirements.txt`. Keep datasets, weights and
-outputs outside tracked code. Examples put outputs in `stacking/runs/`.
-
-Use the full processed-data split and matching full embedding cache. The old
-75-video smoke cache is insufficient for a full experiment. Generate full caches
-using the existing `branch_a/dev` feature-extraction commands first.
-
-All branches share clip IDs, group-disjoint splits, labels (0 real, 1 generated)
-and round. B may need a separate consecutive-frame sampling pipeline, timestamp
-handling and motion descriptors; A's eight uniform samples are not necessarily
-consecutive. C's descriptor extraction, scaler and anomaly estimator must obey
-its real-only fitting policy. Original videos may be needed for B's preprocessing.
-
-## 1. Freeze the experiment design and generate a fold plan
+Use Python 3.12 and install the recorded fusion environment:
 
 ```bash
-python -m stacking folds --split branch_a/runs/branch_a/splits_v1.json \
-  --round round_1 --folds 5 --output stacking/runs/round_1/plan.json
+python -m venv .venv-stacking
+# Windows: .venv-stacking/Scripts/python.exe
+# Linux/macOS: .venv-stacking/bin/python
+python -m pip install -r stacking/requirements.lock.txt
 ```
 
-Each outer fold contains an untouched OOF prediction set. Its remaining groups
-are divided into fit and internal selection sets. Early stopping and branch
-architecture selection must use only the internal selection set, never the OOF
-fold. Small datasets may not support the default folds or internal two-class
-split; the command fails rather than allowing leakage.
-
-Pick the appearance backbone before this stacking run using an independent
-pilot/development protocol, or implement nested selection within each OOF fold.
-This package uses one explicitly selected cache; it does not automatically claim
-which backbone is best. Selecting a backbone using all outer training labels
-and then claiming strictly held-out OOF model selection is not valid.
-
-The final branch models fit on the original training partition and use the
-original validation partition for selection. Both test partitions remain held
-out. Shared real videos in seen/unseen tests are preserved as separate role rows.
-
-## 2. Train/export Branch A scores
+Use the environment's Python for subsequent commands. Prepare a CSV with
+`clip_id,A,B,C`: A is the Partial CLIP Round 4 **mean video logit**, B is the
+frozen LightGBM **raw margin**, and C is the frozen real-reference **anomaly score**.
+Each row represents the same video across all three branches. Larger scores
+mean more evidence of generation. Hard class labels and summary metrics are
+not valid inputs.
 
 ```bash
-python -m stacking branch-a \
-  --plan stacking/runs/round_1/plan.json \
-  --split branch_a/runs/branch_a/splits_v1.json \
-  --cache branch_a/runs/branch_a/cache/clip \
-  --output stacking/runs/round_1/A
+python -m stacking.predict --model-dir stacking/released_model \
+  --input new_abc_scores.csv --output outputs/new_predictions.csv
 ```
 
-This trains a fresh head per OOF fold, with independent early stopping, plus a
-final head. It produces `A/scores.json`, checkpoints and training plots. Training
-uses cached frozen features on CPU, as in the original implementation. Specify
-`--config PATH` to change head settings and `--resume` to resume an identical run.
-The encoder itself stays frozen. Existing dev checkpoints are not overwritten.
+The model folder contains the scaler, 3–8–1 MLP, Platt calibration, fixed
+threshold and integrity lock. Inference needs NumPy/sklearn, not PyTorch,
+original training videos or this machine's paths. Producing A/B/C scores from
+new videos still requires the exact branch models and preprocessing.
+Only load project model files from a trusted source because joblib uses pickle.
 
-## 3. Give B/C teams their exact interfaces
+## Data roles
 
-```bash
-python -m stacking template --plan stacking/runs/round_1/plan.json \
-  --branch B --output stacking/runs/round_1/B-template.json
-python -m stacking template --plan stacking/runs/round_1/plan.json \
-  --branch C --output stacking/runs/round_1/C-template.json
-```
+The shared branch-development collection has 32,000 videos. The independent
+fusion/evaluation suite has 16,400 additional originals:
 
-Templates contain every required video and its model assignment. Fill each
-`records[].score` with a finite number, and each `models[].artifact_sha256` with
-the SHA-256 of the exact saved branch model bundle (including preprocessing).
-Keep all identity fields, labels and declared ID lists unchanged. The template
-contains null scores and cannot pass validation until filled.
+| Role | Total | Real | Generated |
+|---|---:|---:|---:|
+| Fusion fitting | 5,120 | 2,560 | 2,560, 320 per known family |
+| Probability calibration | 640 | 320 | 320, 40 per known family |
+| Threshold selection | 640 | 320 | 320, 40 per known family |
+| In-domain final test | 8,000 | 4,000 | 4,000, 500 per known family |
+| ModelScope final test | 2,000 | 1,000 | 1,000 ModelScope |
 
-A/B must return raw logits; C returns an anomaly score with larger meaning more
-anomalous. For an Isolation Forest, negate a normality-oriented score before
-export if necessary. Do not silently mix probabilities and logits. C's fit IDs
-contain real videos only. Its selection IDs may include generated videos for
-supervised validation selection; they must never be used to fit its anomaly
-model or scaler. A completely unsupervised C can ignore selection labels.
+Known generated families are Pika, VideoCrafter2, T2V-Zero, OpenSora, SVD,
+MuseV, Mora and CogVideo. Real controls use Vript and HD-VG-130M in a 3:1 ratio.
+ModelScope generated videos enter only the final test. Source/prompt groups
+separate the roles. Original videos and local environments are distributed
+separately and are not included in Git.
 
-All fitted preprocessing, calibration and branch architecture/parameter choices
-must respect these boundaries. Metadata checks detect declared leakage, not
-undisclosed misuse inside external training code. Model authors must provide
-truthful provenance. Validation/test predictions come from `model_id=final`;
-training predictions come from their assigned OOF model. No row-order matching.
+## Fusion training
 
-The Python `stacking.core.aligned(plan, bundles)` function is the fusion data
-loader: it joins by `(partition, clip_id)` and returns arrays in fixed A/B/C order.
-It rejects missing/extra/duplicate clips, wrong labels/folds, mismatched plans,
-nonfinite scores and incompatible fit/selection IDs.
+`expanded.py` validates the dataset roles, branch identity and score completeness.
+Eight generator holdouts inside the 5,120 fusion-training videos compare six
+regularized logistic-regression candidates with a small MLP. Each fold fits its
+own standardization and removes source/prompt groups shared with validation.
+Only mean validation log loss selects the candidate.
 
-## 4. Validate, fit fusion, then evaluate
+The selected MLP has 3 inputs, 8 ReLU hidden units and 1 output, with 41 trainable
+parameters. Training uses BCEWithLogitsLoss, AdamW, learning rate 0.001, weight
+decay 0.001, batch 64 and dropout 0.1. The search allows at most 200 epochs,
+patience 20 and min_delta 0.0001. The median fold-selected duration gives a final
+fit of **102 epochs**. A separate 640 videos fit Platt calibration. Another
+640 select the fixed Macro F1 threshold **0.4495125162248878**.
 
-Save completed external outputs as `B.json` and `C.json`:
+Final testing happens after the entire decision pipeline is frozen. Fusion
+training does not rerun or jointly backpropagate through the branch models.
 
-```bash
-python -m stacking validate --plan stacking/runs/round_1/plan.json \
-  --a stacking/runs/round_1/A/scores.json \
-  --b stacking/runs/round_1/B.json --c stacking/runs/round_1/C.json
-python -m stacking fit --plan stacking/runs/round_1/plan.json \
-  --a stacking/runs/round_1/A/scores.json \
-  --b stacking/runs/round_1/B.json --c stacking/runs/round_1/C.json \
-  --output stacking/runs/round_1/fusion.json
-python -m stacking evaluate --plan stacking/runs/round_1/plan.json \
-  --a stacking/runs/round_1/A/scores.json \
-  --b stacking/runs/round_1/B.json --c stacking/runs/round_1/C.json \
-  --model stacking/runs/round_1/fusion.json \
-  --output stacking/runs/round_1/evaluation.json
-```
+## Final evaluation
 
-StandardScaler and logistic regression fit only on OOF training scores.
-Regularization C is selected by validation AUROC, then validation log loss.
-The decision threshold stays 0.5. Fit validates the complete input contract but
-never uses test values for scaling, optimization or model selection. Evaluation
-is separate and requires the unchanged input bundles used during fit. Metrics
-include AUROC, F1 and log loss. Repeat the process independently for every round.
+| Native final-test view | AUROC | Macro F1 | TN / FP / FN / TP |
+|---|---:|---:|---|
+| In domain, 8,000 videos | 0.9999985 | 0.9992500 | 3998 / 2 / 4 / 3996 |
+| ModelScope, 2,000 videos | 1.0000000 | 0.9995000 | 999 / 1 / 0 / 1000 |
 
-The scaler and classifier are saved as portable numeric JSON (no pickle).
-For new videos, obtain aligned A/B/C scores from the exported final models and
-call `stacking.fusion.probabilities(model, numpy_array)` with shape `[N, 3]`,
-columns A, B, C, and exactly the same score conventions. No labels are needed.
+The paired format-controlled ModelScope view uses the same originals, first
+2 seconds, 8 fps, 256 × 256 and H.264 CRF18. AUROC is 0.970026 and Macro F1 is
+0.390677 at the unchanged threshold. It is a sensitivity diagnostic and does
+not add independent videos. Native scores alone do not establish robustness
+to all generators or recording formats. The full research report also retains
+the historical Sora/Kling stress results and the scope of the training audit.
 
-## 5. Save and reload all frozen encoder parameters
+## Files
 
-```bash
-python -m stacking export-a --cache branch_a/runs/branch_a/cache/clip \
-  --checkpoint stacking/runs/round_1/A/final/best.pt \
-  --output stacking/runs/round_1/export/A
-```
+| Path | Purpose |
+|---|---|
+| `released_model/` | Frozen MLP, scaler, probability calibration, threshold and identity lock |
+| `predict.py` | Apply the released model to aligned A/B/C scores |
+| `expanded.py` / `neural_expanded.py` | Eight-family holdout selection and final MLP fitting |
+| `pipeline.py` / `neural.py` | Shared score checks, metrics and portable MLP implementation |
+| `export_a.py` / `export_b.py` / `export_c.py` | Fixed branch inference adapters |
+| `results/final_16400/` | Training history, selected folds, test predictions, metrics and plots |
+| `results/format_control_ModelScope/` | Paired format-control plan, predictions and metrics |
+| `results/protocol/` | Dataset separation and verification records |
+| `FROZEN_PROTOCOL.md` | Experimental boundaries and model provenance |
+| `TRAINING.md` | Reproduction steps and requirements |
+| `tests/` | Isolation, alignment, score validation, reload and portable inference tests |
 
-The export includes encoder weights (safetensors), model/processor configuration,
-linear head weights and a checksummed provenance manifest. It uses the exact
-checkpoint revision and processor from the feature cache. Only load trusted
-project training checkpoints; these contain optimizer/RNG objects.
-
-```python
-from stacking.branch_a import load_frozen
-encoder, processor, head = load_frozen('stacking/runs/round_1/export/A')
-```
-
-Reload explicitly restores `requires_grad=False` and evaluation mode. CLIP uses
-`pooler_output`; DINO uses `last_hidden_state[:, 0, :]`. Apply the head to each
-frame feature and average eight logits for A's stacking score. The standalone
-A probability is sigmoid of that mean. Keep the encoder in eval mode during use.
-B/C teams must supply their own model export/load code. Preserve their final
-artifacts, this A export, fusion.json, and the plan for a complete deployment.
+The original OOF interface remains available as `python -m stacking.legacy_oof_cli`.
+`LEGACY_OOF.md` describes that interface. It is distinct from the released model.
 
 ## Tests
 
 ```bash
-python -m pytest stacking/tests -q
+python -m pytest stacking/tests/test_pipeline.py stacking/tests/test_expanded.py \
+  stacking/tests/test_neural.py stacking/tests/test_export_resume.py \
+  stacking/tests/test_predict_portable.py -q
 ```
 
-Tests use synthetic fixtures and tiny local models: group separation, real-only
-C fitting, alignment and rejection cases, fusion save/reload, no test influence
-on fitting, complete A OOF execution/resume, and frozen-weight export/reload.
+The retained legacy Branch A tests additionally require its PyTorch/Transformers
+environment. `report.py` is the earlier protocol's report utility; the released
+expanded-protocol results are the saved files in `results/final_16400/`.

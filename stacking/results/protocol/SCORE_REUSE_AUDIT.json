@@ -1,0 +1,22 @@
+{
+  "kind": "V1 development reuse verified by exact clip-ID set after pre-fit correction",
+  "manifest_sha256": "805ef1f53380a763cd6c2057fb8777f57c800d92831a47ed37f0236ac8c41b4e",
+  "branches": {
+    "A": {
+      "rows": 3200,
+      "all_exact_match": true,
+      "max_abs_score_difference": 0.0
+    },
+    "B": {
+      "rows": 3200,
+      "all_exact_match": true,
+      "max_abs_score_difference": 0.0
+    },
+    "C": {
+      "rows": 3200,
+      "all_exact_match": true,
+      "max_abs_score_difference": 0.0
+    }
+  },
+  "historical_test_scores_used_in_fitting": false
+}
