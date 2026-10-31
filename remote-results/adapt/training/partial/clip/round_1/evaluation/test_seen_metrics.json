@@ -1,0 +1,219 @@
+{
+  "n": 4198,
+  "auroc": 0.9971535248989968,
+  "auroc_undefined_reason": null,
+  "f1": 0.9763440860215054,
+  "precision": 0.9798561151079137,
+  "recall": 0.9728571428571429,
+  "confusion_matrix": [
+    [
+      2056,
+      42
+    ],
+    [
+      57,
+      2043
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.06640347093343735,
+  "by_generator": {
+    "MuseV": {
+      "positive_count": 150,
+      "shared_real_count": 2098,
+      "generated_recall": 0.8533333333333334,
+      "against_shared_real": {
+        "n": 2248,
+        "auroc": 0.9807006673021925,
+        "auroc_undefined_reason": null,
+        "f1": 0.8,
+        "precision": 0.7529411764705882,
+        "recall": 0.8533333333333334,
+        "confusion_matrix": [
+          [
+            2056,
+            42
+          ],
+          [
+            22,
+            128
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 450,
+      "shared_real_count": 2098,
+      "generated_recall": 0.9844444444444445,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.998061646012075,
+        "auroc_undefined_reason": null,
+        "f1": 0.9475935828877006,
+        "precision": 0.9134020618556701,
+        "recall": 0.9844444444444445,
+        "confusion_matrix": [
+          [
+            2056,
+            42
+          ],
+          [
+            7,
+            443
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Pika": {
+      "positive_count": 450,
+      "shared_real_count": 2098,
+      "generated_recall": 0.9977777777777778,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9997706810719204,
+        "auroc_undefined_reason": null,
+        "f1": 0.9543039319872476,
+        "precision": 0.9144602851323829,
+        "recall": 0.9977777777777778,
+        "confusion_matrix": [
+          [
+            2056,
+            42
+          ],
+          [
+            1,
+            449
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "SVD": {
+      "positive_count": 150,
+      "shared_real_count": 2098,
+      "generated_recall": 0.8533333333333334,
+      "against_shared_real": {
+        "n": 2248,
+        "auroc": 0.9909691769939625,
+        "auroc_undefined_reason": null,
+        "f1": 0.8,
+        "precision": 0.7529411764705882,
+        "recall": 0.8533333333333334,
+        "confusion_matrix": [
+          [
+            2056,
+            42
+          ],
+          [
+            22,
+            128
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "T2V-Zero": {
+      "positive_count": 450,
+      "shared_real_count": 2098,
+      "generated_recall": 0.9888888888888889,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9984503760194895,
+        "auroc_undefined_reason": null,
+        "f1": 0.9498399146211313,
+        "precision": 0.9137577002053389,
+        "recall": 0.9888888888888889,
+        "confusion_matrix": [
+          [
+            2056,
+            42
+          ],
+          [
+            5,
+            445
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "VideoCrafter2": {
+      "positive_count": 450,
+      "shared_real_count": 2098,
+      "generated_recall": 1.0,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9998771316597819,
+        "auroc_undefined_reason": null,
+        "f1": 0.9554140127388535,
+        "precision": 0.9146341463414634,
+        "recall": 1.0,
+        "confusion_matrix": [
+          [
+            2056,
+            42
+          ],
+          [
+            0,
+            450
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.07,
+    "Vript": 0.01167964404894327
+  },
+  "backbone": "openai/clip-vit-base-patch16",
+  "backbone_key": "clip",
+  "adaptation_mode": "partial",
+  "round_id": "round_1",
+  "partition": "test_seen",
+  "smoke": false,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "experiment_identity": "03a5af4a6c8e5d2ee0ecd058e69a95e1ef12fff9171ea78fb6c1400d2d2918a6",
+  "shared_real_test_examples": true,
+  "checkpoint_epoch": 4,
+  "evaluation_policy": "sigmoid_mean_8_logits_threshold_0.5",
+  "processor": {
+    "_processor_class": null,
+    "do_resize": true,
+    "size": {
+      "shortest_edge": 224
+    },
+    "resample": 3,
+    "do_center_crop": true,
+    "crop_size": {
+      "height": 224,
+      "width": 224
+    },
+    "do_rescale": true,
+    "rescale_factor": 0.00392156862745098,
+    "do_normalize": true,
+    "image_mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "image_std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "do_convert_rgb": true,
+    "image_processor_type": "CLIPImageProcessor"
+  },
+  "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "representation": "vision_post_layernorm_pooled",
+  "evaluation_precision": "bf16"
+}

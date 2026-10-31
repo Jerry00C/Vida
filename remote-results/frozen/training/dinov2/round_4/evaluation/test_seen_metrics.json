@@ -1,0 +1,160 @@
+{
+  "n": 3448,
+  "auroc": 0.9207835894991859,
+  "auroc_undefined_reason": null,
+  "f1": 0.7719912472647702,
+  "precision": 0.71417004048583,
+  "recall": 0.84,
+  "confusion_matrix": [
+    [
+      2045,
+      353
+    ],
+    [
+      168,
+      882
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.3661670386791229,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.9533333333333334,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9709785932721713,
+        "auroc_undefined_reason": null,
+        "f1": 0.44272445820433437,
+        "precision": 0.28830645161290325,
+        "recall": 0.9533333333333334,
+        "confusion_matrix": [
+          [
+            2045,
+            353
+          ],
+          [
+            7,
+            143
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.9533333333333334,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9742368640533778,
+        "auroc_undefined_reason": null,
+        "f1": 0.44272445820433437,
+        "precision": 0.28830645161290325,
+        "recall": 0.9533333333333334,
+        "confusion_matrix": [
+          [
+            2045,
+            353
+          ],
+          [
+            7,
+            143
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "MuseV": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.6733333333333333,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.8379288295802058,
+        "auroc_undefined_reason": null,
+        "f1": 0.3344370860927152,
+        "precision": 0.22246696035242292,
+        "recall": 0.6733333333333333,
+        "confusion_matrix": [
+          [
+            2045,
+            353
+          ],
+          [
+            49,
+            101
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 450,
+      "shared_real_count": 2398,
+      "generated_recall": 0.94,
+      "against_shared_real": {
+        "n": 2848,
+        "auroc": 0.9696126401630988,
+        "auroc_undefined_reason": null,
+        "f1": 0.6900489396411092,
+        "precision": 0.5451030927835051,
+        "recall": 0.94,
+        "confusion_matrix": [
+          [
+            2045,
+            353
+          ],
+          [
+            27,
+            423
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "SVD": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.48,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.7535029190992494,
+        "auroc_undefined_reason": null,
+        "f1": 0.25043478260869567,
+        "precision": 0.16941176470588235,
+        "recall": 0.48,
+        "confusion_matrix": [
+          [
+            2045,
+            353
+          ],
+          [
+            78,
+            72
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.22666666666666666,
+    "Vript": 0.1206896551724138
+  },
+  "round_id": "round_4",
+  "partition": "test_seen",
+  "smoke": false,
+  "backbone": "facebook/dinov2-base",
+  "checkpoint_epoch": 15,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "be8d42f8a4498a12f97bf241b9080ba464f8e5eee82a4b9f476cd76677a9a074",
+  "shared_real_test_examples": true
+}

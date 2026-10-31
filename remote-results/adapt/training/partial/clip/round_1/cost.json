@@ -1,0 +1,13 @@
+{
+  "elapsed_seconds": 9541.731721571006,
+  "training_seconds": 4108.3177662098315,
+  "training_samples": 176436,
+  "training_frames_per_second": 42.94604508228504,
+  "trainable_parameters": 14178049,
+  "total_parameters": 85800193,
+  "device": "cuda",
+  "precision": "bf16",
+  "peak_gpu_memory_bytes": 936772096,
+  "process_peak_rss_bytes": 2364944384,
+  "memory_note": "GPU peak only measured on CUDA; CPU RSS is process-lifetime high-water mark"
+}

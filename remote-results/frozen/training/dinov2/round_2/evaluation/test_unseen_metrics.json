@@ -1,0 +1,85 @@
+{
+  "n": 6248,
+  "auroc": 0.9025579403914591,
+  "auroc_undefined_reason": null,
+  "f1": 0.8249653259361998,
+  "precision": 0.9264797507788162,
+  "recall": 0.7435,
+  "confusion_matrix": [
+    [
+      2012,
+      236
+    ],
+    [
+      1026,
+      2974
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.43812426924705505,
+  "by_generator": {
+    "MuseV": {
+      "positive_count": 1000,
+      "shared_real_count": 2248,
+      "generated_recall": 0.503,
+      "against_shared_real": {
+        "n": 3248,
+        "auroc": 0.8002130782918149,
+        "auroc_undefined_reason": null,
+        "f1": 0.5784933870040253,
+        "precision": 0.6806495263870095,
+        "recall": 0.503,
+        "confusion_matrix": [
+          [
+            2012,
+            236
+          ],
+          [
+            497,
+            503
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 3000,
+      "shared_real_count": 2248,
+      "generated_recall": 0.8236666666666667,
+      "against_shared_real": {
+        "n": 5248,
+        "auroc": 0.9366728944246737,
+        "auroc_undefined_reason": null,
+        "f1": 0.86595409146662,
+        "precision": 0.9128186183967492,
+        "recall": 0.8236666666666667,
+        "confusion_matrix": [
+          [
+            2012,
+            236
+          ],
+          [
+            529,
+            2471
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.1688888888888889,
+    "Vript": 0.08898776418242492
+  },
+  "round_id": "round_2",
+  "partition": "test_unseen",
+  "smoke": false,
+  "backbone": "facebook/dinov2-base",
+  "checkpoint_epoch": 30,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "be8d42f8a4498a12f97bf241b9080ba464f8e5eee82a4b9f476cd76677a9a074",
+  "shared_real_test_examples": true
+}

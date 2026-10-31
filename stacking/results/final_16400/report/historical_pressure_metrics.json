@@ -1,0 +1,92 @@
+{
+  "kind": "previously viewed V1 videos; supplemental historical comparison, not new blind test",
+  "views": {
+    "Sora": {
+      "n": 88,
+      "real": 44,
+      "generated": 44,
+      "auroc": 0.8724173553719008,
+      "macro_f1": 0.35810008481764205,
+      "accuracy": 0.5113636363636364,
+      "f1_generated": 0.044444444444444446,
+      "average_precision": 0.8783161531122332,
+      "balanced_accuracy": 0.5113636363636364,
+      "precision_generated": 1.0,
+      "recall_generated": 0.022727272727272728,
+      "real_fpr": 0.0,
+      "brier": 0.4442690875164846,
+      "threshold": 0.4495125162248878,
+      "confusion_matrix_real_generated": [
+        [
+          44,
+          0
+        ],
+        [
+          43,
+          1
+        ]
+      ],
+      "auroc_group_bootstrap_95ci": [
+        0.7957012510730697,
+        0.9436109238377519
+      ]
+    },
+    "Kling": {
+      "n": 528,
+      "real": 264,
+      "generated": 264,
+      "auroc": 0.9547750229568411,
+      "macro_f1": 0.4402551451742046,
+      "accuracy": 0.5511363636363636,
+      "f1_generated": 0.19112627986348124,
+      "average_precision": 0.9540316943364092,
+      "balanced_accuracy": 0.5511363636363636,
+      "precision_generated": 0.9655172413793104,
+      "recall_generated": 0.10606060606060606,
+      "real_fpr": 0.003787878787878788,
+      "brier": 0.3779217168681088,
+      "threshold": 0.4495125162248878,
+      "confusion_matrix_real_generated": [
+        [
+          263,
+          1
+        ],
+        [
+          236,
+          28
+        ]
+      ],
+      "auroc_group_bootstrap_95ci": [
+        0.9361617159516784,
+        0.9709944535099966
+      ]
+    },
+    "ModelScope_UCF101_historical": {
+      "n": 1200,
+      "real": 600,
+      "generated": 600,
+      "auroc": 1.0,
+      "macro_f1": 0.9983333287036908,
+      "accuracy": 0.9983333333333333,
+      "f1_generated": 0.9983361064891847,
+      "average_precision": 1.0,
+      "balanced_accuracy": 0.9983333333333333,
+      "precision_generated": 0.9966777408637874,
+      "recall_generated": 1.0,
+      "real_fpr": 0.0033333333333333335,
+      "brier": 0.0016501363415579533,
+      "threshold": 0.4495125162248878,
+      "confusion_matrix_real_generated": [
+        [
+          598,
+          2
+        ],
+        [
+          0,
+          600
+        ]
+      ]
+    }
+  },
+  "used_for_any_fitting_or_selection": false
+}

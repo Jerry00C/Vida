@@ -1,0 +1,37 @@
+{
+  "kind": "paired format-control diagnostic, not new independent videos",
+  "rows": 2000,
+  "metrics": {
+    "n": 2000,
+    "real": 1000,
+    "generated": 1000,
+    "auroc": 0.970026,
+    "macro_f1": 0.3906767095511748,
+    "accuracy": 0.527,
+    "f1_generated": 0.6788866259334692,
+    "average_precision": 0.9663236299141192,
+    "balanced_accuracy": 0.527,
+    "precision_generated": 0.513874614594039,
+    "recall_generated": 1.0,
+    "real_fpr": 0.946,
+    "brier": 0.4002275810319876,
+    "threshold": 0.4495125162248878,
+    "confusion_matrix_real_generated": [
+      [
+        54,
+        946
+      ],
+      [
+        0,
+        1000
+      ]
+    ],
+    "auroc_group_bootstrap_95ci": [
+      0.961086497223025,
+      0.977965109232777
+    ]
+  },
+  "frozen_fusion_sha256": "81b7bcb42d9e3e647faff2cda2719bdee77c545e939d6aca10a321c3fbd67dd1",
+  "model_or_threshold_changed": false,
+  "limitation": "Changes FPS, resolution, encoding and time window jointly. Square resizing also changes aspect ratio of nonsquare inputs; cannot identify a single causal attribute or use results to tune this sealed model."
+}

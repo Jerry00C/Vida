@@ -1,0 +1,8 @@
+{
+  "original_manifest_sha256": "a4470a8ff2068840890e82264b887ab04661419ffd3a3920e4ec8e18cc43479e",
+  "rows": 2000,
+  "normalization": "first2seconds,256x256 bicubic,8FPS,16frames,SAR1,H264/CRF18/preset_fast/yuv420p, identical both labels",
+  "purpose": "paired format-sensitivity control, same original test clips, not 2000 new independent originals",
+  "frozen_fusion_sha256": "81b7bcb42d9e3e647faff2cda2719bdee77c545e939d6aca10a321c3fbd67dd1",
+  "fit_or_threshold_selection": false
+}

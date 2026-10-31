@@ -1,0 +1,109 @@
+{
+  "protocol_id": "vida-eight-family-ms-v2-20261030",
+  "files": {
+    "stacking/released_model/MODEL_LOCK.json": {
+      "bytes": 2453,
+      "sha256": "5d285854ccfbdc3a732422c61bb577e2ae5f8ee0cf1a8bc7309ba897538ad984"
+    },
+    "stacking/released_model/stacker.joblib": {
+      "bytes": 176747,
+      "sha256": "81b7bcb42d9e3e647faff2cda2719bdee77c545e939d6aca10a321c3fbd67dd1"
+    },
+    "stacking/results/final_16400/evaluation/metrics.json": {
+      "bytes": 31659,
+      "sha256": "44b3c4530ad12d75866424330babf793f95f913173fcf45867304999e94980dc"
+    },
+    "stacking/results/final_16400/evaluation/predictions.csv": {
+      "bytes": 1542192,
+      "sha256": "583f354e618dd3f2ac35fd857a2d6b4d4c171aee17cf1f00f91cde1810ed2058"
+    },
+    "stacking/results/final_16400/family_cv_folds.json": {
+      "bytes": 1306682,
+      "sha256": "c9e93f2f74a01e331feab0efdf319e406ff0dac36f634b187fbc7d9b1373a7dc"
+    },
+    "stacking/results/final_16400/fusion_train_cv.csv": {
+      "bytes": 440950,
+      "sha256": "5deaf13936048616597915faf25d744a62a4b3caa88f29f579cf0bd1352cfb2e"
+    },
+    "stacking/results/final_16400/MODEL_LOCK.json": {
+      "bytes": 2453,
+      "sha256": "5d285854ccfbdc3a732422c61bb577e2ae5f8ee0cf1a8bc7309ba897538ad984"
+    },
+    "stacking/results/final_16400/report/fusion_latency.json": {
+      "bytes": 228,
+      "sha256": "4c1a37734c91adeb5f28b48c819a15c7340b84327fb8902724c5bf46080c85b9"
+    },
+    "stacking/results/final_16400/report/historical_pressure_metrics.json": {
+      "bytes": 2461,
+      "sha256": "8d433847ae45fbc2046b07cbaff1b65bfa4dfe80a2414f94efcffedf1fb79811"
+    },
+    "stacking/results/final_16400/report/historical_pressure_predictions.csv": {
+      "bytes": 41435,
+      "sha256": "d0bb9be241a5f5d4ce752251080381d5932468457ee7679cd003d4d505598c73"
+    },
+    "stacking/results/final_16400/report/in_domain_MacroF1_threshold.png": {
+      "bytes": 73646,
+      "sha256": "349a338082be99034bd05bded860d8304c6155907d2c7fa066d12f8a173d32bc"
+    },
+    "stacking/results/final_16400/report/in_domain_ROC.png": {
+      "bytes": 67145,
+      "sha256": "ce70fa13717455307741cefc53273bbf86f38bbb2a936a0f5d2c8482cef2aab1"
+    },
+    "stacking/results/final_16400/report/metadata_format_probe.json": {
+      "bytes": 691,
+      "sha256": "7d6621add348efee444be8084f675e95c271a51039c36ecca6569fd61d3a20e5"
+    },
+    "stacking/results/final_16400/report/metrics_comparison.csv": {
+      "bytes": 8012,
+      "sha256": "aa4da17b08871257bb700e1e5a8ebe8749c2ab2e7d774a8d0a6226fb2d876f4a"
+    },
+    "stacking/results/final_16400/report/MLP_family_holdout_epoch_curves.png": {
+      "bytes": 302615,
+      "sha256": "b0b69a988d57353d4448ec6f52bb8b443a4e69a6bc63140a8a390a9f873db6b0"
+    },
+    "stacking/results/final_16400/report/ModelScope_MacroF1_threshold.png": {
+      "bytes": 90317,
+      "sha256": "977c64f0ca3d344214f100d7bc43314d3800a6f5738f1e4820745dfb91d2c43c"
+    },
+    "stacking/results/final_16400/report/ModelScope_ROC.png": {
+      "bytes": 88938,
+      "sha256": "bf1955ae8822b3700bd466c7d166066f52fc84080c41b0c8d428a3049d9a55a2"
+    },
+    "stacking/results/final_16400/report/RESULTS_zh.md": {
+      "bytes": 10019,
+      "sha256": "ff885df0fb54f6e4bf27dfeedfd5e4d20a644ad3686bb09f5793ad54cc0bfe89"
+    },
+    "stacking/results/final_16400/training_report.json": {
+      "bytes": 147810,
+      "sha256": "1cc0858ec8e1950fbfbbda85504100a1010c84a19900f748cdd81a03dbee5d5e"
+    },
+    "stacking/results/format_control_ModelScope/metrics.json": {
+      "bytes": 1151,
+      "sha256": "999a61b9d0d14f32c4497151f822b352e394dc315f3922c10c326e2929ac6206"
+    },
+    "stacking/results/format_control_ModelScope/PLAN.json": {
+      "bytes": 495,
+      "sha256": "7196969457cb9a1bd12ef03a9b8f91b63f3c70ff12616ac83b4d5a9c5a52ba77"
+    },
+    "stacking/results/format_control_ModelScope/predictions.csv": {
+      "bytes": 678935,
+      "sha256": "c3a822aabafeb57a5ae0c1b8c141f62afc70a557a76a45f75544888be3cc231c"
+    },
+    "stacking/results/protocol/DATA_VERIFICATION.json": {
+      "bytes": 2296,
+      "sha256": "78b878fe473a3a0b5707fd7a012ec7ccfa859bb8079c39e35263a8120be56328"
+    },
+    "stacking/results/protocol/JOINT_MEDIA_CORRECTION.json": {
+      "bytes": 1880,
+      "sha256": "9df9cc4a1187bf3b63b6e87af4c7698319b66151108e68405188bbb334a238c0"
+    },
+    "stacking/results/protocol/PROTOCOL_AUDIT.json": {
+      "bytes": 933,
+      "sha256": "6099c2768ba369ebf0502475006af771a2a30c1182d0c6cde7ca8320c1557177"
+    },
+    "stacking/results/protocol/SCORE_REUSE_AUDIT.json": {
+      "bytes": 593,
+      "sha256": "776ac8d676b4d4c7c807982e1386d31a4943c763a6538fd952512b32bc5ab321"
+    }
+  }
+}
