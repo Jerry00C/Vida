@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-video-branch-c"
+version = "0.1.0"
+description = "Real-only video anomaly evidence for Group 42"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+  "scipy>=1.11,<2",
+  "scikit-learn>=1.5,<2",
+  "opencv-python-headless>=4.10,<5",
+  "joblib>=1.4,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+report = ["matplotlib>=3.10,<4"]
+
+[project.scripts]
+branch-c = "branch_c.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

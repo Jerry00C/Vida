@@ -1,0 +1,24 @@
+{
+  "kind": "independent final metadata/role audit; no model predictions read",
+  "clips": 16400,
+  "manifest_sha256": "805ef1f53380a763cd6c2057fb8777f57c800d92831a47ed37f0236ac8c41b4e",
+  "phase_counts": {
+    "fusion_train": 5120,
+    "probability_calibration": 640,
+    "threshold_selection": 640,
+    "in_domain_test": 8000,
+    "external_test": 2000
+  },
+  "known_base_and_historical_key_overlap": 0,
+  "known_metadata_keys_crossing_phases": 0,
+  "source_components": 9029,
+  "V1_development_clips_reused_with_exact_original_role": 3200,
+  "ModelScope_clips": 1000,
+  "ModelScope_authors_official_member_mapping_all_match": true,
+  "ModelScope_training_calibration_threshold_rows": 0,
+  "real_sources_seen_in_project_base_pool": [
+    "Vript",
+    "HD-VG-130M"
+  ],
+  "claim": "generator holdout, not both-label source holdout; semantic duplicate absence and unpublished A training history not proven"
+}

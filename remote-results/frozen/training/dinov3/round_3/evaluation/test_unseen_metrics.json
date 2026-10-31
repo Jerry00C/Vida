@@ -1,0 +1,85 @@
+{
+  "n": 6248,
+  "auroc": 0.9267088523131672,
+  "auroc_undefined_reason": null,
+  "f1": 0.8762442830239441,
+  "precision": 0.9484566103669191,
+  "recall": 0.81425,
+  "confusion_matrix": [
+    [
+      2071,
+      177
+    ],
+    [
+      743,
+      3257
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.33704301714897156,
+  "by_generator": {
+    "Pika": {
+      "positive_count": 3000,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9846666666666667,
+      "against_shared_real": {
+        "n": 5248,
+        "auroc": 0.9951129893238434,
+        "auroc_undefined_reason": null,
+        "f1": 0.9636274669711303,
+        "precision": 0.9434685404024273,
+        "recall": 0.9846666666666667,
+        "confusion_matrix": [
+          [
+            2071,
+            177
+          ],
+          [
+            46,
+            2954
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "SVD": {
+      "positive_count": 1000,
+      "shared_real_count": 2248,
+      "generated_recall": 0.303,
+      "against_shared_real": {
+        "n": 3248,
+        "auroc": 0.7214964412811388,
+        "auroc_undefined_reason": null,
+        "f1": 0.40945945945945944,
+        "precision": 0.63125,
+        "recall": 0.303,
+        "confusion_matrix": [
+          [
+            2071,
+            177
+          ],
+          [
+            697,
+            303
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.1288888888888889,
+    "Vript": 0.06618464961067853
+  },
+  "round_id": "round_3",
+  "partition": "test_unseen",
+  "smoke": false,
+  "backbone": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+  "checkpoint_epoch": 30,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "948becc16a5b69cc190a85cfb6774c1b61611b72f4da88b9bb10087ebe4e6b81",
+  "shared_real_test_examples": true
+}

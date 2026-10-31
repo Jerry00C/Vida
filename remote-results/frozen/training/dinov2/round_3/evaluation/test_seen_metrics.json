@@ -1,0 +1,135 @@
+{
+  "n": 3148,
+  "auroc": 0.9527327995255042,
+  "auroc_undefined_reason": null,
+  "f1": 0.814853017019082,
+  "precision": 0.7603464870067372,
+  "recall": 0.8777777777777778,
+  "confusion_matrix": [
+    [
+      1999,
+      249
+    ],
+    [
+      110,
+      790
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.2794966995716095,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9133333333333333,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9712188612099644,
+        "auroc_undefined_reason": null,
+        "f1": 0.5111940298507462,
+        "precision": 0.3549222797927461,
+        "recall": 0.9133333333333333,
+        "confusion_matrix": [
+          [
+            1999,
+            249
+          ],
+          [
+            13,
+            137
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9533333333333334,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9826690391459074,
+        "auroc_undefined_reason": null,
+        "f1": 0.5276752767527675,
+        "precision": 0.3647959183673469,
+        "recall": 0.9533333333333334,
+        "confusion_matrix": [
+          [
+            1999,
+            249
+          ],
+          [
+            7,
+            143
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "MuseV": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.6,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.8357740213523133,
+        "auroc_undefined_reason": null,
+        "f1": 0.36809815950920244,
+        "precision": 0.26548672566371684,
+        "recall": 0.6,
+        "confusion_matrix": [
+          [
+            1999,
+            249
+          ],
+          [
+            60,
+            90
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9333333333333333,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9755782918149466,
+        "auroc_undefined_reason": null,
+        "f1": 0.7506702412868632,
+        "precision": 0.6278026905829597,
+        "recall": 0.9333333333333333,
+        "confusion_matrix": [
+          [
+            1999,
+            249
+          ],
+          [
+            30,
+            420
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.18666666666666668,
+    "Vript": 0.0917686318131257
+  },
+  "round_id": "round_3",
+  "partition": "test_seen",
+  "smoke": false,
+  "backbone": "facebook/dinov2-base",
+  "checkpoint_epoch": 28,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "be8d42f8a4498a12f97bf241b9080ba464f8e5eee82a4b9f476cd76677a9a074",
+  "shared_real_test_examples": true
+}

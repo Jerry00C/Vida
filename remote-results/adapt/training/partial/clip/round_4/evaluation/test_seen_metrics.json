@@ -1,0 +1,194 @@
+{
+  "n": 3448,
+  "auroc": 0.9947450256165853,
+  "auroc_undefined_reason": null,
+  "f1": 0.9546351084812623,
+  "precision": 0.9897750511247444,
+  "recall": 0.9219047619047619,
+  "confusion_matrix": [
+    [
+      2388,
+      10
+    ],
+    [
+      82,
+      968
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.10655674338340759,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 1.0,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9999304976369197,
+        "auroc_undefined_reason": null,
+        "f1": 0.967741935483871,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "confusion_matrix": [
+          [
+            2388,
+            10
+          ],
+          [
+            0,
+            150
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.9866666666666667,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9996719488462608,
+        "auroc_undefined_reason": null,
+        "f1": 0.961038961038961,
+        "precision": 0.9367088607594937,
+        "recall": 0.9866666666666667,
+        "confusion_matrix": [
+          [
+            2388,
+            10
+          ],
+          [
+            2,
+            148
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "MuseV": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.7666666666666667,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9759827634139562,
+        "auroc_undefined_reason": null,
+        "f1": 0.8363636363636363,
+        "precision": 0.92,
+        "recall": 0.7666666666666667,
+        "confusion_matrix": [
+          [
+            2388,
+            10
+          ],
+          [
+            35,
+            115
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 450,
+      "shared_real_count": 2398,
+      "generated_recall": 0.9844444444444445,
+      "against_shared_real": {
+        "n": 2848,
+        "auroc": 0.9994578815679733,
+        "auroc_undefined_reason": null,
+        "f1": 0.9811738648947951,
+        "precision": 0.977924944812362,
+        "recall": 0.9844444444444445,
+        "confusion_matrix": [
+          [
+            2388,
+            10
+          ],
+          [
+            7,
+            443
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "SVD": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.7466666666666667,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9892563247150402,
+        "auroc_undefined_reason": null,
+        "f1": 0.8235294117647058,
+        "precision": 0.9180327868852459,
+        "recall": 0.7466666666666667,
+        "confusion_matrix": [
+          [
+            2388,
+            10
+          ],
+          [
+            38,
+            112
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.01,
+    "Vript": 0.002224694104560623
+  },
+  "backbone": "openai/clip-vit-base-patch16",
+  "backbone_key": "clip",
+  "adaptation_mode": "partial",
+  "round_id": "round_4",
+  "partition": "test_seen",
+  "smoke": false,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "experiment_identity": "f20c13267be89bfdeaf400af3ba42cfeeac1ed9bb9e8428e7191c86c468c4aea",
+  "shared_real_test_examples": true,
+  "checkpoint_epoch": 1,
+  "evaluation_policy": "sigmoid_mean_8_logits_threshold_0.5",
+  "processor": {
+    "_processor_class": null,
+    "do_resize": true,
+    "size": {
+      "shortest_edge": 224
+    },
+    "resample": 3,
+    "do_center_crop": true,
+    "crop_size": {
+      "height": 224,
+      "width": 224
+    },
+    "do_rescale": true,
+    "rescale_factor": 0.00392156862745098,
+    "do_normalize": true,
+    "image_mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "image_std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "do_convert_rgb": true,
+    "image_processor_type": "CLIPImageProcessor"
+  },
+  "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "representation": "vision_post_layernorm_pooled",
+  "evaluation_precision": "bf16"
+}

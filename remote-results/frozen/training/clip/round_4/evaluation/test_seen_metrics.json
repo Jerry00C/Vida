@@ -1,0 +1,160 @@
+{
+  "n": 3448,
+  "auroc": 0.9736784622105724,
+  "auroc_undefined_reason": null,
+  "f1": 0.8722712494194148,
+  "precision": 0.8513145965548504,
+  "recall": 0.8942857142857142,
+  "confusion_matrix": [
+    [
+      2234,
+      164
+    ],
+    [
+      111,
+      939
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.2193329632282257,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.9866666666666667,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9962190714484292,
+        "auroc_undefined_reason": null,
+        "f1": 0.6406926406926406,
+        "precision": 0.47435897435897434,
+        "recall": 0.9866666666666667,
+        "confusion_matrix": [
+          [
+            2234,
+            164
+          ],
+          [
+            2,
+            148
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.9666666666666667,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9915679733110926,
+        "auroc_undefined_reason": null,
+        "f1": 0.6318082788671024,
+        "precision": 0.4692556634304207,
+        "recall": 0.9666666666666667,
+        "confusion_matrix": [
+          [
+            2234,
+            164
+          ],
+          [
+            5,
+            145
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "MuseV": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.7733333333333333,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9400444815123714,
+        "auroc_undefined_reason": null,
+        "f1": 0.5395348837209303,
+        "precision": 0.4142857142857143,
+        "recall": 0.7733333333333333,
+        "confusion_matrix": [
+          [
+            2234,
+            164
+          ],
+          [
+            34,
+            116
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 450,
+      "shared_real_count": 2398,
+      "generated_recall": 0.9533333333333334,
+      "against_shared_real": {
+        "n": 2848,
+        "auroc": 0.9883662311185247,
+        "auroc_undefined_reason": null,
+        "f1": 0.822627037392138,
+        "precision": 0.7234401349072512,
+        "recall": 0.9533333333333334,
+        "confusion_matrix": [
+          [
+            2234,
+            164
+          ],
+          [
+            21,
+            429
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "SVD": {
+      "positive_count": 150,
+      "shared_real_count": 2398,
+      "generated_recall": 0.6733333333333333,
+      "against_shared_real": {
+        "n": 2548,
+        "auroc": 0.9228190158465389,
+        "auroc_undefined_reason": null,
+        "f1": 0.4867469879518072,
+        "precision": 0.38113207547169814,
+        "recall": 0.6733333333333333,
+        "confusion_matrix": [
+          [
+            2234,
+            164
+          ],
+          [
+            49,
+            101
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.135,
+    "Vript": 0.046162402669632924
+  },
+  "round_id": "round_4",
+  "partition": "test_seen",
+  "smoke": false,
+  "backbone": "openai/clip-vit-base-patch16",
+  "checkpoint_epoch": 30,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "83b832d7810cb4fb0ba24b5589f209fed5cddc91f9cea21ebb75ee73358bd8a1",
+  "shared_real_test_examples": true
+}

@@ -1,0 +1,169 @@
+{
+  "n": 3148,
+  "auroc": 0.9976532226176356,
+  "auroc_undefined_reason": null,
+  "f1": 0.9786995515695067,
+  "precision": 0.9875565610859729,
+  "recall": 0.97,
+  "confusion_matrix": [
+    [
+      2237,
+      11
+    ],
+    [
+      27,
+      873
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.05327007547020912,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 1.0,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9999347568208778,
+        "auroc_undefined_reason": null,
+        "f1": 0.9646302250803859,
+        "precision": 0.9316770186335404,
+        "recall": 1.0,
+        "confusion_matrix": [
+          [
+            2237,
+            11
+          ],
+          [
+            0,
+            150
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 1.0,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9999258600237249,
+        "auroc_undefined_reason": null,
+        "f1": 0.9646302250803859,
+        "precision": 0.9316770186335404,
+        "recall": 1.0,
+        "confusion_matrix": [
+          [
+            2237,
+            11
+          ],
+          [
+            0,
+            150
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "MuseV": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.84,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9866014234875444,
+        "auroc_undefined_reason": null,
+        "f1": 0.8780487804878049,
+        "precision": 0.9197080291970803,
+        "recall": 0.84,
+        "confusion_matrix": [
+          [
+            2237,
+            11
+          ],
+          [
+            24,
+            126
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9933333333333333,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9998190984578885,
+        "auroc_undefined_reason": null,
+        "f1": 0.9845814977973568,
+        "precision": 0.9759825327510917,
+        "recall": 0.9933333333333333,
+        "confusion_matrix": [
+          [
+            2237,
+            11
+          ],
+          [
+            3,
+            447
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.011111111111111112,
+    "Vript": 0.0033370411568409346
+  },
+  "backbone": "openai/clip-vit-base-patch16",
+  "backbone_key": "clip",
+  "adaptation_mode": "partial",
+  "round_id": "round_3",
+  "partition": "test_seen",
+  "smoke": false,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "experiment_identity": "c63c8f2e6ee7874e8d1a7c55e9c23a58a2b351eafca27a31144eea413bf221cc",
+  "shared_real_test_examples": true,
+  "checkpoint_epoch": 11,
+  "evaluation_policy": "sigmoid_mean_8_logits_threshold_0.5",
+  "processor": {
+    "_processor_class": null,
+    "do_resize": true,
+    "size": {
+      "shortest_edge": 224
+    },
+    "resample": 3,
+    "do_center_crop": true,
+    "crop_size": {
+      "height": 224,
+      "width": 224
+    },
+    "do_rescale": true,
+    "rescale_factor": 0.00392156862745098,
+    "do_normalize": true,
+    "image_mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "image_std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "do_convert_rgb": true,
+    "image_processor_type": "CLIPImageProcessor"
+  },
+  "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "representation": "vision_post_layernorm_pooled",
+  "evaluation_precision": "bf16"
+}

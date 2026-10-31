@@ -1,0 +1,85 @@
+{
+  "n": 6248,
+  "auroc": 0.9484397241992882,
+  "auroc_undefined_reason": null,
+  "f1": 0.8570236439499305,
+  "precision": 0.9658307210031348,
+  "recall": 0.77025,
+  "confusion_matrix": [
+    [
+      2139,
+      109
+    ],
+    [
+      919,
+      3081
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.3706095814704895,
+  "by_generator": {
+    "MuseV": {
+      "positive_count": 1000,
+      "shared_real_count": 2248,
+      "generated_recall": 0.598,
+      "against_shared_real": {
+        "n": 3248,
+        "auroc": 0.9022904804270462,
+        "auroc_undefined_reason": null,
+        "f1": 0.7006444053895724,
+        "precision": 0.8458274398868458,
+        "recall": 0.598,
+        "confusion_matrix": [
+          [
+            2139,
+            109
+          ],
+          [
+            402,
+            598
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "OpenSora": {
+      "positive_count": 3000,
+      "shared_real_count": 2248,
+      "generated_recall": 0.8276666666666667,
+      "against_shared_real": {
+        "n": 5248,
+        "auroc": 0.9638228054567022,
+        "auroc_undefined_reason": null,
+        "f1": 0.8880543633762518,
+        "precision": 0.9579475308641975,
+        "recall": 0.8276666666666667,
+        "confusion_matrix": [
+          [
+            2139,
+            109
+          ],
+          [
+            517,
+            2483
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.11333333333333333,
+    "Vript": 0.03225806451612903
+  },
+  "round_id": "round_2",
+  "partition": "test_unseen",
+  "smoke": false,
+  "backbone": "openai/clip-vit-base-patch16",
+  "checkpoint_epoch": 30,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "83b832d7810cb4fb0ba24b5589f209fed5cddc91f9cea21ebb75ee73358bd8a1",
+  "shared_real_test_examples": true
+}

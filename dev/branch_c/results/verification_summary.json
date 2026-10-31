@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "verified_at": "2026-10-15T11:15:49.780843+00:00",
+  "plan_id": "eaa8b802016f671e5ec0acb168ecadb31da6dca37a458695714dc8b8519a13fe",
+  "rounds": 28,
+  "views": 56,
+  "input_hash_and_cached_features_verified": 25200,
+  "real_final_fit": 9600,
+  "real_per_oof_fit": 7680,
+  "real_threshold_calibration": 600,
+  "shared_selected_candidates": [
+    "svm_nu_0.01",
+    "svm_nu_0.05"
+  ],
+  "group_isolation": true,
+  "6seen_2unseen_every_round": true,
+  "all_round_scores_numerically_reproduced": true,
+  "all_selected_5fold_models_independently_refitted_and_scores_exact": true,
+  "clip_and_window_scaler_mean_variance_real_only_verified": true,
+  "frozen_before_tests": true,
+  "old_experiment_preserved": true,
+  "scope": "Historical numerical audit on the private local dataset, not a new run on GitHub.",
+  "software_tests": {
+    "passed": 156,
+    "warnings": 20,
+    "note": "Expected coarse-threshold warnings from tiny synthetic test fixtures."
+  }
+}

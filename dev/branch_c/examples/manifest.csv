@@ -1,0 +1,7 @@
+clip_id,path,label,split,group_id,source,generator,pair_id,duplicate_id,source_video_id,protocol,fold_id
+real_train_001,../data/videos/real_train_001.mp4,0,train,group_train_001,real_source_a,,pair_train_001,,original_train_001,cross_generator,0
+gen_train_001,../data/videos/gen_train_001.mp4,1,train,group_train_001,generation_pool,generator_a,pair_train_001,,,cross_generator,0
+real_val_001,../data/videos/real_val_001.mp4,0,val,group_val_001,real_source_a,,pair_val_001,,original_val_001,cross_generator,
+gen_val_001,../data/videos/gen_val_001.mp4,1,val,group_val_001,generation_pool,generator_a,pair_val_001,,,cross_generator,
+real_test_001,../data/videos/real_test_001.mp4,0,test,group_test_001,real_source_heldout,,pair_test_001,,original_test_001,cross_generator,
+gen_test_001,../data/videos/gen_test_001.mp4,1,test,group_test_001,generation_pool,generator_heldout,pair_test_001,,,cross_generator,

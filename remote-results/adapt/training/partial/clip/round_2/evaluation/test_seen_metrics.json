@@ -1,0 +1,219 @@
+{
+  "n": 4048,
+  "auroc": 0.9989002570185844,
+  "auroc_undefined_reason": null,
+  "f1": 0.9823399558498896,
+  "precision": 0.9758771929824561,
+  "recall": 0.9888888888888889,
+  "confusion_matrix": [
+    [
+      2204,
+      44
+    ],
+    [
+      20,
+      1780
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.04764404520392418,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 1.0,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9999228944246737,
+        "auroc_undefined_reason": null,
+        "f1": 0.872093023255814,
+        "precision": 0.7731958762886598,
+        "recall": 1.0,
+        "confusion_matrix": [
+          [
+            2204,
+            44
+          ],
+          [
+            0,
+            150
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9933333333333333,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9998190984578884,
+        "auroc_undefined_reason": null,
+        "f1": 0.8688046647230321,
+        "precision": 0.772020725388601,
+        "recall": 0.9933333333333333,
+        "confusion_matrix": [
+          [
+            2204,
+            44
+          ],
+          [
+            1,
+            149
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Pika": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9977777777777778,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9998882957690787,
+        "auroc_undefined_reason": null,
+        "f1": 0.9522799575821845,
+        "precision": 0.9107505070993914,
+        "recall": 0.9977777777777778,
+        "confusion_matrix": [
+          [
+            2204,
+            44
+          ],
+          [
+            1,
+            449
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "SVD": {
+      "positive_count": 150,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9266666666666666,
+      "against_shared_real": {
+        "n": 2398,
+        "auroc": 0.9925993475682088,
+        "auroc_undefined_reason": null,
+        "f1": 0.8348348348348348,
+        "precision": 0.7595628415300546,
+        "recall": 0.9266666666666666,
+        "confusion_matrix": [
+          [
+            2204,
+            44
+          ],
+          [
+            11,
+            139
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "T2V-Zero": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 0.9844444444444445,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9983476670620799,
+        "auroc_undefined_reason": null,
+        "f1": 0.9455709711846318,
+        "precision": 0.9096509240246407,
+        "recall": 0.9844444444444445,
+        "confusion_matrix": [
+          [
+            2204,
+            44
+          ],
+          [
+            7,
+            443
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "VideoCrafter2": {
+      "positive_count": 450,
+      "shared_real_count": 2248,
+      "generated_recall": 1.0,
+      "against_shared_real": {
+        "n": 2698,
+        "auroc": 0.9999179517595889,
+        "auroc_undefined_reason": null,
+        "f1": 0.9533898305084746,
+        "precision": 0.9109311740890689,
+        "recall": 1.0,
+        "confusion_matrix": [
+          [
+            2204,
+            44
+          ],
+          [
+            0,
+            450
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.044444444444444446,
+    "Vript": 0.013348164627363738
+  },
+  "backbone": "openai/clip-vit-base-patch16",
+  "backbone_key": "clip",
+  "adaptation_mode": "partial",
+  "round_id": "round_2",
+  "partition": "test_seen",
+  "smoke": false,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "experiment_identity": "27806ef13703cf564f39ffac1ae985f0129d925aa3e7921b4f2f07192804dc8c",
+  "shared_real_test_examples": true,
+  "checkpoint_epoch": 7,
+  "evaluation_policy": "sigmoid_mean_8_logits_threshold_0.5",
+  "processor": {
+    "_processor_class": null,
+    "do_resize": true,
+    "size": {
+      "shortest_edge": 224
+    },
+    "resample": 3,
+    "do_center_crop": true,
+    "crop_size": {
+      "height": 224,
+      "width": 224
+    },
+    "do_rescale": true,
+    "rescale_factor": 0.00392156862745098,
+    "do_normalize": true,
+    "image_mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "image_std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ],
+    "do_convert_rgb": true,
+    "image_processor_type": "CLIPImageProcessor"
+  },
+  "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+  "representation": "vision_post_layernorm_pooled",
+  "evaluation_precision": "bf16"
+}

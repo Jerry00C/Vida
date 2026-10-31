@@ -1,0 +1,85 @@
+{
+  "n": 4098,
+  "auroc": 0.9565069113441373,
+  "auroc_undefined_reason": null,
+  "f1": 0.8846056302307888,
+  "precision": 0.8975810602161606,
+  "recall": 0.872,
+  "confusion_matrix": [
+    [
+      1899,
+      199
+    ],
+    [
+      256,
+      1744
+    ]
+  ],
+  "threshold": 0.5,
+  "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets",
+  "loss": 0.35121244192123413,
+  "by_generator": {
+    "CogVideo": {
+      "positive_count": 1000,
+      "shared_real_count": 2098,
+      "generated_recall": 0.829,
+      "against_shared_real": {
+        "n": 3098,
+        "auroc": 0.9428808388941848,
+        "auroc_undefined_reason": null,
+        "f1": 0.8175542406311637,
+        "precision": 0.806420233463035,
+        "recall": 0.829,
+        "confusion_matrix": [
+          [
+            1899,
+            199
+          ],
+          [
+            171,
+            829
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    },
+    "Mora": {
+      "positive_count": 1000,
+      "shared_real_count": 2098,
+      "generated_recall": 0.915,
+      "against_shared_real": {
+        "n": 3098,
+        "auroc": 0.9701329837940896,
+        "auroc_undefined_reason": null,
+        "f1": 0.8656575212866604,
+        "precision": 0.8213644524236984,
+        "recall": 0.915,
+        "confusion_matrix": [
+          [
+            1899,
+            199
+          ],
+          [
+            85,
+            915
+          ]
+        ],
+        "threshold": 0.5,
+        "undefined_policy": "null when denominator is zero; AUROC null for one-class subsets"
+      }
+    }
+  },
+  "real_false_positive_rate": {
+    "HD-VG-130M": 0.19333333333333333,
+    "Vript": 0.07842046718576196
+  },
+  "round_id": "round_1",
+  "partition": "test_unseen",
+  "smoke": false,
+  "backbone": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+  "checkpoint_epoch": 30,
+  "split_identity": "b2d495add15da0b9509851fd117e6a7857be720f8ff92a4e823cdff33243557e",
+  "cache_identity": "948becc16a5b69cc190a85cfb6774c1b61611b72f4da88b9bb10087ebe4e6b81",
+  "shared_real_test_examples": true
+}

@@ -1,0 +1,8 @@
+{
+  "median_ms": 0.39629999082535505,
+  "p95_ms": 0.4181199299637228,
+  "batch_size": 1,
+  "warmup": 20,
+  "measurements": 200,
+  "scope": "cached three scores to probability only, excludes raw-video and branch costs"
+}

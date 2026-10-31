@@ -1,0 +1,10 @@
+{
+  "root": "data/stacking_16400_v2",
+  "manifest": "data/stacking_16400_v2/manifests/manifest.csv",
+  "base_manifest": "data/base32k/manifests/manifest.csv",
+  "v1_root": "data/stacking_v2",
+  "predictions_dir": "data/stacking_16400_v2/branch_scores",
+  "output_dir": "outputs/new_fusion_run",
+  "neural_python": ".venv-neural/Scripts/python.exe",
+  "protocol_id": "vida-eight-family-ms-v2-20261030"
+}

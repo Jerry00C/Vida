@@ -1,0 +1,24 @@
+{
+  "features": {
+    "sample_fps": 8.0,
+    "image_size": 96,
+    "min_duration_seconds": 2.0,
+    "max_duration_seconds": 20.0,
+    "window_seconds": 2.0,
+    "stride_seconds": 1.0
+  },
+  "model": {
+    "algorithm": "one_class_svm",
+    "n_estimators": 200,
+    "max_samples": 256,
+    "nu": 0.05,
+    "seed": 42
+  },
+  "evaluation": {
+    "real_false_positive_rate": 0.05,
+    "bootstrap_repeats": 1000,
+    "seed": 42
+  },
+  "heldout_generators": [],
+  "heldout_real_sources": []
+}
