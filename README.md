@@ -1,70 +1,56 @@
 # VIDA video detection
 
+VIDA classifies real and AI-generated videos using three complementary branches. Branch
+A uses pretrained CLIP, DINOv2 and DINOv3 image encoders with a linear classification
+head. Each video has eight RGB PNG frames; frame logits are averaged before sigmoid to
+produce the video score.
+
+Branch A supports two training methods:
+
+| Method    | Trainable parameters                                          | Input to training       |
+| --------- | ------------------------------------------------------------- | ----------------------- |
+| `frozen`  | Linear head only                                              | Cached image embeddings |
+| `partial` | Final two transformer blocks, final LayerNorm and linear head | Original RGB PNG frames |
+
 ## Final three-branch fusion
 
-The completed fusion layer, frozen 3–8–1 MLP, training records and final evaluation
-are in [stacking/README.md](stacking/README.md). It combines the existing Partial
-CLIP, temporal LightGBM and real-reference SVM scores. Fusion uses 5,120 videos,
-with separate calibration/threshold sets and 10,000 final-test originals.
-The calibrated model can predict from `clip_id,A,B,C` scores without raw videos
-or retraining branch models. Native and paired format-control results are included.
+The completed fusion implementation, frozen 3–8–1 MLP, training records and final
+evaluation are in [stacking/README.md](stacking/README.md). Fusion combines Partial CLIP
+mean video logits, temporal LightGBM raw margins and real-reference SVM anomaly scores.
 
-
-Real-versus-AI-generated video classification using pretrained CLIP, DINOv2,
-and DINOv3 image encoders. Each video has eight extracted PNG frames. Evaluation
-averages frame logits before sigmoid to produce a video score.
-
-Three training methods are implemented: a frozen encoder with a linear head,
-partial fine-tuning of the final two transformer blocks and final normalization,
-and query/value LoRA adapters with a linear head.
+The fusion layer fits on 5,120 videos, with separate calibration and threshold sets and
+10,000 final-test originals. Its calibrated model accepts `clip_id,A,B,C` scores.
+Producing those scores for new videos requires the exact branch models and
+preprocessing. Native and paired format-control results are documented with the fusion
+release.
 
 ## Repository layout
 
-- `branches_dev/branch_a/dev/`: model loading, adaptation policies, training, evaluation,
-  split generation, configuration and dependency files.
-- `branches_dev/branch_c/`: real-only motion/temporal anomaly detection, tests, Chinese
-  handoff notes and aggregate experiment results.
-- `dev/tests/`: Branch A training and adaptation tests.
-- `branches_dev/branch_a/tests/`: training and adaptation tests.
-- `preprocessing/`: video-to-frame extraction and preprocessing validation.
-- `branches_dev/branch_a/REMOTE_SETUP.md`: remote runtime instructions for the separately
-  transferred data package. Its historical package audit is not a claim that
-  datasets or model weights are included in this Git repository.
+| Path                                                                           | Contents                                                                                 |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| [branches_dev/branch_a/dev/](branches_dev/branch_a/dev/)                       | Branch A loading, policies, training, evaluation, splits, configuration and dependencies |
+| [branches_dev/branch_a/tests/](branches_dev/branch_a/tests/)                   | Branch A baseline and adaptation tests                                                   |
+| [branches_dev/branch_a/REMOTE_SETUP.md](branches_dev/branch_a/REMOTE_SETUP.md) | Remote environment, separate data package and training commands                          |
+| [branches_dev/branch_b/](branches_dev/branch_b/)                               | Sealed temporal branch package                                                           |
+| [branches_dev/branch_c/](branches_dev/branch_c/)                               | Real-only motion and temporal anomaly detection                                          |
+| [preprocessing/](preprocessing/)                                               | Frame extraction and preprocessing validation                                            |
+| [stacking/](stacking/)                                                         | Fusion implementation, released model and evaluation                                     |
+| [remote-results/](remote-results/)                                             | Recorded Branch A training outputs and evaluation artifacts                              |
 
-Datasets, original videos, PNGs, model weights, embedding caches, checkpoints,
-full per-video reports, local environments and transfer archives are intentionally absent.
-Branch C includes named aggregate metrics and scientific plots without video frames.
-The `.gitignore` allowlist prevents these from being accidentally added.
-`remote-results/` contains downloaded metrics, predictions, plots and training
-histories. Its `.pt` model checkpoints are stored with Git LFS; install Git LFS
-and run `git lfs pull` after cloning to retrieve them. Pretrained encoder weights
-are separate and still required to reconstruct the complete models.
+Original videos, dataset PNGs, processed indexes, pretrained encoder caches, local
+environments and transfer archives are distributed separately. Branch C also includes
+aggregate metrics and scientific plots without video frames.
 
-Dataset frames, original videos, pretrained model caches, local environments and
-transfer archives are excluded. Run the sequential experiment runner with
-`bash branches_dev/branch_a/run_all_remote.sh`. Later rounds inherit the preceding round's
-best weights, so their generator holdouts are not independent unseen tests.
-Do not overwrite the source of an active remote run with this renamed layout;
-its saved source identity belongs to the previous layout.
+`remote-results/` contains metrics, predictions, plots and training histories; its `.pt`
+checkpoints use Git LFS. Install Git LFS and run `git lfs pull` after cloning to
+retrieve those checkpoints. The pinned pretrained encoder weights remain necessary to
+reconstruct complete Branch A models.
 
-## Branch C
+Branch B documentation retains historical paths under
+`deliverables/branch_b_temporal_wavelet`. Run its relative commands from
+`branches_dev/branch_b/`.
 
-See [Branch C setup and handoff](branches_dev/branch_c/README.md) and its
-[aggregate results](branches_dev/branch_c/results/README.md). Download its trained models and
-per-video OOF/validation/test scores from the [artifact release guide](branches_dev/branch_c/docs/ARTIFACTS_ZH.md).
-These binary artifacts are release assets; raw media, input manifests and caches remain excluded.
-Branch C runs in its own
-Python 3.12 environment and reads temporally dense video observations. The
-8 PNGs used by Branch A are not equivalent motion/frequency input.
-
-The current Branch A four-round protocol and Branch C 28-round protocol differ.
-Agree on common grouped manifests, validation roles and OOF folds before fusion;
-these historical scores must not be merged directly. The six-development /
-two-locked-final-test diagram has not been executed by this Branch C version.
-
-The setup, checkpoint and training instructions below apply to Branch A.
-
-## Setup
+## Branch A setup
 
 Use Python 3.11. From the repository root:
 
@@ -72,23 +58,22 @@ Use Python 3.11. From the repository root:
 cd branches_dev/branch_a
 python3.11 -m venv .venv-branch-a
 source .venv-branch-a/bin/activate
-# Install a PyTorch build appropriate for your GPU/runtime, then:
+# Install a PyTorch build appropriate for this machine before the requirements.
 python -m pip install -r dev/requirements.adaptation.txt
 python -m pytest tests/test_branch_a.py tests/test_adaptation.py -q
 ```
 
-Run all model commands from `dev/`. Keep the original processed indexes and
-PNG frame paths together under `dev/processed/`, transferred separately.
-Original videos are not used by Branch A training or evaluation. Frame extraction and
-Run all model commands from `branches_dev/branch_a/`. Keep the original processed indexes and
-PNG frame paths together under `branches_dev/branch_a/processed/`, transferred separately.
-Original videos are not used by training or evaluation. Frame extraction and
-preprocessing validation have separate requirements; see preprocessing/README.md.
+Run all Branch A module commands below from `branches_dev/branch_a/` with this
+environment active. Keep the transferred indexes and PNG paths together under
+`processed/` in that directory. Branch A training and evaluation read the PNGs. Frame
+extraction uses a separate environment; see the
+[preprocessing guide](preprocessing/README.md).
 
 ## Model weights and splits
 
-Either transfer the existing `runs/branch_a/huggingface/` cache and split manifests
-into `branches_dev/branch_a/`, or download the configured pretrained checkpoints and build splits:
+Transfer the existing `runs/branch_a/huggingface/` cache and exact split manifests into
+the Branch A directory. For a new input preparation, download the configured
+checkpoints, audit the frames and build splits:
 
 ```bash
 python -m dev download
@@ -96,40 +81,72 @@ python -m dev audit --workers 8
 python -m dev splits
 ```
 
-DINOv3 downloading requires approved Hugging Face access and local authentication.
-Never commit tokens. The pinned model revisions are in `dev/config.json`.
-To reproduce an existing experiment, use its exact split manifests and unchanged
-CSV indexes from the separate data package instead of generating new inputs.
+DINOv3 downloading requires approved Hugging Face access and local authentication. The
+pinned revisions are in [dev/config.json](branches_dev/branch_a/dev/config.json).
 
-## Training
+To reproduce an existing experiment, retain its exact split manifests and unchanged
+index CSVs from the separate data package. The code verifies their identities.
 
-For a small pipeline check with downloaded weights:
+## Branch A training and evaluation
+
+After downloading weights, run the small pipeline checks:
 
 ```bash
-python -m dev smoke --device cuda
-python -m dev.adapt smoke --mode partial --device cuda
-python -m dev.adapt smoke --mode lora --device cuda
+python -m dev smoke --device auto
+python -m dev.adapt smoke --mode partial --device auto
 ```
 
-For full frozen-head training, first extract full-dataset embeddings:
+The first command creates `runs/branch_a/smoke_splits.json`, which the second command
+reuses. These runs verify the pipeline; smoke metrics are separate from full experiment
+results.
+
+Frozen-head training first requires full-dataset embeddings:
 
 ```bash
 for backbone in clip dinov2 dinov3; do
-  python -m dev features --backbone "$backbone" --device cuda
+  python -m dev features --backbone "$backbone" --device auto
 done
 python -m dev train-all
 ```
 
-Partial fine-tuning and LoRA use images directly:
+Partial fine-tuning reads PNGs directly:
 
 ```bash
-python -m dev.adapt train-all --mode partial --device cuda
-python -m dev.adapt train-all --mode lora --device cuda
+python -m dev.adapt train-all --mode partial --device auto
 ```
 
-Use `--device cpu` for a CPU-only machine. Choose batch sizes for available memory.
-Test evaluation is separate from training. See `branches_dev/branch_a/dev/README.md` and
-`branches_dev/branch_a/dev/ADAPTATION.md` for evaluation, resume and comparison commands.
-Smoke metrics verify the pipeline and are not full research results.
+Choose batch size and accumulation for available memory before starting. Training and
+test evaluation are separate. See the
+[frozen baseline guide](branches_dev/branch_a/dev/README.md) and
+[partial fine-tuning guide](branches_dev/branch_a/dev/ADAPTATION.md) for evaluation,
+resume, configuration and comparison commands.
 
-Branch implementations are grouped under `branches_dev/branch_a`, `branches_dev/branch_b`, and `branches_dev/branch_c`. Branch B is preserved as a sealed package; historical paths in its documentation refer to its former `deliverables/branch_b_temporal_wavelet` location. Run its relative commands from `branches_dev/branch_b`.
+These `train-all` commands initialize each round from the pinned base model with a fresh
+head. The orchestration script uses a different protocol:
+
+```bash
+bash run_all_remote.sh
+```
+
+The script runs frozen and partial methods sequentially across four rounds, initializing
+later rounds from the preceding round's best weights. Later-round holdouts can therefore
+have appeared in earlier training and cannot be reported as independent unseen-generator
+tests. The script requires the complete repository layout and a Linux runtime with
+`flock`. See the [remote guide](branches_dev/branch_a/REMOTE_SETUP.md) for setup and
+output paths. Retain the source and configuration of any active run when resuming it.
+
+## Branch C and protocol alignment
+
+See the [Branch C guide](branches_dev/branch_c/README.md),
+[aggregate results](branches_dev/branch_c/results/README.md) and
+[artifact release guide](branches_dev/branch_c/docs/ARTIFACTS_ZH.md). Trained models and
+per-video OOF, validation and test scores are release assets; raw media, input manifests
+and caches remain separate.
+
+Branch C uses Python 3.12 and temporally dense video observations. Branch A's eight
+sparse PNG frames do not supply the same motion and frequency input.
+
+Branch A's historical four-round protocol and Branch C's 28-round protocol differ. Those
+historical scores require common grouped manifests, validation roles and OOF folds
+before they can be combined. Use the separately documented fusion release for the
+completed final evaluation.
